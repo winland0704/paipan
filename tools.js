@@ -1,27 +1,27 @@
-//Ò»Ğ©¹¤¾ßº¯Êı
+ï»¿//ä¸€äº›å·¥å…·å‡½æ•°
 function trim(s){ return s.replace(/(^\s*)|(\s*$)/g, "");  }
 /****************
-ÌìÎÄ¼ÍÄêÓëÆÕÍ¨¼ÍÄêµÄ×ª»»
+å¤©æ–‡çºªå¹´ä¸æ™®é€šçºªå¹´çš„è½¬æ¢
 ****************/
-function year2Ayear(c){ //´«ÈëÆÕÍ¨¼ÍÄê»òÌìÎÄ¼ÍÄê£¬´«»ØÌìÎÄ¼ÍÄê
+function year2Ayear(c){ //ä¼ å…¥æ™®é€šçºªå¹´æˆ–å¤©æ–‡çºªå¹´ï¼Œä¼ å›å¤©æ–‡çºªå¹´
  var y = String(c).replace(/[^0-9Bb\*-]/g,'');
  var q = y.substr(0,1);
- if( q=='B' || q=='b' || q=='*' ){ //Í¨ÓÃ¼ÍÄê·¨(¹«ÔªÇ°)
+ if( q=='B' || q=='b' || q=='*' ){ //é€šç”¨çºªå¹´æ³•(å…¬å…ƒå‰)
    y = 1-y.substr(1,y.length);
-   if(y>0) { alert('Í¨ÓÃ¼Í·¨µÄ¹«ÔªÇ°¼Í·¨´ÓB.C.1Äê¿ªÊ¼¡£²¢ÇÒÃ»ÓĞ¹«Ôª0Äê'); return -10000; }
+   if(y>0) { alert('é€šç”¨çºªæ³•çš„å…¬å…ƒå‰çºªæ³•ä»B.C.1å¹´å¼€å§‹ã€‚å¹¶ä¸”æ²¡æœ‰å…¬å…ƒ0å¹´'); return -10000; }
  }
  else y -= 0;
- if( y < -4712 )   alert('³¬¹ıB.C. 4713²»×¼'); 
- if( y > 9999  )   alert('³¬¹ı9999ÄêµÄÅ©Àú¼ÆËãºÜ²»×¼¡£');
+ if( y < -4712 )   alert('è¶…è¿‡B.C. 4713ä¸å‡†'); 
+ if( y > 9999  )   alert('è¶…è¿‡9999å¹´çš„å†œå†è®¡ç®—å¾ˆä¸å‡†ã€‚');
  return y;
 }
 
-function Ayear2year(y){ //´«ÈëÌìÎÄ¼ÍÄê£¬´«»ØÏÔÊ¾ÓÃµÄ³£¹æ¼ÍÄê
+function Ayear2year(y){ //ä¼ å…¥å¤©æ–‡çºªå¹´ï¼Œä¼ å›æ˜¾ç¤ºç”¨çš„å¸¸è§„çºªå¹´
  y -= 0;
  if( y<=0 ) return 'B'+ (-y+1);
  return ''+y;
 }
-function timeStr2hour(s){//Ê±¼ä´®×ªÎªĞ¡Ê±
+function timeStr2hour(s){//æ—¶é—´ä¸²è½¬ä¸ºå°æ—¶
  var a,b,c;
  s=String(s).replace(/[^0-9:\.]/g,'');
  s=s.split(':');
@@ -31,7 +31,7 @@ function timeStr2hour(s){//Ê±¼ä´®×ªÎªĞ¡Ê±
  return a+b/60+c/3600;
 }
 /*********************
-¹¤¾ßº¯Êı£ºcookie¶ÁĞ´º¯Êı
+å·¥å…·å‡½æ•°ï¼šcookieè¯»å†™å‡½æ•°
 *********************/
 function getCookie(name) {
   var start,end, s = document.cookie;
@@ -42,16 +42,16 @@ function getCookie(name) {
   return unescape(s.substring(start, end));
 }
 function setCookie(name,value){
-   var Days = 700; //´Ë cookie ½«±»±£´æ¶àÌì
+   var Days = 700; //æ­¤ cookie å°†è¢«ä¿å­˜å¤šå¤©
    var exp  = new Date();
    exp.setTime(exp.getTime() + Days*86400*1000);
    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 }
 
 /*********************
-¸øselect¼ÓoptionµÈ
+ç»™selectåŠ optionç­‰
 *********************/
-function addOp(sel,v,t){ //¸øselect¶ÔÏó¼ÓÈëoption
+function addOp(sel,v,t){ //ç»™selectå¯¹è±¡åŠ å…¥option
   var Op = document.createElement("OPTION");
   Op.value=v;  Op.text=t;
   sel.add(Op);

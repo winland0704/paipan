@@ -1,63 +1,63 @@
-//³ÌĞòÀíÂÛÊÊÓÃÊ±¼ä¶Î 1583 Äê µ½ 3199 Äê£¬¼´¸ñÀï¸ßÀûÀúºóÒ»Äêµ½3200Ç°Ò»Äê£¬3200ÄêÊÇ·ñÎªÈòÄê´ı¶¨¡£
-//È«¾Ö±äÁ¿£¬°ÑÆğÊ¼Ê±¼äºÍ½áÊøÊ±¼ä¸ÄÒ»ÏÂ¾Í¿ÉÒÔ¸ü»»ÅÅÅÌµÄÄê·İ·¶Î§£¬ÕâÀïÎª×î½üµÄ240ÄêÊ±¼ä¶Î¡£
+ï»¿//ç¨‹åºç†è®ºé€‚ç”¨æ—¶é—´æ®µ 1583 å¹´ åˆ° 3199 å¹´ï¼Œå³æ ¼é‡Œé«˜åˆ©å†åä¸€å¹´åˆ°3200å‰ä¸€å¹´ï¼Œ3200å¹´æ˜¯å¦ä¸ºé—°å¹´å¾…å®šã€‚
+//å…¨å±€å˜é‡ï¼ŒæŠŠèµ·å§‹æ—¶é—´å’Œç»“æŸæ—¶é—´æ”¹ä¸€ä¸‹å°±å¯ä»¥æ›´æ¢æ’ç›˜çš„å¹´ä»½èŒƒå›´ï¼Œè¿™é‡Œä¸ºæœ€è¿‘çš„240å¹´æ—¶é—´æ®µã€‚
 var gStartYear = 1924;
 var gEndYear = 2164;
-//È«¾Ö±äÁ¿£¬±£´æ³öÉúµØµÄ¾­¶È¡¢Î³¶È
+//å…¨å±€å˜é‡ï¼Œä¿å­˜å‡ºç”Ÿåœ°çš„ç»åº¦ã€çº¬åº¦
 var gBirthJingDu = 120.0;  
 var gBirthWeiDu = 38.0;
-//µ±Ç°ÊÇ·ñÊ¹ÓÃÅ©ÀúÊ±¼ä
+//å½“å‰æ˜¯å¦ä½¿ç”¨å†œå†æ—¶é—´
 var gbUseNongLi = false;
 
-//¹«Àú¿Ø¼ş
+//å…¬å†æ§ä»¶
 var sGGYear = document.getElementById("sGGYear");
 var sGGMonth = document.getElementById("sGGMonth");
 var sGGDay = document.getElementById("sGGDay");
 var sGGHour = document.getElementById("sGGHour");
 var sGGMinute = document.getElementById("sGGMinute");
 
-//Å©Àú¿Ø¼ş
+//å†œå†æ§ä»¶
 var sNNYear = document.getElementById("sNNYear");
-//Å©ÀúµÄÔÂ·İ¡¢ÈÕ×Ó¶¼ÊÇĞòºÅ£¬´Ó 0 ¿ªÊ¼¼ÆËã
+//å†œå†çš„æœˆä»½ã€æ—¥å­éƒ½æ˜¯åºå·ï¼Œä» 0 å¼€å§‹è®¡ç®—
 var sNNMonth = document.getElementById("sNNMonth");
 var sNNDay = document.getElementById("sNNDay");
-//Ğ¡Ê±ÊÇ´Ó -1 µ½ 22 µã
+//å°æ—¶æ˜¯ä» -1 åˆ° 22 ç‚¹
 var sNNHour = document.getElementById("sNNHour");
 var sNNMinute = document.getElementById("sNNMinute");
 
 /////////////////////////////////////////////////////////////////
-//¹«ÀúºÍÅ©Àú¿Ø¼şÇĞ»»
-var rdTimeGG = document.getElementById("rdTimeGG");//¹«Àúµ¥Ñ¡°´Å¥
-var rdTimeNN = document.getElementById("rdTimeNN");//Å©Àúµ¥Ñ¡°´Å¥
+//å…¬å†å’Œå†œå†æ§ä»¶åˆ‡æ¢
+var rdTimeGG = document.getElementById("rdTimeGG");//å…¬å†å•é€‰æŒ‰é’®
+var rdTimeNN = document.getElementById("rdTimeNN");//å†œå†å•é€‰æŒ‰é’®
 function OnGLNLChanged()
 {
-    if( rdTimeGG.checked )//Ê¹ÓÃ¹«Àú
+    if( rdTimeGG.checked )//ä½¿ç”¨å…¬å†
     {
         gbUseNongLi = false;
-        //ÆôÓÃ¹«Àú¿Ø¼ş
+        //å¯ç”¨å…¬å†æ§ä»¶
         sGGYear.disabled = false;
         sGGMonth.disabled = false;
         sGGDay.disabled = false;
         sGGHour.disabled = false;
         sGGMinute.disabled = false;
         
-        //½ûÓÃÅ©Àú¿Ø¼ş
+        //ç¦ç”¨å†œå†æ§ä»¶
         sNNYear.disabled = true;
         sNNMonth.disabled = true;
         sNNDay.disabled = true;
         sNNHour.disabled = true;
         sNNMinute.disabled = true;
     }
-    else //Ê¹ÓÃÅ©Àú
+    else //ä½¿ç”¨å†œå†
     {
         gbUseNongLi = true;
-        //½ûÓÃ¹«Àú¿Ø¼ş
+        //ç¦ç”¨å…¬å†æ§ä»¶
         sGGYear.disabled = true;
         sGGMonth.disabled = true;
         sGGDay.disabled = true;
         sGGHour.disabled = true;
         sGGMinute.disabled = true;
         
-        //ÆôÓÃÅ©Àú¿Ø¼ş
+        //å¯ç”¨å†œå†æ§ä»¶
         sNNYear.disabled = false;
         sNNMonth.disabled = false;
         sNNDay.disabled = false;
@@ -68,48 +68,48 @@ function OnGLNLChanged()
 
 
 /////////////////////////////////////////////////////////////////
-//¹«ÀúÊ±¼ä¶¯Ì¬¸üĞÂ
-//function addOp(sel,value,text)  //¸øselect¶ÔÏó¼ÓÈëoption
-//³õÊ¼»¯ÓÃ2000Äê12ÔÂ12ÈÕ
-function InitGGYears()    //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//å…¬å†æ—¶é—´åŠ¨æ€æ›´æ–°
+//function addOp(sel,value,text)  //ç»™selectå¯¹è±¡åŠ å…¥option
+//åˆå§‹åŒ–ç”¨2000å¹´12æœˆ12æ—¥
+function InitGGYears()    //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„é€‰é¡¹
     sGGYear.length = 0; 
     for(var i=gStartYear; i<=gEndYear; i++)
     {
         addOp(sGGYear, i, String(i) );
     }
-    //Ä¬ÈÏÑ¡Ôñ2000Äê
+    //é»˜è®¤é€‰æ‹©2000å¹´
     sGGYear.selectedIndex = 2000 - gStartYear;
 }
-//³õÊ¼ÊÇ2000Äê12ÔÂ·İ
-function InitGGDays() //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//åˆå§‹æ˜¯2000å¹´12æœˆä»½
+function InitGGDays() //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÒ»¸öÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„ä¸€ä¸ªé€‰é¡¹
     sGGDay.length = 0;
-    //Ìí¼Ó£¬2000Äê12ÔÂ
+    //æ·»åŠ ï¼Œ2000å¹´12æœˆ
     var nCount = 31;
     for(var i=1; i<=nCount; i++)
     {
         addOp(sGGDay, i, String(i) );
     }
-    sGGDay.selectedIndex = 12 - 1 ;//12ÔÂ12ºÅ
+    sGGDay.selectedIndex = 12 - 1 ;//12æœˆ12å·
 }
 
-//¹«ÀúÆ½ÄêÃ¿ÔÂÌìÊı
+//å…¬å†å¹³å¹´æ¯æœˆå¤©æ•°
 var gGLDaysInMonth = new Array
    (31, 28, 31, 30,
     31, 30, 31, 31,
     30, 31, 30, 31);
-//¸ù¾İ¹«ÀúÄê·İ¡¢ÔÂ·İ»ñÖª¸ÃÔÂµÄÌìÊı 
+//æ ¹æ®å…¬å†å¹´ä»½ã€æœˆä»½è·çŸ¥è¯¥æœˆçš„å¤©æ•° 
 function GetGLDaysCountByYearAndMonth(year, month)
 {
     if(month != 2)
     {
-        //²»ÊÇ2ÔÂ£¬²»¹ÜÈòÄê
+        //ä¸æ˜¯2æœˆï¼Œä¸ç®¡é—°å¹´
         return gGLDaysInMonth[month - 1];        
     };
-    //ÏÂÃæÊÇ2ÔÂ£¬ÅĞ¶ÏÊÇ·ñÈòÔÂ
+    //ä¸‹é¢æ˜¯2æœˆï¼Œåˆ¤æ–­æ˜¯å¦é—°æœˆ
     if( IsGLRunNian(year) )
     {
         return 29;
@@ -119,78 +119,78 @@ function GetGLDaysCountByYearAndMonth(year, month)
         return 28;
     }
 }//
-//ÅĞ¶Ï¹«ÀúÈòÄê£¬¸ñÀï¸ßÀûÀú
+//åˆ¤æ–­å…¬å†é—°å¹´ï¼Œæ ¼é‡Œé«˜åˆ©å†
 function IsGLRunNian(year)
 {
     if( (year % 4) != 0 )
     {
-        //·ÇÈòÄê
+        //éé—°å¹´
         return false;
     };
-    //±»4Õû³ıµÄ
-    if( (year % 100) == 0 )//±»100Õû³ı
+    //è¢«4æ•´é™¤çš„
+    if( (year % 100) == 0 )//è¢«100æ•´é™¤
     {
-        if( (year%400) == 0 )//±»400Õû³ı
+        if( (year%400) == 0 )//è¢«400æ•´é™¤
         {
             return true;
         }
-        else//²»±»400Õû³ı
+        else//ä¸è¢«400æ•´é™¤
         {
             return false;
         }
     }
-    else//²»±»100Õû³ı£¬±»4Õû³ı
+    else//ä¸è¢«100æ•´é™¤ï¼Œè¢«4æ•´é™¤
     {
         return true;
     }
 }
 
-//¸ù¾İÄê·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®å¹´ä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGGYearChanged()
 {
-    //Äê·İ±ä»¯Ö»Ó°Ïì2ÔÂ
+    //å¹´ä»½å˜åŒ–åªå½±å“2æœˆ
     var curYear = sGGYear.value;
     var curMonth = sGGMonth.value;
     if(curMonth != 2)
     {
-        return; //²»ÊÇ2ÔÂ
+        return; //ä¸æ˜¯2æœˆ
     }
-    //ÊÇ2ÔÂ
+    //æ˜¯2æœˆ
     var oldDaysCount = sGGDay.length;
     var newDaysCount = GetGLDaysCountByYearAndMonth(curYear, curMonth);
     if( oldDaysCount == newDaysCount )
     {
-        //¾ÉµÄÌìÊıºÍĞÂµÄÌìÊıÃ»±ä£¬²»ĞèÒª¸Ä¶¯
+        //æ—§çš„å¤©æ•°å’Œæ–°çš„å¤©æ•°æ²¡å˜ï¼Œä¸éœ€è¦æ”¹åŠ¨
         return;
     }
-    //ÌìÊıÓĞ±ä»¯
-    if( oldDaysCount > newDaysCount )//¾ÉµÄÊÇ29Ìì£¬ĞÂµÄÊÇ28Ìì
+    //å¤©æ•°æœ‰å˜åŒ–
+    if( oldDaysCount > newDaysCount )//æ—§çš„æ˜¯29å¤©ï¼Œæ–°çš„æ˜¯28å¤©
     {
-        sGGDay.remove(29 - 1);    //ÒÆ³ıÄ©Î²µÄ29ºÅ
+        sGGDay.remove(29 - 1);    //ç§»é™¤æœ«å°¾çš„29å·
     }
-    else//¾ÉµÄ28Ìì£¬ĞÂµÄ29Ìì
+    else//æ—§çš„28å¤©ï¼Œæ–°çš„29å¤©
     {        
-        addOp(sGGDay, 29, "29" );//Êı×Ö29ÊÇvalue£¬ "29" ÊÇtext
+        addOp(sGGDay, 29, "29" );//æ•°å­—29æ˜¯valueï¼Œ "29" æ˜¯text
     }
 }
-//¸ù¾İÔÂ·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®æœˆä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGGMonthChanged()
 {
     var curYear = sGGYear.value;
     var curMonth = sGGMonth.value;
-    //¸ù¾İÄêÔÂÉèÖÃÌìÊı
-    //¾ÉµÄÌìÊı£¬È«²¿ÒÆ³ıµô
+    //æ ¹æ®å¹´æœˆè®¾ç½®å¤©æ•°
+    //æ—§çš„å¤©æ•°ï¼Œå…¨éƒ¨ç§»é™¤æ‰
     var oldCount = sGGDay.length;
     var newCount =  GetGLDaysCountByYearAndMonth(curYear, curMonth);
-    //Èç¹ûÌìÊıÒ»Ñù²»ÓÃ±ä»¯
+    //å¦‚æœå¤©æ•°ä¸€æ ·ä¸ç”¨å˜åŒ–
     if( oldCount == newCount )
     {
         return;
     }
-    //ĞÂ¾ÉÌìÊı²»Ò»Ñù£¬¶àÍËÉÙ²¹
+    //æ–°æ—§å¤©æ•°ä¸ä¸€æ ·ï¼Œå¤šé€€å°‘è¡¥
     if( oldCount > newCount )
     {
-        //¶àÁËµÄÉ¾µô
+        //å¤šäº†çš„åˆ æ‰
         for(var i=oldCount; i>newCount; i--)
         {
             sGGDay.remove( i-1 );
@@ -198,7 +198,7 @@ function OnGGMonthChanged()
     }
     else
     {
-        //ÉÙÁË²¹Æë
+        //å°‘äº†è¡¥é½
         for(var i=oldCount+1; i<=newCount; i++)
         {
             addOp(sGGDay, i, String(i) );
@@ -207,14 +207,14 @@ function OnGGMonthChanged()
 }
 
 /////////////////////////////////////////////////////////////////
-//Å©ÀúÊ±¼ä¶¯Ì¬¸üĞÂ£¬Å©ÀúµÄÔÂ·İ¡¢ÈÕ×Ó¶¼ÓÃĞòºÅ
-//µ±Ç°Å©ÀúÄê
-var gCurNLYear = 2000;  //±£´æµ±Ç°µÄÅ©ÀúÄê·İ
-var gCurNongLiYueBiao; //±£´æµ±Ç°µÄÅ©ÀúÔÂ±í
-//¹«Àú2000Äê 12 ÔÂ 12 ºÅ£¬¶ÔÓ¦Å©Àú Ê®Ò»ÔÂ´ó Ê®Æß
-function InitNNYears() //ÌîĞ´Äê·İºÍ¼××ÓÃû³Æ
+//å†œå†æ—¶é—´åŠ¨æ€æ›´æ–°ï¼Œå†œå†çš„æœˆä»½ã€æ—¥å­éƒ½ç”¨åºå·
+//å½“å‰å†œå†å¹´
+var gCurNLYear = 2000;  //ä¿å­˜å½“å‰çš„å†œå†å¹´ä»½
+var gCurNongLiYueBiao; //ä¿å­˜å½“å‰çš„å†œå†æœˆè¡¨
+//å…¬å†2000å¹´ 12 æœˆ 12 å·ï¼Œå¯¹åº”å†œå† åä¸€æœˆå¤§ åä¸ƒ
+function InitNNYears() //å¡«å†™å¹´ä»½å’Œç”²å­åç§°
 {
-    sNNYear.length = 0;   //Çå¿Õ¾ÉÁĞ±í
+    sNNYear.length = 0;   //æ¸…ç©ºæ—§åˆ—è¡¨
     var strTemp = "";
     for(var i=gStartYear; i<=gEndYear; i++)
     {
@@ -222,179 +222,179 @@ function InitNNYears() //ÌîĞ´Äê·İºÍ¼××ÓÃû³Æ
         addOp(sNNYear, i, strTemp);
     }
     sNNYear.selectedIndex = 2000 - gStartYear;
-    //³õÊ¼»¯
+    //åˆå§‹åŒ–
     gCurNLYear = 2000;
     gCurNongLiYueBiao = GetNongLiYueBiao( gCurNLYear );
-    //¸üĞÂÔÂ·İ
-    sNNMonth.length = 0;  //Çå¿Õ¾ÉÁĞ±í
+    //æ›´æ–°æœˆä»½
+    sNNMonth.length = 0;  //æ¸…ç©ºæ—§åˆ—è¡¨
     for(var i=0; i<gCurNongLiYueBiao.yueCount; i++)
     {
         addOp( sNNMonth, i, gCurNongLiYueBiao.arrayNames[i] );
     }
-    //ÉèÖÃÅ©ÀúÊ®Ò»ÔÂ£¬2000ÄêÅ©Àú²»ÈòÔÂ
-    sNNMonth.selectedIndex = 11 - 1 ; //Å©ÀúÊ®Ò»ÔÂ
+    //è®¾ç½®å†œå†åä¸€æœˆï¼Œ2000å¹´å†œå†ä¸é—°æœˆ
+    sNNMonth.selectedIndex = 11 - 1 ; //å†œå†åä¸€æœˆ
 }
 
-function InitNNDays()     //¼ÓÔØÈÕ×Ó£¬³õÊ¼Ê±2000ÄêÊ®Ò»ÔÂ´ó£¬ÈıÊ®Ìì
+function InitNNDays()     //åŠ è½½æ—¥å­ï¼Œåˆå§‹æ—¶2000å¹´åä¸€æœˆå¤§ï¼Œä¸‰åå¤©
 {
-    sNNDay.length = 0;    //Çå³ı¾ÉµÄÁĞ±í
+    sNNDay.length = 0;    //æ¸…é™¤æ—§çš„åˆ—è¡¨
     //addOp(sel,value,text)
     for(var i=0; i<30; i++)
     {
         addOp(sNNDay, i, NLDayName[i]);
     }
-    sNNDay.selectedIndex = 17 - 1 ; //Å©ÀúÊ®Æß
+    sNNDay.selectedIndex = 17 - 1 ; //å†œå†åä¸ƒ
 }
-//Äê·İ±ä»¯£¬¸üĞÂÔÂ·İ¡¢ÈÕ×Ó£¬È«²¿±ä»¯
+//å¹´ä»½å˜åŒ–ï¼Œæ›´æ–°æœˆä»½ã€æ—¥å­ï¼Œå…¨éƒ¨å˜åŒ–
 function OnNNYearChanged()
 {
     gCurNLYear = Number( sNNYear.options[ sNNYear.selectedIndex ].value );
     gCurNongLiYueBiao =  GetNongLiYueBiao( gCurNLYear );
-    //Çå¿Õ¾ÉµÄÔÂ·İÁĞ±í
+    //æ¸…ç©ºæ—§çš„æœˆä»½åˆ—è¡¨
     sNNMonth.length = 0;
-    //Ìí¼ÓĞÂµÄ
+    //æ·»åŠ æ–°çš„
     for(var i=0; i<gCurNongLiYueBiao.yueCount; i++)
     {
         addOp( sNNMonth, i, gCurNongLiYueBiao.arrayNames[i] );
     }
     sNNMonth.selectedIndex = 0;
-    OnNNMonthChanged(); //ÔÂ·İ´ø¶¯ÈÕ×ÓÁĞ±í±ä»¯
+    OnNNMonthChanged(); //æœˆä»½å¸¦åŠ¨æ—¥å­åˆ—è¡¨å˜åŒ–
 }
-//ÔÂ·İ±ä»¯£¬¸üĞÂÈÕ×Ó£¬29Ìì»ò30Ìì£¬¶àÍËÉÙ²¹
+//æœˆä»½å˜åŒ–ï¼Œæ›´æ–°æ—¥å­ï¼Œ29å¤©æˆ–30å¤©ï¼Œå¤šé€€å°‘è¡¥
 function OnNNMonthChanged()
 {
-    //¾ÉµÄ¼ÆÊı
+    //æ—§çš„è®¡æ•°
     var oldCount = sNNDay.length;
-    //ĞÂµÄ¼ÆÊı
+    //æ–°çš„è®¡æ•°
     var newCount =  gCurNongLiYueBiao.arrayDaysCount[ sNNMonth.selectedIndex ];
-    //Èç¹ûĞÂ¾ÉÏàµÈ
+    //å¦‚æœæ–°æ—§ç›¸ç­‰
     if( oldCount == newCount )
     {
         return;
     }
-    //Èç¹û²»ÏàµÈ
-    if( 29 < newCount ) //¾ÉµÄ29Ìì£¬ĞÂµÄ30Ìì
+    //å¦‚æœä¸ç›¸ç­‰
+    if( 29 < newCount ) //æ—§çš„29å¤©ï¼Œæ–°çš„30å¤©
     {
-        addOp(sNNDay, 30-1, NLDayName[30-1]); //¼ÓÉÏ ÈıÊ®
+        addOp(sNNDay, 30-1, NLDayName[30-1]); //åŠ ä¸Š ä¸‰å
         return;
     };
-    if( oldCount > 29 )//¾ÉµÄ30Ìì£¬ĞÂµÄ29Ìì
+    if( oldCount > 29 )//æ—§çš„30å¤©ï¼Œæ–°çš„29å¤©
     {
-        sNNDay.remove( 30-1 );//È¥µô¶àµÄ
+        sNNDay.remove( 30-1 );//å»æ‰å¤šçš„
         return;
     } 
 }
 
 //////////////////////
-//³öÉúÄê·İ
+//å‡ºç”Ÿå¹´ä»½
 var sShengNian = document.getElementById("sShengNian");
 function InitChuShengNianFen()
 {
-    //Çå¿Õ¾ÉµÄÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„é€‰é¡¹
     sShengNian.length = 0; 
     for(var i=gStartYear; i<=gEndYear; i++)
     {
         addOp(sShengNian, i, String(i) + JiaZi[ GetNianJiaZiShu(i) ] );
     }
-    //Ä¬ÈÏÑ¡Ôñ1990Äê
+    //é»˜è®¤é€‰æ‹©1990å¹´
     sShengNian.selectedIndex = 1990 - gStartYear;
 }
 ///////////////////////
- function FillCurTime() //×Ô¶¯Ìî³äµ±Ç°Ê±¼ä£¬¹«ÀúµÄ¸üĞÂ¡£Å©ÀúÒ»°ãÖ»ÓÃÓÚ³öÉúÊ±¼äÆğÖÕÉíØÔ£¬ÆäËû²»ÓÃ¡£
+ function FillCurTime() //è‡ªåŠ¨å¡«å……å½“å‰æ—¶é—´ï¼Œå…¬å†çš„æ›´æ–°ã€‚å†œå†ä¸€èˆ¬åªç”¨äºå‡ºç”Ÿæ—¶é—´èµ·ç»ˆèº«å¦ï¼Œå…¶ä»–ä¸ç”¨ã€‚
  {
     var curTime = new Date();
     var year = curTime.getFullYear();
-    var month = curTime.getMonth(); //JSÔÂ·İÊÇ0µ½11
-    var day = curTime.getDate();    //getDateÊÇÈÕ×Ó£¬getDayÊÇĞÇÆÚ¼¸
+    var month = curTime.getMonth(); //JSæœˆä»½æ˜¯0åˆ°11
+    var day = curTime.getDate();    //getDateæ˜¯æ—¥å­ï¼ŒgetDayæ˜¯æ˜ŸæœŸå‡ 
     var hour = curTime.getHours();
     var minute = curTime.getMinutes();
-    //ÉèÖÃ¿Ø¼ş
+    //è®¾ç½®æ§ä»¶
     sGGYear.selectedIndex = year - gStartYear;
-    //Äê·İ±ä»¯
+    //å¹´ä»½å˜åŒ–
     OnGGYearChanged();    
     sGGMonth.selectedIndex = month;
-    //ÔÂ·İ±ä»¯
+    //æœˆä»½å˜åŒ–
     OnGGMonthChanged();
-    //ÉèÖÃÈÕ×ÓºÍĞ¡Ê±
+    //è®¾ç½®æ—¥å­å’Œå°æ—¶
     sGGDay.selectedIndex = day - 1;
     sGGHour.selectedIndex = hour;
     sGGMinute.selectedIndex = minute;
  }
 /////////////////////////////////////////////////////////////////
-//Õû¸öÅÅÅÌÎÄ±¾
+//æ•´ä¸ªæ’ç›˜æ–‡æœ¬
 var AllText = document.getElementById("AllText");
-//ÅÅÅÌ
+//æ’ç›˜
 function CalcLiuYaoPanPaiDuoHanZi()
 {
-    //¸ù¾İÊ±¼ä½øĞĞÅÅ°Ë×Ö
+    //æ ¹æ®æ—¶é—´è¿›è¡Œæ’å…«å­—
     var bzpp;
     if(gbUseNongLi)
     {
-        //Ê¹ÓÃÅ©ÀúÊ±¼äÅÅÅÌ
+        //ä½¿ç”¨å†œå†æ—¶é—´æ’ç›˜
         bzpp = GetNNTimeBZPP();
     }
     else
     {
-        //Ê¹ÓÃ¹«ÀúÊ±¼ä½øĞĞÅÅÅÌ
+        //ä½¿ç”¨å…¬å†æ—¶é—´è¿›è¡Œæ’ç›˜
         bzpp = GetGGTimeBZPP();
     }
-    //»ñÈ¡ÆğØÔºº×Ö
+    //è·å–èµ·å¦æ±‰å­—
     var strDuoHanZi = document.getElementById("tDuoHanZi").value;
-    //ÅĞ¶ÏÎ»Êı
+    //åˆ¤æ–­ä½æ•°
     if( strDuoHanZi.length < 2 || strDuoHanZi.length > 15 )
     {
-        alert( "ÇëÊäÈë2µ½15¸öºº×ÖÓÃÓÚÆğØÔ£¡" );
+        alert( "è¯·è¾“å…¥2åˆ°15ä¸ªæ±‰å­—ç”¨äºèµ·å¦ï¼" );
         return;
     }
-    //¼ì²é×Ö·û´®µÄºº×ÖÊÇ·ñÄÜ²éµ½±Ê»­£¬²é²»µ½ÔòÎŞ·¨ÅÅÅÌ
-    var arrBiHua = CheckHanZiBiHua(strDuoHanZi); //·µ»Øºº×Ö±Ê»­ÊıµÄÊı×é
-    if( arrBiHua.length < 1 ) //Êı×éÊÇ¿ÕµÄ
+    //æ£€æŸ¥å­—ç¬¦ä¸²çš„æ±‰å­—æ˜¯å¦èƒ½æŸ¥åˆ°ç¬”ç”»ï¼ŒæŸ¥ä¸åˆ°åˆ™æ— æ³•æ’ç›˜
+    var arrBiHua = CheckHanZiBiHua(strDuoHanZi); //è¿”å›æ±‰å­—ç¬”ç”»æ•°çš„æ•°ç»„
+    if( arrBiHua.length < 1 ) //æ•°ç»„æ˜¯ç©ºçš„
     {
-        alert( "´æÔÚ·Çºº×Ö»òÄ³¸öºº×Ö±Ê»­Ã»²éµ½£¬Çë¾¡Á¿ÓÃ³£¼ûºº×Ö£¡" );
+        alert( "å­˜åœ¨éæ±‰å­—æˆ–æŸä¸ªæ±‰å­—ç¬”ç”»æ²¡æŸ¥åˆ°ï¼Œè¯·å°½é‡ç”¨å¸¸è§æ±‰å­—ï¼" );
         return;
     }
     //alert( strDuoHanZi + "\n" + arrBiHua );
     
-    //ÅĞ¶ÏÊÇ·ñ¶¯Ø³¼ÓÊ±³½
+    //åˆ¤æ–­æ˜¯å¦åŠ¨çˆ»åŠ æ—¶è¾°
     var nShiChen = -100;
     if( document.getElementById("bUseDYJiaShiChen").checked )
     {
-        nShiChen = (bzpp.iShiJZ % 12) + 1; //×ÓÊ±´Ó1¼ÆÊı
+        nShiChen = (bzpp.iShiJZ % 12) + 1; //å­æ—¶ä»1è®¡æ•°
     }
     
-    //Éú³É»ù±¾µÄÁùØ³¶ÔÏó£¬ÒõÑôÊı×é¡¢¶¯¾²Êı×é£¬´ÓÏÂÍùÉÏ£¬ĞòºÅ0µ½5
-    //º¯ÊıÒ²Ìî³äÆğØÔ·½Ê½×Ö·û´®
-    //ºº×ÖÆğØÔ£¬µÚÒ»¸ö²ÎÊıÊÇÔ­°æºº×Ö£¬µÚ¶ş¸öÊÇ±Ê»­Êı¼ÇÂ¼Êı×é
-    //µÚÈı¸ö²ÎÊı±íÊ¾Ê±³½ÊıÄ¿£¬Èç¹ûÊ±³½Ğ¡ÓÚ0¾Í²»ÓÃ¶¯Ø³¼ÓÊ±³½
+    //ç”ŸæˆåŸºæœ¬çš„å…­çˆ»å¯¹è±¡ï¼Œé˜´é˜³æ•°ç»„ã€åŠ¨é™æ•°ç»„ï¼Œä»ä¸‹å¾€ä¸Šï¼Œåºå·0åˆ°5
+    //å‡½æ•°ä¹Ÿå¡«å……èµ·å¦æ–¹å¼å­—ç¬¦ä¸²
+    //æ±‰å­—èµ·å¦ï¼Œç¬¬ä¸€ä¸ªå‚æ•°æ˜¯åŸç‰ˆæ±‰å­—ï¼Œç¬¬äºŒä¸ªæ˜¯ç¬”ç”»æ•°è®°å½•æ•°ç»„
+    //ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºæ—¶è¾°æ•°ç›®ï¼Œå¦‚æœæ—¶è¾°å°äº0å°±ä¸ç”¨åŠ¨çˆ»åŠ æ—¶è¾°
     var lyBasic = GetLiuYaoBasicObjectDuoHanZiQG(strDuoHanZi , arrBiHua , nShiChen );
-    //Ìî³äÆğØÔÕ¼ÊÂ¡¢ĞÔ±ğ¡¢³öÉúÄê·İ
+    //å¡«å……èµ·å¦å äº‹ã€æ€§åˆ«ã€å‡ºç”Ÿå¹´ä»½
     lyBasic.strZhanShi = document.getElementById("tZhanShi").value;
     lyBasic.strGender = document.getElementById("sGender").value;
     lyBasic.strShengNian = sShengNian.options[sShengNian.selectedIndex].text;
 
     
-    //¸ù¾İ°Ë×Ö¶ÔÏó¡¢ÁùØ³»ù±¾¶ÔÏó£¬Éú³ÉÍêÕûÁùØ³¶ÔÏó
+    //æ ¹æ®å…«å­—å¯¹è±¡ã€å…­çˆ»åŸºæœ¬å¯¹è±¡ï¼Œç”Ÿæˆå®Œæ•´å…­çˆ»å¯¹è±¡
     var lypp = GenFullLiuYaoPaiPan(bzpp, lyBasic);
-    //Éú³ÉÅÅÅÌ×Ö·û´®    
+    //ç”Ÿæˆæ’ç›˜å­—ç¬¦ä¸²    
     if( lypp.bQuanJingGua )
     {
-        //È«¾²ØÔ
+        //å…¨é™å¦
         AllText.innerHTML = GetLiuYaoHTMLQuanJingGua(bzpp, lypp);
-        //AllText.innerHTML = Get64GuaHTML();//64ØÔÒ»ÀÀ
+        //AllText.innerHTML = Get64GuaHTML();//64å¦ä¸€è§ˆ
     }
     else
     {
-        //Õı³£±¾ØÔºÍ±äØÔÅÅ°æ
+        //æ­£å¸¸æœ¬å¦å’Œå˜å¦æ’ç‰ˆ
         AllText.innerHTML = GetLiuYaoHTML(bzpp, lypp);
     }
     
-    //Ö´ĞĞ×Ô¶¯¸´ÖÆµ½¼ôÌù°å£¬IE9ºÍChromeÖ§³Ö£¬»ğºü²âÊÔ²»ĞĞ¡£
-    document.execCommand("selectAll");  //È«Ñ¡
-    document.execCommand("copy");       //¸´ÖÆ
-    document.execCommand("unselect");   //²»Ñ¡ÖĞ 
+    //æ‰§è¡Œè‡ªåŠ¨å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼ŒIE9å’ŒChromeæ”¯æŒï¼Œç«ç‹æµ‹è¯•ä¸è¡Œã€‚
+    document.execCommand("selectAll");  //å…¨é€‰
+    document.execCommand("copy");       //å¤åˆ¶
+    document.execCommand("unselect");   //ä¸é€‰ä¸­ 
 }
 
-//¹«ÀúÊ±¼äÅÅÅÌ
+//å…¬å†æ—¶é—´æ’ç›˜
 function GetGGTimeBZPP()
 {    
     var myJD = JD;
@@ -403,144 +403,144 @@ function GetGGTimeBZPP()
     myJD.D = Number(sGGDay.value);
     myJD.h = Number(sGGHour.value);
     myJD.m = Number(sGGMinute.value);
-    myJD.s = 30;  //Ä¬ÈÏÊÇ30ÃëµÄÅÅÅÌ
-    //ÈåÂÔÈÕ
+    myJD.s = 30;  //é»˜è®¤æ˜¯30ç§’çš„æ’ç›˜
+    //å„’ç•¥æ—¥
     var birthTime = myJD.toJD();
-    var bzpp =  CalcBaZiObject(birthTime, "ÄĞ", 120, 0);//ÄĞÅ®ÅÅÅÌÃ»Çø±ğ£¬Ö»ÒªËÄÖù
+    var bzpp =  CalcBaZiObject(birthTime, "ç”·", 120, 0);//ç”·å¥³æ’ç›˜æ²¡åŒºåˆ«ï¼Œåªè¦å››æŸ±
     return bzpp;
 }
 
-//Å©ÀúÊ±¼äÅÅÅÌ
+//å†œå†æ—¶é—´æ’ç›˜
 function GetNNTimeBZPP()
 {
-    //ÌáÈ¡Å©ÀúÊ±¼äĞÅÏ¢
-   var ixYue = Number( sNNMonth.selectedIndex ); //ÔÂĞò
-   var ixRi = Number( sNNDay.selectedIndex );    //ÈÕĞò
-   var hh = Number( sNNHour.options[ sNNHour.selectedIndex ].value );//Ğ¡Ê± -1 µ½ 22
-   var mm = Number( sNNMinute.selectedIndex ); //·ÖÖÓ 0 µ½ 59
-   var ss = 30;  //Ä¬ÈÏ°´30Ãë
-   //¼ÆËãÈåÂÔÈÕ
+    //æå–å†œå†æ—¶é—´ä¿¡æ¯
+   var ixYue = Number( sNNMonth.selectedIndex ); //æœˆåº
+   var ixRi = Number( sNNDay.selectedIndex );    //æ—¥åº
+   var hh = Number( sNNHour.options[ sNNHour.selectedIndex ].value );//å°æ—¶ -1 åˆ° 22
+   var mm = Number( sNNMinute.selectedIndex ); //åˆ†é’Ÿ 0 åˆ° 59
+   var ss = 30;  //é»˜è®¤æŒ‰30ç§’
+   //è®¡ç®—å„’ç•¥æ—¥
    var birthTime = NongLiDayToJD(gCurNongLiYueBiao, ixYue, ixRi, hh, mm, ss);
-   var bzpp =  CalcBaZiObject(birthTime, "ÄĞ", 120, 0);//ÄĞÅ®ÅÅÅÌÃ»Çø±ğ£¬Ö»ÒªËÄÖù
+   var bzpp =  CalcBaZiObject(birthTime, "ç”·", 120, 0);//ç”·å¥³æ’ç›˜æ²¡åŒºåˆ«ï¼Œåªè¦å››æŸ±
    return bzpp;
 }
-//ÆğØÔ·½Ê½    lyBasic.strQiGuaFangShi = "ºº×ÖÆğØÔ"
-//lyBasic.arrYinYang ÒõÑôÊı×é6¸öÔªËØ
-//lyBasic.arrDongJing ¶¯¾²Êı×é6¸öÔªËØ
-//        ÊÖ¹¤Ø³µÄÊı×é£¬ÉÙÒõ0£¬ÉÙÑô1£¬ÀÏÒõ2£¬ÀÏÑô3
-//lyBasic.arrShouGongYao 6¸öÔªËØ
-//ºº×ÖÆğØÔ£¬Éú³É»ù±¾ÁùØ³¶ÔÏó
-//µÚÒ»¸ö²ÎÊıÊÇ×Ö·û´®£¬µÚ¶ş¸öÊÇ±Ê»­Êı×é£¬µÚÈı¸önShiChenÈç¹ûÎªÕıÊıÊÇ¶¯Ø³¼ÓÊ±³½
+//èµ·å¦æ–¹å¼    lyBasic.strQiGuaFangShi = "æ±‰å­—èµ·å¦"
+//lyBasic.arrYinYang é˜´é˜³æ•°ç»„6ä¸ªå…ƒç´ 
+//lyBasic.arrDongJing åŠ¨é™æ•°ç»„6ä¸ªå…ƒç´ 
+//        æ‰‹å·¥çˆ»çš„æ•°ç»„ï¼Œå°‘é˜´0ï¼Œå°‘é˜³1ï¼Œè€é˜´2ï¼Œè€é˜³3
+//lyBasic.arrShouGongYao 6ä¸ªå…ƒç´ 
+//æ±‰å­—èµ·å¦ï¼Œç”ŸæˆåŸºæœ¬å…­çˆ»å¯¹è±¡
+//ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å­—ç¬¦ä¸²ï¼Œç¬¬äºŒä¸ªæ˜¯ç¬”ç”»æ•°ç»„ï¼Œç¬¬ä¸‰ä¸ªnShiChenå¦‚æœä¸ºæ­£æ•°æ˜¯åŠ¨çˆ»åŠ æ—¶è¾°
  function GetLiuYaoBasicObjectDuoHanZiQG(strDuoHanZi , arrBiHua , nShiChen )
  {
-    //»ù±¾¶ÔÏó
+    //åŸºæœ¬å¯¹è±¡
     var lyBasic = new Object();
-    //ÒõÑôÊı×é
+    //é˜´é˜³æ•°ç»„
     lyBasic.arrYinYang = new Array(6);
-    //¶¯¾²Êı×é
+    //åŠ¨é™æ•°ç»„
     lyBasic.arrDongJing = new Array(6);
-    //ÊÖ¹¤Ø³µÄÊı×é£¬ÉÙÒõ0£¬ÉÙÑô1£¬ÀÏÒõ2£¬ÀÏÑô3
+    //æ‰‹å·¥çˆ»çš„æ•°ç»„ï¼Œå°‘é˜´0ï¼Œå°‘é˜³1ï¼Œè€é˜´2ï¼Œè€é˜³3
     lyBasic.arrShouGongYao = new Array(6);
-    //³õÊ¼»¯Îª0
+    //åˆå§‹åŒ–ä¸º0
     for(var i=0; i<6; i++)
     {
         lyBasic.arrYinYang[i] = 0;
         lyBasic.arrDongJing[i] = 0;
         lyBasic.arrShouGongYao[i] = 0;
     }
-    //±Ê»­Êı×é£¬²ğ·Ö³ÉÉÏØÔºÍÏÂØÔ
+    //ç¬”ç”»æ•°ç»„ï¼Œæ‹†åˆ†æˆä¸Šå¦å’Œä¸‹å¦
     var nLength = arrBiHua.length;
     var nLengthShang = Math.floor( nLength/2 );
-    //¼ÆËãÉÏØÔÊıÀí
+    //è®¡ç®—ä¸Šå¦æ•°ç†
     var nShangSL = 0;
     for(var k=0; k<nLengthShang; k++)
     {
         nShangSL += arrBiHua[k];
     }
-    //¼ÆËãÏÂØÔÊıÀí
+    //è®¡ç®—ä¸‹å¦æ•°ç†
     var nXiaSL = 0;
-    for(var k=nLengthShang; k<nLength; k++)//Ê£ÏÂµÄ¾ÍÊÇÏÂØÔ
+    for(var k=nLengthShang; k<nLength; k++)//å‰©ä¸‹çš„å°±æ˜¯ä¸‹å¦
     {
         nXiaSL += arrBiHua[k];
     }
-    //×ÜÊıÀí
+    //æ€»æ•°ç†
     var nZongSL = nShangSL + nXiaSL;
     
-    //¼ÆËãÉÏØÔµÄØÔĞò±àºÅ
+    //è®¡ç®—ä¸Šå¦çš„å¦åºç¼–å·
     var ixShang = ShuZiChaBaGua[nShangSL%8];
     var ixXia = ShuZiChaBaGua[nXiaSL%8];
-    var ix64Gua = ixShang*8 + ixXia; //64ØÔµÄØÔĞòºÅ
-    //64ØÔĞò×ªÎªÒõÑôØ³Êı×é
+    var ix64Gua = ixShang*8 + ixXia; //64å¦çš„å¦åºå·
+    //64å¦åºè½¬ä¸ºé˜´é˜³çˆ»æ•°ç»„
     lyBasic.arrYinYang = Change64IndexToArray(ix64Gua);
-    //¼ÆËã¶¯Ø³ĞòºÅ
+    //è®¡ç®—åŠ¨çˆ»åºå·
     var nDongIndex = 0;
-    if( nShiChen < 0 ) //¸ºÊı£¬²»Ê¹ÓÃ¶¯Ø³¼ÓÊ±³½
+    if( nShiChen < 0 ) //è´Ÿæ•°ï¼Œä¸ä½¿ç”¨åŠ¨çˆ»åŠ æ—¶è¾°
     {
-        nDongIndex = ((nZongSL%6) + 5 )%6; //Ä£6Óà1£¬ÊÇ³õØ³£¬³õØ³ĞòºÅ0£¬1+5ÔÙÄ£6        
+        nDongIndex = ((nZongSL%6) + 5 )%6; //æ¨¡6ä½™1ï¼Œæ˜¯åˆçˆ»ï¼Œåˆçˆ»åºå·0ï¼Œ1+5å†æ¨¡6        
     }
     else
     {
-        //ĞèÒªÓÃµ½¶¯Ø³¼ÓÊ±³½
+        //éœ€è¦ç”¨åˆ°åŠ¨çˆ»åŠ æ—¶è¾°
         nDongIndex = (( (nZongSL+nShiChen) %6) + 5 )%6; 
     }
-    //ÉèÖÃ¶¯Ø³Î»ÖÃ
+    //è®¾ç½®åŠ¨çˆ»ä½ç½®
     lyBasic.arrDongJing[nDongIndex] = 1;
     
-    //ÒõÑôÊı×é¡¢¶¯¾²Êı×éÉú³ÉÊÖ¹¤Ø³
-    //<!-- ÉÙÒõ0£¬ÉÙÑô1£¬ÀÏÒõ2£¬ÀÏÑô3  -->
+    //é˜´é˜³æ•°ç»„ã€åŠ¨é™æ•°ç»„ç”Ÿæˆæ‰‹å·¥çˆ»
+    //<!-- å°‘é˜´0ï¼Œå°‘é˜³1ï¼Œè€é˜´2ï¼Œè€é˜³3  -->
     for(var i=0; i<6; i++)
     {
         lyBasic.arrShouGongYao[i] = lyBasic.arrYinYang[i] + 2*lyBasic.arrDongJing[i];
     }
-    //ÉèÖÃÒ¡ØÔ·½Ê½×Ö·û´®
-    lyBasic.strQiGuaFangShi = "ºº×Ö£º<b>" + strDuoHanZi 
+    //è®¾ç½®æ‘‡å¦æ–¹å¼å­—ç¬¦ä¸²
+    lyBasic.strQiGuaFangShi = "æ±‰å­—ï¼š<b>" + strDuoHanZi 
         + "</b>" + BiHuaArrayToStr(arrBiHua) + "<br>"
-        + "ÉÏØÔÊı£º" + String( nShangSL )
-        + "£¬ÏÂØÔÊı£º" + String( nXiaSL )
-        + "£¬×ÜÊıÀí£º" + String( nZongSL );
-    if(nShiChen >= 0)//¶¯Ø³¼ÓÊ±³½Êı
+        + "ä¸Šå¦æ•°ï¼š" + String( nShangSL )
+        + "ï¼Œä¸‹å¦æ•°ï¼š" + String( nXiaSL )
+        + "ï¼Œæ€»æ•°ç†ï¼š" + String( nZongSL );
+    if(nShiChen >= 0)//åŠ¨çˆ»åŠ æ—¶è¾°æ•°
     {
-        lyBasic.strQiGuaFangShi += "£¬¶¯Ø³¼ÓÊ±³½Êı£º" + String( nShiChen );
+        lyBasic.strQiGuaFangShi += "ï¼ŒåŠ¨çˆ»åŠ æ—¶è¾°æ•°ï¼š" + String( nShiChen );
     }
-    //·µ»Ø
+    //è¿”å›
      return lyBasic;
  }
 
  
- //²éÑ¯¶à¸öºº×ÖµÄ±Ê»­Êı£¬·µ»ØÊı×é
+ //æŸ¥è¯¢å¤šä¸ªæ±‰å­—çš„ç¬”ç”»æ•°ï¼Œè¿”å›æ•°ç»„
  function CheckHanZiBiHua(strDuoHanZi)
  {
      var len = strDuoHanZi.length;
      var arrBiHua = new Array(len);
 
-     //²éÑ¯Ã¿¸öºº×ÖµÄ±Ê»­Êı
+     //æŸ¥è¯¢æ¯ä¸ªæ±‰å­—çš„ç¬”ç”»æ•°
      for(var i=0; i<len; i++)
      {
          arrBiHua[i] = FindHanZiBiHua( strDuoHanZi.charAt(i) );
-         if( arrBiHua[i] < 0 ) //Ã»²éµ½
+         if( arrBiHua[i] < 0 ) //æ²¡æŸ¥åˆ°
          {
              arrBiHua.length = 0;
              return arrBiHua;
          }
-         //Ã»ÎÊÌâ¾Í¼ÌĞø²éÏÂÒ»¸ö
+         //æ²¡é—®é¢˜å°±ç»§ç»­æŸ¥ä¸‹ä¸€ä¸ª
      }
-     //²éÍê·µ»Ø
+     //æŸ¥å®Œè¿”å›
      return arrBiHua;
  }
- //±Ê»­Êı×ÖµÄÊı×éÏÔÊ¾Îª×Ö·û´®
+ //ç¬”ç”»æ•°å­—çš„æ•°ç»„æ˜¾ç¤ºä¸ºå­—ç¬¦ä¸²
  function BiHuaArrayToStr(arrBiHua)
  {
-    var len = arrBiHua.length; //³¤¶È
-    var strRet = "£¨±Ê»­Êı£º" ;
-    //Ğ´Èë¿ªÍ·µÄ
+    var len = arrBiHua.length; //é•¿åº¦
+    var strRet = "ï¼ˆç¬”ç”»æ•°ï¼š" ;
+    //å†™å…¥å¼€å¤´çš„
     strRet += String( arrBiHua[0] );
-    //´òÓ¡×Ö·û´®£¬´Ó1ºÅ¿ªÊ¼´ò
+    //æ‰“å°å­—ç¬¦ä¸²ï¼Œä»1å·å¼€å§‹æ‰“
     for(var i=1; i<len; i++)
     {
         strRet += ", " + String( arrBiHua[i] );
     }
-    //²¹ÉÏÓÒÀ¨ºÅ·µ»Ø
-    strRet += "£©" ;
+    //è¡¥ä¸Šå³æ‹¬å·è¿”å›
+    strRet += "ï¼‰" ;
     return strRet;
  }
  

@@ -1,24 +1,24 @@
-//³ÌĞòÀíÂÛÊÊÓÃÊ±¼ä¶Î 1583 Äê µ½ 3199 Äê£¬¼´¸ñÀï¸ßÀûÀúºóÒ»Äêµ½3200Ç°Ò»Äê£¬3200ÄêÊÇ·ñÎªÈòÄê´ı¶¨¡£
-//È«¾Ö±äÁ¿£¬°ÑÆğÊ¼Ê±¼äºÍ½áÊøÊ±¼ä¸ÄÒ»ÏÂ¾Í¿ÉÒÔ¸ü»»ÅÅÅÌµÄÄê·İ·¶Î§£¬ÕâÀïÎª×î½üµÄ240ÄêÊ±¼ä¶Î¡£
+ï»¿//ç¨‹åºç†è®ºé€‚ç”¨æ—¶é—´æ®µ 1583 å¹´ åˆ° 3199 å¹´ï¼Œå³æ ¼é‡Œé«˜åˆ©å†åä¸€å¹´åˆ°3200å‰ä¸€å¹´ï¼Œ3200å¹´æ˜¯å¦ä¸ºé—°å¹´å¾…å®šã€‚
+//å…¨å±€å˜é‡ï¼ŒæŠŠèµ·å§‹æ—¶é—´å’Œç»“æŸæ—¶é—´æ”¹ä¸€ä¸‹å°±å¯ä»¥æ›´æ¢æ’ç›˜çš„å¹´ä»½èŒƒå›´ï¼Œè¿™é‡Œä¸ºæœ€è¿‘çš„240å¹´æ—¶é—´æ®µã€‚
 var gStartYear = 1924;
 var gEndYear = 2164;
-//ÄêÔÂÈÕÊ±µÄËÄ¸öÑ¡ÔñÆ÷
+//å¹´æœˆæ—¥æ—¶çš„å››ä¸ªé€‰æ‹©å™¨
 var sYear = document.getElementById("sYear");
 var sMonth = document.getElementById("sMonth");
 var sDay = document.getElementById("sDay");
 var sHour = document.getElementById("sHour");
 
-//±£´æÅÅÅÌÊ±¼äµÄ¼××Ó¼ÆÊı£¬³õÊ¼£º¼××Ó ¼××Ó ¼××Ó ¼××Ó
+//ä¿å­˜æ’ç›˜æ—¶é—´çš„ç”²å­è®¡æ•°ï¼Œåˆå§‹ï¼šç”²å­ ç”²å­ ç”²å­ ç”²å­
 var idYearJZ =  0;
 var idMonthJZ =  0;
 var idDayJZ =  0;
 var idHourJZ =  0;
 
 /**************************************************/
-//¹«Àú¿Ø¼şµÄ³õÊ¼»¯ºÍ¶¯Ì¬¸üĞÂ
-function InitYears()    //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//å…¬å†æ§ä»¶çš„åˆå§‹åŒ–å’ŒåŠ¨æ€æ›´æ–°
+function InitYears()    //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÒ»¸öÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„ä¸€ä¸ªé€‰é¡¹
     sYear.remove(0);    
     var curOp;
     for(var i=gStartYear; i<=gEndYear; i++)
@@ -28,15 +28,15 @@ function InitYears()    //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
         curOp.text = String(i);
         sYear.add(curOp, null);
     }
-    //Ä¬ÈÏÑ¡Ôñ2000Äê
+    //é»˜è®¤é€‰æ‹©2000å¹´
     sYear.selectedIndex = 2000 - gStartYear;
 }
-//³õÊ¼ÊÇ2000Äê1ÔÂ·İ
-function InitDays() //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//åˆå§‹æ˜¯2000å¹´1æœˆä»½
+function InitDays() //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÒ»¸öÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„ä¸€ä¸ªé€‰é¡¹
     sDay.remove(0);
-    //Ìí¼Ó£¬2000Äê1ÔÂ
+    //æ·»åŠ ï¼Œ2000å¹´1æœˆ
     var nCount = 31;
     var curOp;
     for(var i=1; i<=nCount; i++)
@@ -48,20 +48,20 @@ function InitDays() //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
     }
 }        
 
-//¹«ÀúÆ½ÄêÃ¿ÔÂÌìÊı
+//å…¬å†å¹³å¹´æ¯æœˆå¤©æ•°
 var gGLDaysInMonth = new Array
    (31, 28, 31, 30,
     31, 30, 31, 31,
     30, 31, 30, 31);
-//¸ù¾İ¹«ÀúÄê·İ¡¢ÔÂ·İ»ñÖª¸ÃÔÂµÄÌìÊı 
+//æ ¹æ®å…¬å†å¹´ä»½ã€æœˆä»½è·çŸ¥è¯¥æœˆçš„å¤©æ•° 
 function GetGLDaysCountByYearAndMonth(year, month)
 {
     if(month != 2)
     {
-        //²»ÊÇ2ÔÂ£¬²»¹ÜÈòÄê
+        //ä¸æ˜¯2æœˆï¼Œä¸ç®¡é—°å¹´
         return gGLDaysInMonth[month - 1];        
     };
-    //ÏÂÃæÊÇ2ÔÂ£¬ÅĞ¶ÏÊÇ·ñÈòÔÂ
+    //ä¸‹é¢æ˜¯2æœˆï¼Œåˆ¤æ–­æ˜¯å¦é—°æœˆ
     if( IsGLRunNian(year) )
     {
         return 29;
@@ -71,56 +71,56 @@ function GetGLDaysCountByYearAndMonth(year, month)
         return 28;
     }
 }//
-//ÅĞ¶Ï¹«ÀúÈòÄê
+//åˆ¤æ–­å…¬å†é—°å¹´
 function IsGLRunNian(year)
 {
     if( (year % 4) != 0 )
     {
-        //·ÇÈòÄê
+        //éé—°å¹´
         return false;
     };
-    //±»4Õû³ıµÄ
-    if( (year % 100) == 0 )//±»100Õû³ı
+    //è¢«4æ•´é™¤çš„
+    if( (year % 100) == 0 )//è¢«100æ•´é™¤
     {
-        if( (year%400) == 0 )//±»400Õû³ı
+        if( (year%400) == 0 )//è¢«400æ•´é™¤
         {
             return true;
         }
-        else//²»±»400Õû³ı
+        else//ä¸è¢«400æ•´é™¤
         {
             return false;
         }
     }
-    else//²»±»100Õû³ı£¬±»4Õû³ı
+    else//ä¸è¢«100æ•´é™¤ï¼Œè¢«4æ•´é™¤
     {
         return true;
     }
 }
 
-//¸ù¾İÄê·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®å¹´ä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGLYearChanged()
 {
-    //Äê·İ±ä»¯Ö»Ó°Ïì2ÔÂ
+    //å¹´ä»½å˜åŒ–åªå½±å“2æœˆ
     var curYear = sYear.value;
     var curMonth = sMonth.value;
     if(curMonth != 2)
     {
-        return; //²»ÊÇ2ÔÂ
+        return; //ä¸æ˜¯2æœˆ
     }
-    //ÊÇ2ÔÂ
+    //æ˜¯2æœˆ
     var oldDaysCount = sDay.length;
     var newDaysCount = GetGLDaysCountByYearAndMonth(curYear, curMonth);
     if( oldDaysCount == newDaysCount )
     {
-        //¾ÉµÄÌìÊıºÍĞÂµÄÌìÊıÃ»±ä£¬²»ĞèÒª¸Ä¶¯
+        //æ—§çš„å¤©æ•°å’Œæ–°çš„å¤©æ•°æ²¡å˜ï¼Œä¸éœ€è¦æ”¹åŠ¨
         return;
     }
-    //ÌìÊıÓĞ±ä»¯
-    if( oldDaysCount > newDaysCount )//¾ÉµÄÊÇ29Ìì£¬ĞÂµÄÊÇ28Ìì
+    //å¤©æ•°æœ‰å˜åŒ–
+    if( oldDaysCount > newDaysCount )//æ—§çš„æ˜¯29å¤©ï¼Œæ–°çš„æ˜¯28å¤©
     {
-        sDay.remove(29 - 1);    //ÒÆ³ıÄ©Î²µÄ29ºÅ
+        sDay.remove(29 - 1);    //ç§»é™¤æœ«å°¾çš„29å·
     }
-    else//¾ÉµÄ28Ìì£¬ĞÂµÄ29Ìì
+    else//æ—§çš„28å¤©ï¼Œæ–°çš„29å¤©
     {
         var curOp = document.createElement('option');
         curOp.value = 29;
@@ -128,24 +128,24 @@ function OnGLYearChanged()
         sDay.add(curOp, null);
     }
 }
-//¸ù¾İÔÂ·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®æœˆä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGLMonthChanged()
 {
     var curYear = sYear.value;
     var curMonth = sMonth.value;
-    //¸ù¾İÄêÔÂÉèÖÃÌìÊı
-    //¾ÉµÄÌìÊı£¬È«²¿ÒÆ³ıµô
+    //æ ¹æ®å¹´æœˆè®¾ç½®å¤©æ•°
+    //æ—§çš„å¤©æ•°ï¼Œå…¨éƒ¨ç§»é™¤æ‰
     var oldCount = sDay.length;
     var newCount =  GetGLDaysCountByYearAndMonth(curYear, curMonth);
-    //Èç¹ûÌìÊıÒ»Ñù²»ÓÃ±ä»¯
+    //å¦‚æœå¤©æ•°ä¸€æ ·ä¸ç”¨å˜åŒ–
     if( oldCount == newCount )
     {
         return;
     }
-    //ĞÂ¾ÉÌìÊı²»Ò»Ñù£¬¶àÍËÉÙ²¹
+    //æ–°æ—§å¤©æ•°ä¸ä¸€æ ·ï¼Œå¤šé€€å°‘è¡¥
     if( oldCount > newCount )
     {
-        //¶àÁËµÄÉ¾µô
+        //å¤šäº†çš„åˆ æ‰
         for(var i=oldCount; i>newCount; i--)
         {
             sDay.remove( i-1 );
@@ -153,7 +153,7 @@ function OnGLMonthChanged()
     }
     else
     {
-        //ÉÙÁË²¹Æë
+        //å°‘äº†è¡¥é½
         for(var i=oldCount+1; i<=newCount; i++)
         {
             var curOp = document.createElement('option');
@@ -163,28 +163,28 @@ function OnGLMonthChanged()
         }
     }
 }
-//¸ù¾İµ±Ç°Ê±¼äÉèÖÃ¿Ø¼şµÄÏÔÊ¾
+//æ ¹æ®å½“å‰æ—¶é—´è®¾ç½®æ§ä»¶çš„æ˜¾ç¤º
 function FillCurTime()
 {
     var curTime = new Date();
     var year = curTime.getFullYear();
-    var month = curTime.getMonth(); //JSÔÂ·İÊÇ0µ½11
-    var day = curTime.getDate();    //getDateÊÇÈÕ×Ó£¬getDayÊÇĞÇÆÚ¼¸
+    var month = curTime.getMonth(); //JSæœˆä»½æ˜¯0åˆ°11
+    var day = curTime.getDate();    //getDateæ˜¯æ—¥å­ï¼ŒgetDayæ˜¯æ˜ŸæœŸå‡ 
     var hour = curTime.getHours();
-    //ÉèÖÃ¿Ø¼ş
+    //è®¾ç½®æ§ä»¶
     sYear.selectedIndex = year - gStartYear;
-    //Äê·İ±ä»¯
+    //å¹´ä»½å˜åŒ–
     OnGLYearChanged();    
     sMonth.selectedIndex = month;
-    //ÔÂ·İ±ä»¯
+    //æœˆä»½å˜åŒ–
     OnGLMonthChanged();
-    //ÉèÖÃÈÕ×ÓºÍĞ¡Ê±
+    //è®¾ç½®æ—¥å­å’Œå°æ—¶
     sDay.selectedIndex = day - 1;
     sHour.selectedIndex = hour;
 }
 
 ///////////////////////////////////////////////////////
-////°ÑÎÄ×ÖÑÕÉ«±ê³ÉºÚÉ«
+////æŠŠæ–‡å­—é¢œè‰²æ ‡æˆé»‘è‰²
 function GetBlackText(text)
 {
     var resultText = "<span style=\"color: black\">";
@@ -192,7 +192,7 @@ function GetBlackText(text)
     resultText += "</span>";
     return resultText;
 }
-//°ÑÎÄ×ÖÑÕÉ«±ê³ÉºìÉ«
+//æŠŠæ–‡å­—é¢œè‰²æ ‡æˆçº¢è‰²
 function GetRedText(text)
 {
     var resultText = "<span style=\"color: red\">";
@@ -200,7 +200,7 @@ function GetRedText(text)
     resultText += "</span>";
     return resultText;
 }
-//°ÑÎÄ×ÖÑÕÉ«±ê³ÉÂÌÉ«
+//æŠŠæ–‡å­—é¢œè‰²æ ‡æˆç»¿è‰²
 function GetGreenText(text)
 {
     var resultText = "<span style=\"color: green\">";
@@ -208,7 +208,7 @@ function GetGreenText(text)
     resultText += "</span>";
     return resultText;
 }
-//°ÑÎÄ×ÖÑÕÉ«±ê³ÉÀ¶É«
+//æŠŠæ–‡å­—é¢œè‰²æ ‡æˆè“è‰²
 function GetBlueText(text)
 {
     var resultText = "<span style=\"color: blue\">";
@@ -216,7 +216,7 @@ function GetBlueText(text)
     resultText += "</span>";
     return resultText;
 }
-//°ÑÎÄ×ÖÑÕÉ«±ê³ÉÌìÀ¶É«
+//æŠŠæ–‡å­—é¢œè‰²æ ‡æˆå¤©è“è‰²
 function GetSkyBlueText(text)
 {
     var resultText = "<span style=\"color: deepskyblue\">";
@@ -224,7 +224,7 @@ function GetSkyBlueText(text)
     resultText += "</span>";
     return resultText;
 }
-//fuchsia×ÏºìÉ«
+//fuchsiaç´«çº¢è‰²
 function GetFuchsiaText(text)
 {
     var resultText = "<span style=\"color: fuchsia\">";
@@ -232,7 +232,7 @@ function GetFuchsiaText(text)
     resultText += "</span>";
     return resultText;
 }
-//×ÏÉ«
+//ç´«è‰²
 function GetDarkOrchidText(text)
 {
     var resultText = "<span style=\"color: darkorchid\">";
@@ -240,7 +240,7 @@ function GetDarkOrchidText(text)
     resultText += "</span>";
     return resultText;
 }
-//´ÖÌå
+//ç²—ä½“
 function GetBoldText(text)
 {
     var resultText = "<b>";
@@ -251,16 +251,16 @@ function GetBoldText(text)
 
 ///////////////////////////////////////////////
 /**********************
-ÃüÀí°Ë×Ö¼ÆËã
+å‘½ç†å…«å­—è®¡ç®—
 **********************/
 function ML_calcBaZi()
 {
-    //»ñÈ¡ÄêÔÂÈÕÊ±
+    //è·å–å¹´æœˆæ—¥æ—¶
     var yy = Number(sYear.value);
     var mm = Number(sMonth.value);
     var dd = Number(sDay.value);
     var hh = Number(sHour.value);
-    if(hh % 2 == 1)//ÆæÊıĞ¡Ê±£¬¼Ó0.9
+    if(hh % 2 == 1)//å¥‡æ•°å°æ—¶ï¼ŒåŠ 0.9
     {
         hh += 0.9;
     }
@@ -268,40 +268,40 @@ function ML_calcBaZi()
     var ob=new Object();
     
     var jd=JD.JD(year2Ayear(yy),mm-0, dd-0 + hh/24.0);
-    //¼õÈ¥¶«°ËÇøµÄ¼ÓÊ±£¬¾­¶È°´120¶È
-    obb.mingLiBaZi( jd+ (-8.0)/24 - J2000, 120.0/radd, ob ); //°Ë×Ö¼ÆËã
+    //å‡å»ä¸œå…«åŒºçš„åŠ æ—¶ï¼Œç»åº¦æŒ‰120åº¦
+    obb.mingLiBaZi( jd+ (-8.0)/24 - J2000, 120.0/radd, ob ); //å…«å­—è®¡ç®—
    /*
     var strBaZi =
-        '<font color=red>  <b>[ÈÕ±ê]£º</b></font>'+'¹«Àú '+Cml_y.value+'-'+Cml_m.value+'-'+Cml_d.value + ' ÈåÂÔÈÕÊı ' + int2(jd+0.5) + ' ¾à2000ÄêÊ×' + int2(jd+0.5-J2000) + 'ÈÕ<br>'
-      + '<font color=red  ><b>[°Ë×Ö]£º</b></font>'    + ob.bz_jn+'Äê '+ob.bz_jy+'ÔÂ '+ob.bz_jr+'ÈÕ '+ob.bz_js+'Ê± ÕæÌ«Ñô <font color=red>' + ob.bz_zty+ '</font><br>'
-      + '<font color=green><b>[¼ÍÊ±]£º</b></font><i>' + ob.bz_JS + '</i><br>'
-      + '<font color=green><b>[Ê±±ê]£º</b></font><i>' + '23¡¡ 01¡¡ 03¡¡ 05¡¡ 07¡¡ 09¡¡ 11¡¡ 13¡¡ 15¡¡ 17¡¡ 19¡¡ 21¡¡ 23';
+        '<font color=red>  <b>[æ—¥æ ‡]ï¼š</b></font>'+'å…¬å† '+Cml_y.value+'-'+Cml_m.value+'-'+Cml_d.value + ' å„’ç•¥æ—¥æ•° ' + int2(jd+0.5) + ' è·2000å¹´é¦–' + int2(jd+0.5-J2000) + 'æ—¥<br>'
+      + '<font color=red  ><b>[å…«å­—]ï¼š</b></font>'    + ob.bz_jn+'å¹´ '+ob.bz_jy+'æœˆ '+ob.bz_jr+'æ—¥ '+ob.bz_js+'æ—¶ çœŸå¤ªé˜³ <font color=red>' + ob.bz_zty+ '</font><br>'
+      + '<font color=green><b>[çºªæ—¶]ï¼š</b></font><i>' + ob.bz_JS + '</i><br>'
+      + '<font color=green><b>[æ—¶æ ‡]ï¼š</b></font><i>' + '23ã€€ 01ã€€ 03ã€€ 05ã€€ 07ã€€ 09ã€€ 11ã€€ 13ã€€ 15ã€€ 17ã€€ 19ã€€ 21ã€€ 23';
     */
-    idYearJZ = JiaZi.indexOf( ob.bz_jn );   //¼ÍÄê
-    idMonthJZ = JiaZi.indexOf( ob.bz_jy );  //¼ÍÔÂ
-    idDayJZ = JiaZi.indexOf( ob.bz_jr );    //¼ÍÈÕ
-    idHourJZ = JiaZi.indexOf( ob.bz_js );   //¼ÍÊ±
+    idYearJZ = JiaZi.indexOf( ob.bz_jn );   //çºªå¹´
+    idMonthJZ = JiaZi.indexOf( ob.bz_jy );  //çºªæœˆ
+    idDayJZ = JiaZi.indexOf( ob.bz_jr );    //çºªæ—¥
+    idHourJZ = JiaZi.indexOf( ob.bz_js );   //çºªæ—¶
     //console.log(ob.bz_jn+ "  "+ ob.bz_jy +"  "+ ob.bz_jr + " "+ ob.bz_js);
     return;
 }
 
 /**************************************************/
-//¿Õ¸ñ
-var SpaceZH = "&nbsp;"; //ºº×Ö¿Õ¸ñ
-var SpaceZHN = "¡¡";    //¿Õ×Ö·û¿Õ¸ñ
-var SpaceEN1 = "&ensp;";//µ¥Ó¢¿Õ¸ñ
-var SpaceEN2 = "&emsp;";//Ë«Ó¢¿Õ¸ñ
-//Õû¸öÅÅÅÌÎÄ±¾
+//ç©ºæ ¼
+var SpaceZH = "&nbsp;"; //æ±‰å­—ç©ºæ ¼
+var SpaceZHN = "ã€€";    //ç©ºå­—ç¬¦ç©ºæ ¼
+var SpaceEN1 = "&ensp;";//å•è‹±ç©ºæ ¼
+var SpaceEN2 = "&emsp;";//åŒè‹±ç©ºæ ¼
+//æ•´ä¸ªæ’ç›˜æ–‡æœ¬
 var AllText = document.getElementById("AllText");
-var YinYangLabel = new Array("¨|¨|&emsp;¨|¨|", "¨|¨|¨|¨|¨|");
-var YinYangSelf = new Array("Òõ", "Ñô");
+var YinYangLabel = new Array("â–…â–…&emsp;â–…â–…", "â–…â–…â–…â–…â–…");
+var YinYangSelf = new Array("é˜´", "é˜³");
 
-//¼ÆËã¹ê²ØÅÅÅÌ
+//è®¡ç®—é¾Ÿè—æ’ç›˜
 function CalcGuiCangPanPai()
 {    
-    //ÏÈ¼ÆËãÒ»±éÅÅÅÌÊ±¼äµÄ°Ë×Ö
+    //å…ˆè®¡ç®—ä¸€éæ’ç›˜æ—¶é—´çš„å…«å­—
     ML_calcBaZi();  //idYearJZ, idMonthJZ, idDayJZ, idHourJZ
-    //¼ÆËãÄêÔÂÈÕÊ±µÄ¸ÉÖ§
+    //è®¡ç®—å¹´æœˆæ—¥æ—¶çš„å¹²æ”¯
     var yyGan = TianGan[idYearJZ % 10];
     var yyZhi = DiZhi[idYearJZ % 12];
     var mmGan = TianGan[idMonthJZ % 10];
@@ -310,66 +310,66 @@ function CalcGuiCangPanPai()
     var ddZhi = DiZhi[idDayJZ % 12];
     var hhGan = TianGan[idHourJZ % 10];
     var hhZhi = DiZhi[idHourJZ % 12];
-    //ÆğĞÇµØÖ§ĞòºÅ
-    var iStartStar = idDayJZ % 12;  //ÈÕÖ§ĞòºÅ
+    //èµ·æ˜Ÿåœ°æ”¯åºå·
+    var iStartStar = idDayJZ % 12;  //æ—¥æ”¯åºå·
     
-    var strResult = "<div align='left' style='line-height: 18pt; font-family: ËÎÌå;'>"; 
+    var strResult = "<div align='left' style='line-height: 18pt; font-family: å®‹ä½“;'>"; 
     var strTemp = "";
-    //Ø³µÄ²¿·Ö²»»»ĞĞ
+    //çˆ»çš„éƒ¨åˆ†ä¸æ¢è¡Œ
     strResult += "<span style='white-space: nowrap;'>";
-    //ÆğØÔÊ±¼äÏÔÊ¾
-    strTemp = "ÆğØÔÊ±¼ä£º" + sYear.value + " Äê " + 
-            sMonth.value + " ÔÂ " + 
-            sDay.value + " ÈÕ " + 
-            sHour.value + " Ê±" ;
+    //èµ·å¦æ—¶é—´æ˜¾ç¤º
+    strTemp = "èµ·å¦æ—¶é—´ï¼š" + sYear.value + " å¹´ " + 
+            sMonth.value + " æœˆ " + 
+            sDay.value + " æ—¥ " + 
+            sHour.value + " æ—¶" ;
     strResult += strTemp;
     strResult += "<br>";
-    //¸ÉÖ§¼ÆÊ±
-    strTemp = "¸ÉÖ§¼ÆÊ±£º" 
-            + yyGan + GetBoldText( GetFuchsiaText(yyZhi) ) + "Äê "
-            + mmGan + GetBoldText( GetFuchsiaText(mmZhi) ) + "ÔÂ "
-            + ddGan + GetBoldText( GetFuchsiaText(ddZhi) ) + "ÈÕ "
-            + hhGan + hhZhi + "Ê±";
+    //å¹²æ”¯è®¡æ—¶
+    strTemp = "å¹²æ”¯è®¡æ—¶ï¼š" 
+            + yyGan + GetBoldText( GetFuchsiaText(yyZhi) ) + "å¹´ "
+            + mmGan + GetBoldText( GetFuchsiaText(mmZhi) ) + "æœˆ "
+            + ddGan + GetBoldText( GetFuchsiaText(ddZhi) ) + "æ—¥ "
+            + hhGan + hhZhi + "æ—¶";
     strResult += strTemp;
     strResult += "<br>";
-    //ÆğØÔÕ¼ÊÂ
+    //èµ·å¦å äº‹
     var strZhanShi = document.getElementById("tZhanShi").value;
-    strTemp = "ÆğØÔÕ¼ÊÂ£º" + strZhanShi;
+    strTemp = "èµ·å¦å äº‹ï¼š" + strZhanShi;
     strResult += strTemp;
     strResult += "<br>";
-    //ØÔÖ÷ĞÔ±ğ¡¢ÉúĞ¤ºÍÖ°Òµ
+    //å¦ä¸»æ€§åˆ«ã€ç”Ÿè‚–å’ŒèŒä¸š
     var strGender = document.getElementById("sGender").value;
     var strShengXiao = document.getElementById("sShengXiao").value;
     var strJob = document.getElementById("sJob").value;
-    strTemp = "ØÔÖ÷ĞÔ±ğ£º" + strGender + SpaceEN2         
-        + "ÉúĞ¤£º" + strShengXiao + SpaceEN2
-        + "Ö°Òµ£º" + strJob;
+    strTemp = "å¦ä¸»æ€§åˆ«ï¼š" + strGender + SpaceEN2         
+        + "ç”Ÿè‚–ï¼š" + strShengXiao + SpaceEN2
+        + "èŒä¸šï¼š" + strJob;
     strResult += strTemp;
     strResult += "<br>";
-    //ÌìÊ±ÎåĞĞ
-    var nZhanShiNian = parseInt(strZhanShi);      //ÓÃÓÚÅĞ¶ÏÊÇ·ñÔÚÕ¼ÄêØÔ
+    //å¤©æ—¶äº”è¡Œ
+    var nZhanShiNian = parseInt(strZhanShi);      //ç”¨äºåˆ¤æ–­æ˜¯å¦åœ¨å å¹´å¦
     var strTempWX = "";
     if( (nZhanShiNian >=  gStartYear) && (nZhanShiNian <= gEndYear) )
     {
         strTempWX = DiZhiWuXing[(nZhanShiNian-gStartYear)%12];
         var strTempDZ = DiZhi[(nZhanShiNian-gStartYear)%12];
-        strTemp = "ÌìÊ±ÎåĞĞ£º" + PackWuXingColorText(strTempDZ+strTempWX, strTempWX)
-                + "£¨Á÷ÄêØÔ£©";
+        strTemp = "å¤©æ—¶äº”è¡Œï¼š" + PackWuXingColorText(strTempDZ+strTempWX, strTempWX)
+                + "ï¼ˆæµå¹´å¦ï¼‰";
     }
     else
     {
          strTempWX = GetTianShiByDiZhi(yyZhi, mmZhi, ddZhi);
-         strTemp = "ÌìÊ±ÎåĞĞ£º" + PackWuXingColorText(strTempWX, strTempWX)
-                + "£¨Çë½âØÔÈËÑéÖ¤ÊÇ·ñ¼ÆËãÕıÈ·£©";
+         strTemp = "å¤©æ—¶äº”è¡Œï¼š" + PackWuXingColorText(strTempWX, strTempWX)
+                + "ï¼ˆè¯·è§£å¦äººéªŒè¯æ˜¯å¦è®¡ç®—æ­£ç¡®ï¼‰";
     }
     strResult += strTemp;
     strResult += "<br>";
-    strResult += "<br>";    //¶à»»Ò»ĞĞ£¬ÏÂÃæÅÅØÔ
+    strResult += "<br>";    //å¤šæ¢ä¸€è¡Œï¼Œä¸‹é¢æ’å¦
     
     
-    //È¡³ö13¸öØ³£¬²¢¶¨Ê®¶şĞÇ
+    //å–å‡º13ä¸ªçˆ»ï¼Œå¹¶å®šåäºŒæ˜Ÿ
     var guiYao = new Array(13);
-    var idXing = new Array(13); //0ºÅÌìĞÇÂÖ¿Õ²»ÓÃ
+    var idXing = new Array(13); //0å·å¤©æ˜Ÿè½®ç©ºä¸ç”¨
     for(var i=0; i<13; i++)
     {
         var tempID = "gui" + String(i+1);
@@ -378,95 +378,95 @@ function CalcGuiCangPanPai()
         //console.log(guiyao[i]);
         //console.log( DiZhi[ idXing[i] ] );
     }
-    //ĞòºÅ0£¬¾ö¶¨ØÔµÄÒõÑô
+    //åºå·0ï¼Œå†³å®šå¦çš„é˜´é˜³
     var strGuaYinYang = "";
     if( 1 == guiYao[0] )
     {
-        strGuaYinYang = GetRedText(SpaceEN2 + "Ñô¡ñ" + SpaceEN2);        
+        strGuaYinYang = GetRedText(SpaceEN2 + "é˜³â—" + SpaceEN2);        
     }
     else
     {
-        strGuaYinYang = GetBlackText(SpaceEN2 + "Òõ¡ğ" + SpaceEN2);
+        strGuaYinYang = GetBlackText(SpaceEN2 + "é˜´â—‹" + SpaceEN2);
     }
     /////////////////////////////////////////
-    //¹ê²ØØÔÃûºÍÎåĞĞ    
+    //é¾Ÿè—å¦åå’Œäº”è¡Œ    
     var iQianGua =  GetGuaIndex(guiYao[6], guiYao[5], guiYao[4],
                                 guiYao[3], guiYao[2], guiYao[1] );
     var iHouGua =   GetGuaIndex(guiYao[7], guiYao[8], guiYao[9],
                                 guiYao[10], guiYao[11], guiYao[12]);
-    //»ñÈ¡ØÔÃûºÍÎåĞĞ
+    //è·å–å¦åå’Œäº”è¡Œ
     strTemp = GetGuaMingAndWuXing(iQianGua, iHouGua);
     strResult += strTemp;
     strResult += "<br>";
 
     /////////////////////////////////////////
-    //ÉÏÃæµÚÒ»ÅÅØ³£¬ÆÕÍ¨
+    //ä¸Šé¢ç¬¬ä¸€æ’çˆ»ï¼Œæ™®é€š
     strTemp = PackYaoLine(guiYao[6], idXing[6], guiYao[7], idXing[7]);
     strResult += strTemp;
     strResult += "<br>";
     /////////////////////////////////////////
-    //µÚ¶şÅÅ£¬ÆÕÍ¨
+    //ç¬¬äºŒæ’ï¼Œæ™®é€š
     strTemp = PackYaoLine(guiYao[5], idXing[5], guiYao[8], idXing[8]);
     strResult += strTemp;
     strResult += "<br>";
     /////////////////////////////////////////
-    //µÚÈıÅÅ£¬ÔªÉñ
+    //ç¬¬ä¸‰æ’ï¼Œå…ƒç¥
     strTemp = PackYaoLineYuan(guiYao[4], idXing[4], guiYao[9], idXing[9], strGuaYinYang) ;
     strResult += strTemp;
     strResult += "<br>";
     /////////////////////////////////////////
-    //µÚËÄÅÅ£¬ÎÒÉí
+    //ç¬¬å››æ’ï¼Œæˆ‘èº«
     strTemp = PackYaoLineWo(guiYao[3], idXing[3], guiYao[10], idXing[10]) ;
     strResult += strTemp;
     strResult += "<br>";
     /////////////////////////////////////////
-    //µÚÎåÅÅ£¬ÆÕÍ¨
+    //ç¬¬äº”æ’ï¼Œæ™®é€š
     strTemp = PackYaoLine(guiYao[2], idXing[2], guiYao[11], idXing[11]) ;
     strResult += strTemp;
     strResult += "<br>";
      /////////////////////////////////////////
-    //µÚÁùÅÅ£¬ÆÕÍ¨
+    //ç¬¬å…­æ’ï¼Œæ™®é€š
     strTemp = PackYaoLine(guiYao[1], idXing[1], guiYao[12], idXing[12]) ;
     strResult += strTemp;
     strResult += "<br>";    
-    strResult += "</span>"; //²»»»ĞĞ±ê¼ÇµÄÄ©Î²
-    //¿ªÊ¼¼ÓØÔ´Ç
+    strResult += "</span>"; //ä¸æ¢è¡Œæ ‡è®°çš„æœ«å°¾
+    //å¼€å§‹åŠ å¦è¾
     strResult += "<br>";
     strTemp = GetGuiCangGuaYi(iQianGua, iHouGua);
     strResult += strTemp;
     strResult += "<br>";
     strResult += "<br>";
 
-    //Ê®¶şÌìĞÇÖ÷ÊÂ
+    //åäºŒå¤©æ˜Ÿä¸»äº‹
     strTemp = GetTianXingZhuShi();
     strResult += strTemp;
     strResult += "<br>";
     
-    //Ïà¹ØÊõÓï
+    //ç›¸å…³æœ¯è¯­
     strTemp = Get12XingChuDong(guiYao, idXing);
     strResult += strTemp;
-    strResult += "<br></div>"; //ÅÅÅÌ½áÊø
-    //Ìæ»»ÖĞÎÄ¿Õ¸ñ£¬ÊÊÓ¦²¿·ÖÊÖ»úä¯ÀÀÆ÷×ÖÌå
-    strResult = strResult.replace(/&emsp;/g, "¡¡");
+    strResult += "<br></div>"; //æ’ç›˜ç»“æŸ
+    //æ›¿æ¢ä¸­æ–‡ç©ºæ ¼ï¼Œé€‚åº”éƒ¨åˆ†æ‰‹æœºæµè§ˆå™¨å­—ä½“
+    strResult = strResult.replace(/&emsp;/g, "ã€€");
     //
-    //ÉèÖÃµ½½çÃæÉÏ
+    //è®¾ç½®åˆ°ç•Œé¢ä¸Š
     AllText.innerHTML = strResult;
-    //Ö´ĞĞ×Ô¶¯¸´ÖÆµ½¼ôÌù°å£¬IE9ºÍChromeÖ§³Ö£¬»ğºü²âÊÔ²»ĞĞ¡£
-    document.execCommand("selectAll");  //È«Ñ¡
-    document.execCommand("copy");       //¸´ÖÆ
-    document.execCommand("unselect");   //²»Ñ¡ÖĞ
+    //æ‰§è¡Œè‡ªåŠ¨å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼ŒIE9å’ŒChromeæ”¯æŒï¼Œç«ç‹æµ‹è¯•ä¸è¡Œã€‚
+    document.execCommand("selectAll");  //å…¨é€‰
+    document.execCommand("copy");       //å¤åˆ¶
+    document.execCommand("unselect");   //ä¸é€‰ä¸­
 }
-//ÆÕÍ¨Ø³£¬²ÎÊı£ºÇ°Ø³£¬Ç°Ø³ĞÇĞò£¬ºóØ³£¬ºóØ³ĞÇĞò
+//æ™®é€šçˆ»ï¼Œå‚æ•°ï¼šå‰çˆ»ï¼Œå‰çˆ»æ˜Ÿåºï¼Œåçˆ»ï¼Œåçˆ»æ˜Ÿåº
 function PackYaoLine(curQYao, curQIX, curHYao, curHIX)
 {
     //var strMidSpace = SpaceZH+SpaceZH+SpaceZH+SpaceZH+SpaceZH;
     var strMidSpace = SpaceEN2+SpaceEN2+SpaceEN2+SpaceEN2;
     var strRet = ""; 
-    var strPart1 = "";  //Ç°Ø³×Ö
-    var strPart2 = "";  //Ç°Ø³Í¼
-    var strPart3 = "";  //ºóØ³Í¼
-    var strPart4 = "";  //ºóØ³×Ö
-    //ÎåĞĞÉ«×Ô¶¯¼Ó´Ö
+    var strPart1 = "";  //å‰çˆ»å­—
+    var strPart2 = "";  //å‰çˆ»å›¾
+    var strPart3 = "";  //åçˆ»å›¾
+    var strPart4 = "";  //åçˆ»å­—
+    //äº”è¡Œè‰²è‡ªåŠ¨åŠ ç²—
     strPart1 = YinYangSelf[ curQYao ] + DiZhiWuXing[ curQIX ] + SpaceEN2
         + TianXing[ curQIX ] + SpaceEN2;
     strPart1 = PackWuXingColorText(strPart1, DiZhiWuXing[ curQIX ]);
@@ -488,23 +488,23 @@ function PackYaoLine(curQYao, curQIX, curHYao, curHIX)
     strRet = strPart1 + strPart2 + strMidSpace + strPart3 + strPart4;
     return strRet;
 }
-//ÔªÉñØ³£¬´øØÔµÄÒõÑô
+//å…ƒç¥çˆ»ï¼Œå¸¦å¦çš„é˜´é˜³
 function PackYaoLineYuan(curQYao, curQIX, curHYao, curHIX, strGuaYinYang)
 {
     //var strMidSpace = SpaceZH+SpaceZH+SpaceZH+SpaceZH+SpaceZH;
     var strMidSpace = SpaceEN2+SpaceEN2+SpaceEN2+SpaceEN2;
     var strRet = ""; 
-    var strPart1 = "";  //Ç°Ø³×Ö
-    var strPart2 = "";  //Ç°Ø³Í¼
-    var strPart3 = "";  //ºóØ³Í¼
-    var strPart4 = "";  //ºóØ³×Ö
-    //ÎåĞĞÉ«×Ô¶¯¼Ó´Ö
+    var strPart1 = "";  //å‰çˆ»å­—
+    var strPart2 = "";  //å‰çˆ»å›¾
+    var strPart3 = "";  //åçˆ»å›¾
+    var strPart4 = "";  //åçˆ»å­—
+    //äº”è¡Œè‰²è‡ªåŠ¨åŠ ç²—
     strPart1 = YinYangSelf[ curQYao ] + DiZhiWuXing[ curQIX ] + SpaceEN2
         + TianXing[ curQIX ] + SpaceEN2;
     strPart1 = PackWuXingColorText(strPart1, DiZhiWuXing[ curQIX ]);
     strPart2 = YinYangLabel[ curQYao ] ;
     strPart2 = GetBlueText(strPart2);
-    //ÔªÉñÒ»ĞĞ
+    //å…ƒç¥ä¸€è¡Œ
     strPart3 = YinYangLabel[ curHYao ] + SpaceEN2;     
     if( curQYao != curHYao )
     {
@@ -522,23 +522,23 @@ function PackYaoLineYuan(curQYao, curQIX, curHYao, curHIX, strGuaYinYang)
     return strRet;
 }
 
-//ÎÒÉíØ³
+//æˆ‘èº«çˆ»
 function PackYaoLineWo(curQYao, curQIX, curHYao, curHIX)
 {
     //var strMidSpace = SpaceZH+SpaceZH+SpaceZH+SpaceZH+SpaceZH;
     var strMidSpace = SpaceEN2+SpaceEN2+SpaceEN2+SpaceEN2;
     var strRet = ""; 
-    var strPart1 = "";  //Ç°Ø³×Ö
-    var strPart2 = "";  //Ç°Ø³Í¼
-    var strPart3 = "";  //ºóØ³Í¼
-    var strPart4 = "";  //ºóØ³×Ö
-    //ÎåĞĞÉ«×Ô¶¯¼Ó´Ö
+    var strPart1 = "";  //å‰çˆ»å­—
+    var strPart2 = "";  //å‰çˆ»å›¾
+    var strPart3 = "";  //åçˆ»å›¾
+    var strPart4 = "";  //åçˆ»å­—
+    //äº”è¡Œè‰²è‡ªåŠ¨åŠ ç²—
     strPart1 = YinYangSelf[ curQYao ] + DiZhiWuXing[ curQIX ] + SpaceEN2
         + TianXing[ curQIX ] + SpaceEN2;
     strPart1 = PackWuXingColorText(strPart1, DiZhiWuXing[ curQIX ]);
     strPart2 = YinYangLabel[ curQYao ] ;
     strPart2 = GetBlueText(strPart2);
-    //ÔªÉñÒ»ĞĞ
+    //å…ƒç¥ä¸€è¡Œ
     strPart3 = YinYangLabel[ curHYao ] + SpaceEN2;     
     if( curQYao != curHYao )
     {
@@ -564,37 +564,37 @@ function GetGuaMingAndWuXing(iQianGua, iHouGua)
     var strQianGuaWX = Gui64WuXing[iQianGua];
     var strHouGua = Gui64GuaMing[iHouGua];
     var strHouGuaWX = Gui64WuXing[iHouGua];
-    //ØÔÃû
+    //å¦å
     var strMing = GetBlackText(strMidSpace + SpaceEN2 + SpaceEN2)
         + GetBlackText(SpaceEN2 + strQianGua)
         + GetBlackText(strMidSpace)
         + GetBlackText(SpaceEN2 + strHouGua);
     strMing = "<span style=\"margin-left: -8px;\">" + GetBoldText(strMing)
         + "</span>" ;
-    //ÎåĞĞ
+    //äº”è¡Œ
     var strWX= GetBlackText(strMidSpace)
         + GetBlackText(strMidSpace)
         + PackWuXingColorText(strQianGuaWX, strQianGuaWX)
         + GetBlackText(strMidSpace)
         + GetBlackText(strMidSpace)
         + PackWuXingColorText(strHouGuaWX, strHouGuaWX);
-    //·µ»Ø
+    //è¿”å›
     return strMing + "<br>" + strWX;
 }
 
 function GetGuiCangGuaYi(iQianGua, iHouGua)
 {
-    var strRet = GetBoldText("¹ê²ØØÔÒå£º<br>");
+    var strRet = GetBoldText("é¾Ÿè—å¦ä¹‰ï¼š<br>");
     strRet += Gui64MiaoShu[iQianGua];
     strRet += "<br>";
     strRet += Gui64MiaoShu[iHouGua];
-    //·µ»Ø
+    //è¿”å›
     return strRet;
 }
-//ÌìĞÇÖ÷ÊÂ
+//å¤©æ˜Ÿä¸»äº‹
 function GetTianXingZhuShi()
 {
-    var strRet = GetBoldText("Ê®¶şÌìĞÇÖ÷ÊÂ£º<br>");
+    var strRet = GetBoldText("åäºŒå¤©æ˜Ÿä¸»äº‹ï¼š<br>");
     for(var i=0; i<6; i++)
     {
         for(var j=0; j<2; j++)
@@ -607,75 +607,75 @@ function GetTianXingZhuShi()
     }    
     return strRet;
 }
-//²éÑ¯ĞÇÕ¼Ãû´Ê
-//²éÑ¯Ê®¶şĞÇ³ö¶¯¡¢¹óÈË³öÓÎ¡¢ÇàÁúÎüË®
+//æŸ¥è¯¢æ˜Ÿå åè¯
+//æŸ¥è¯¢åäºŒæ˜Ÿå‡ºåŠ¨ã€è´µäººå‡ºæ¸¸ã€é’é¾™å¸æ°´
 function Get12XingChuDong(guiYao, idXing)
 {
-    //guiYaoÊÇÒõ0£¬Ñô1µÄÊı×é£¬13¸ö
-    //idXingÊÇÌìĞÇĞòºÅ13¸ö£¬µÚ0¸ö²»ÓÃ
-    //¹¹Ôì×Ö·û´®
+    //guiYaoæ˜¯é˜´0ï¼Œé˜³1çš„æ•°ç»„ï¼Œ13ä¸ª
+    //idXingæ˜¯å¤©æ˜Ÿåºå·13ä¸ªï¼Œç¬¬0ä¸ªä¸ç”¨
+    //æ„é€ å­—ç¬¦ä¸²
     var strTemp = "";
-    var strRet = GetBoldText("Ïà¹Ø¶¯»¯£º<br>");
-    //¼ÆËãÊ®¶şÌìĞÇµÄ¶¯»¯¼ÆÊı
+    var strRet = GetBoldText("ç›¸å…³åŠ¨åŒ–ï¼š<br>");
+    //è®¡ç®—åäºŒå¤©æ˜Ÿçš„åŠ¨åŒ–è®¡æ•°
     var dongHua = new Array(12);
     for(var j=0; j<12; j++)
     {
-        dongHua[j] = 0; //³õÊ¼»¯¶¼ÎªÁã
+        dongHua[j] = 0; //åˆå§‹åŒ–éƒ½ä¸ºé›¶
     }
     
-    //¸ù¾İÇ°ØÔÅĞ¶Ï³ö¶¯Çé¿ö
+    //æ ¹æ®å‰å¦åˆ¤æ–­å‡ºåŠ¨æƒ…å†µ
     for(var i=1; i<=6; i++)
     { 
-        //Ç°Ø³ºÍÇ°ĞÇµØÖ§ĞòºÅ¡¢Ç°Ø³ÎåĞĞ
+        //å‰çˆ»å’Œå‰æ˜Ÿåœ°æ”¯åºå·ã€å‰çˆ»äº”è¡Œ
         var qianYao = guiYao[i];
         var iQianXing = idXing[i];
         var qianWX = DiZhiWuXing[ iQianXing ];
-        //ºóØ³ºÍºóĞÇµØÖ§ĞòºÅºóØ³ÎåĞĞ
+        //åçˆ»å’Œåæ˜Ÿåœ°æ”¯åºå·åçˆ»äº”è¡Œ
         var houYao = guiYao[13-i];
         var iHouXing =  idXing[13-i];
         var houWX = DiZhiWuXing[ iHouXing ];
-        //ÊÇ·ñ¶¯
+        //æ˜¯å¦åŠ¨
         if( qianYao != houYao )
         {
-            //¶¯Ø³
-            //¸ù¾İÇ°ĞÇĞòºÅ³ö¶¯
+            //åŠ¨çˆ»
+            //æ ¹æ®å‰æ˜Ÿåºå·å‡ºåŠ¨
             strTemp = TianXingChuDong[iQianXing] + "<br>";
             strRet += strTemp;
-            //¼ÆËãÊ®¶şÌìĞÇµÄ¶¯»¯¼ÆÊı
-            //¶¯»¯Ö»¼ÆËã´ÓÇ°ØÔ¼ÆËã
+            //è®¡ç®—åäºŒå¤©æ˜Ÿçš„åŠ¨åŒ–è®¡æ•°
+            //åŠ¨åŒ–åªè®¡ç®—ä»å‰å¦è®¡ç®—
             dongHua[iQianXing] = 1;
-            //ÅĞ¶Ï¹óÈË³öÓÎºÍÇàÁúÎüË®
-            //¹óÈËÊÇ2£¬ºóÎåĞĞÎªË®
-            if( (2 == iQianXing) && ("Ë®" == houWX) )
+            //åˆ¤æ–­è´µäººå‡ºæ¸¸å’Œé’é¾™å¸æ°´
+            //è´µäººæ˜¯2ï¼Œåäº”è¡Œä¸ºæ°´
+            if( (2 == iQianXing) && ("æ°´" == houWX) )
             {
-                strTemp = "¹óÈË³öÓÎ£º¹óÈË¶¯»¯Ë®£¬¹óÈËÌáĞ¯£¬ÊÂÒµ´ó¼ª¡£<br>";
+                strTemp = "è´µäººå‡ºæ¸¸ï¼šè´µäººåŠ¨åŒ–æ°´ï¼Œè´µäººææºï¼Œäº‹ä¸šå¤§å‰ã€‚<br>";
                 strRet += strTemp;
             };
-            //ÇàÁúÊÇ3£¬ºóÎåĞĞÎªË®
-            if( (3 == iQianXing) && ("Ë®" == houWX) )
+            //é’é¾™æ˜¯3ï¼Œåäº”è¡Œä¸ºæ°´
+            if( (3 == iQianXing) && ("æ°´" == houWX) )
             {
-                strTemp = "ÇàÁúÎüË®£ºÇàÁú¶¯»¯Ë®£¬¹¦ÃûÏÔÖø£¬ÊÂÒµ´ó¼ª¡£<br>";
+                strTemp = "é’é¾™å¸æ°´ï¼šé’é¾™åŠ¨åŒ–æ°´ï¼ŒåŠŸåæ˜¾è‘—ï¼Œäº‹ä¸šå¤§å‰ã€‚<br>";
                 strRet += strTemp;
             };
-            //ÇàÁúÓë°×»¢¶¼¶¯
-            if( 3 == iQianXing )//ÇàÁúÔÚÇ°Ø³£¬ÇàÁúØ³ĞòºÅÊÇ i
+            //é’é¾™ä¸ç™½è™éƒ½åŠ¨
+            if( 3 == iQianXing )//é’é¾™åœ¨å‰çˆ»ï¼Œé’é¾™çˆ»åºå·æ˜¯ i
             {
-                //ÇàÁúÔÚÇ°Ø³£¬¶¯ÁË£¬ÕÒµ½°×»¢ºÍ°×»¢Ç°Ø³
+                //é’é¾™åœ¨å‰çˆ»ï¼ŒåŠ¨äº†ï¼Œæ‰¾åˆ°ç™½è™å’Œç™½è™å‰çˆ»
                 var baiHuYao = guiYao[i+6];
                 var baiHuQian = guiYao[ 13 - (i+6) ];
-                if( baiHuYao != baiHuQian)//°×»¢Ò»ĞĞÒ²¶¯ÁË
+                if( baiHuYao != baiHuQian)//ç™½è™ä¸€è¡Œä¹ŸåŠ¨äº†
                 {
-                    strTemp = "ÁúÕù»¢¶·£ºÇàÁúÔÚÇ°ØÔ£¬°×»¢ÔÚºóØÔ£¬¶şÕßËùÔÚĞĞ¶¼¶¯¡£ÄÚĞÄ²»°²Ö®Ïà¡£<br>";
+                    strTemp = "é¾™äº‰è™æ–—ï¼šé’é¾™åœ¨å‰å¦ï¼Œç™½è™åœ¨åå¦ï¼ŒäºŒè€…æ‰€åœ¨è¡Œéƒ½åŠ¨ã€‚å†…å¿ƒä¸å®‰ä¹‹ç›¸ã€‚<br>";
                     strRet += strTemp;
                 }
             }
         }//end outer if
     }
-    //ÉÏÃæÑ­»·Í¬Ê±¼ÆËãÁË12ĞÇµÄ¶¯»¯¼ÆÊı
+    //ä¸Šé¢å¾ªç¯åŒæ—¶è®¡ç®—äº†12æ˜Ÿçš„åŠ¨åŒ–è®¡æ•°
     //console.log(dongHua);
     strRet += GetLongFeiFengWu(dongHua);
     strRet += GetYanZiDunTian(dongHua);
-    //ÁúÕù»¢¶·µ¥¶ÀÅĞ¶¨¡£
+    //é¾™äº‰è™æ–—å•ç‹¬åˆ¤å®šã€‚
     strRet += GetLiuShouChuDong(dongHua);
     strRet += GetHouGongJiaRen(dongHua);
     strRet += GetBeiJiXingCan(dongHua);
@@ -687,12 +687,12 @@ function Get12XingChuDong(guiYao, idXing)
     strRet += GetGuYanZhuYun(dongHua);    
     return strRet;
 }
-//ÏÂÃæÊÇ¶àĞÇÍ¬Ê±¶¯µÄÅĞ¶Ï
-//Áú·É·ïÎè
+//ä¸‹é¢æ˜¯å¤šæ˜ŸåŒæ—¶åŠ¨çš„åˆ¤æ–­
+//é¾™é£å‡¤èˆ
 function GetLongFeiFengWu(dongHua)
 {
-    var str = "Áú·É·ïÎè£ºÇàÁúÖìÈ¸Í¬»¯£¬¹¦ÃûÊÂÒµ¼ªÀû¡£<br>";
-    //ÇàÁúÊÇ3£¬ÖìÈ¸ÊÇ6
+    var str = "é¾™é£å‡¤èˆï¼šé’é¾™æœ±é›€åŒåŒ–ï¼ŒåŠŸåäº‹ä¸šå‰åˆ©ã€‚<br>";
+    //é’é¾™æ˜¯3ï¼Œæœ±é›€æ˜¯6
     if( (1==dongHua[3]) && (1==dongHua[6]) )
     {
         return str;
@@ -702,11 +702,11 @@ function GetLongFeiFengWu(dongHua)
         return "";
     }
 }
-//Ñà×Ó¶İÌì
+//ç‡•å­éå¤©
 function GetYanZiDunTian(dongHua)
 {
-    var str = "Ñà×Ó¶İÌì£ºÖìÈ¸Ìì¿ÕÍ¬»¯£¬Ê§ÎïÄÑ»ØÖ®Ïà¡£<br>";
-    //ÖìÈ¸ÊÇ6£¬Ìì¿Õ 11
+    var str = "ç‡•å­éå¤©ï¼šæœ±é›€å¤©ç©ºåŒåŒ–ï¼Œå¤±ç‰©éš¾å›ä¹‹ç›¸ã€‚<br>";
+    //æœ±é›€æ˜¯6ï¼Œå¤©ç©º 11
     if( (1==dongHua[6]) && (1==dongHua[11]) )
     {
         return str;
@@ -716,18 +716,18 @@ function GetYanZiDunTian(dongHua)
         return "";
     }
 }
-//ÁúÕù»¢¶·ÌØÊâÅĞ¶¨£¬·ÅÔÚÇ°Ãæ´¦Àí
+//é¾™äº‰è™æ–—ç‰¹æ®Šåˆ¤å®šï¼Œæ”¾åœ¨å‰é¢å¤„ç†
 
-//ÁùÊŞ³ö¶´
+//å…­å…½å‡ºæ´
 function GetLiuShouChuDong(dongHua)
 {
-    var str = "ÁùÊŞ³ö¶´£ºÁùĞÇ½Ô»¯£¬ÇóÊÂÄÑ³ÉÖ®Ïà¡£<br>";
+    var str = "å…­å…½å‡ºæ´ï¼šå…­æ˜Ÿçš†åŒ–ï¼Œæ±‚äº‹éš¾æˆä¹‹ç›¸ã€‚<br>";
     var sum = 0;
     for(var i=0; i<12; i++)
     {
         sum += dongHua[i];
     }
-    //6¸ö
+    //6ä¸ª
     if( sum >= 6 )
     {
         return str;
@@ -737,11 +737,11 @@ function GetLiuShouChuDong(dongHua)
         return "";
     }
 }
-//ºó¹¬¼ÑÈË
+//åå®«ä½³äºº
 function GetHouGongJiaRen(dongHua)
 {
-    var str = "ºó¹¬¼ÑÈË£ºÌìºóÓëÌì¿ÕÍ¬»¯£¬ÃÀÅ®Ö®Ïà¡£<br>";
-    //Ììºó 4 Ìì¿Õ 11
+    var str = "åå®«ä½³äººï¼šå¤©åä¸å¤©ç©ºåŒåŒ–ï¼Œç¾å¥³ä¹‹ç›¸ã€‚<br>";
+    //å¤©å 4 å¤©ç©º 11
     if( (1==dongHua[4]) && (1==dongHua[11]) )
     {
         return str;
@@ -751,11 +751,11 @@ function GetHouGongJiaRen(dongHua)
         return "";
     }
 }
-//±±¼«ĞÇ²Ó
+//åŒ—ææ˜Ÿç¿
 function GetBeiJiXingCan(dongHua)
 {
-    var str = "±±¼«ĞÇ²Ó£ºÁùºÏ¡¢¹´³Â¡¢Ì«Òõ£¬ÈıÍÁĞÇÖÁÉÙÁ½¸öÍ¬»¯£¬ÄÜÁ¦×¿ÖøÖ®Ïà¡£<br>";
-    //ÁùºÏ 1 ¹´³Â 10  Ì«Òõ 7
+    var str = "åŒ—ææ˜Ÿç¿ï¼šå…­åˆã€å‹¾é™ˆã€å¤ªé˜´ï¼Œä¸‰åœŸæ˜Ÿè‡³å°‘ä¸¤ä¸ªåŒåŒ–ï¼Œèƒ½åŠ›å“è‘—ä¹‹ç›¸ã€‚<br>";
+    //å…­åˆ 1 å‹¾é™ˆ 10  å¤ªé˜´ 7
     var sum =  dongHua[1] + dongHua[10] + dongHua[7];
     if( sum >= 2 )
     {
@@ -766,11 +766,11 @@ function GetBeiJiXingCan(dongHua)
         return "";
     }
 }
-//òÔÁúÂúµØ
+//è›Ÿé¾™æ»¡åœ°
 function GetJiaoLongManDi(dongHua)
 {
-    var str = "òÔÁúÂúµØ£ºÇàÁúÓëÌÚÉßÍ¬»¯£¬ÄÑ½âÄÑ·ÖÖ®Ïà¡£<br>";
-    //ÇàÁú 3  ÌÚÉß 5
+    var str = "è›Ÿé¾™æ»¡åœ°ï¼šé’é¾™ä¸è…¾è›‡åŒåŒ–ï¼Œéš¾è§£éš¾åˆ†ä¹‹ç›¸ã€‚<br>";
+    //é’é¾™ 3  è…¾è›‡ 5
     if( (1==dongHua[3]) && (1==dongHua[5]) )
     {
         return str;
@@ -780,11 +780,11 @@ function GetJiaoLongManDi(dongHua)
         return "";
     }
 }
-//Ë®×¢ĞÇº£
+//æ°´æ³¨æ˜Ÿæµ·
 function GetShuiZhuXingHai(dongHua)
 {
-    var str = "Ë®×¢ĞÇº££ºĞşÎä¡¢Ììºó¡¢Ìì¿Õ£¬ÈıË®ĞÇÍ¬»¯£¬ÃÔÀëÖ®Ïà¡£<br>";
-    //ĞşÎä 0  Ììºó 4  Ìì¿Õ 11
+    var str = "æ°´æ³¨æ˜Ÿæµ·ï¼šç„æ­¦ã€å¤©åã€å¤©ç©ºï¼Œä¸‰æ°´æ˜ŸåŒåŒ–ï¼Œè¿·ç¦»ä¹‹ç›¸ã€‚<br>";
+    //ç„æ­¦ 0  å¤©å 4  å¤©ç©º 11
     if( (1==dongHua[0]) && (1==dongHua[4]) && (1==dongHua[11]) )
     {
         return str;
@@ -794,11 +794,11 @@ function GetShuiZhuXingHai(dongHua)
         return "";
     }
 }
-//ÁúĞĞÌìÏÂ
+//é¾™è¡Œå¤©ä¸‹
 function GetLongXingTianXia(dongHua)
 {
-    var str = "ÁúĞĞÌìÏÂ£ºÇàÁúÓëÌì¿ÕÍ¬»¯£¬¹¦Ãû¼ªÏà¡£<br>";
-    //ÇàÁú 3  Ìì¿Õ 11
+    var str = "é¾™è¡Œå¤©ä¸‹ï¼šé’é¾™ä¸å¤©ç©ºåŒåŒ–ï¼ŒåŠŸåå‰ç›¸ã€‚<br>";
+    //é’é¾™ 3  å¤©ç©º 11
     if( (1==dongHua[3]) && (1==dongHua[11]) )
     {
         return str;
@@ -808,12 +808,12 @@ function GetLongXingTianXia(dongHua)
         return "";
     }
 }
-//»¢ÂäÆ½Ñô
+//è™è½å¹³é˜³
 function GetHuLuoPingYang(dongHua)
 {
-    var str = "»¢ÂäÆ½Ñô£º°×»¢ÓëÍÁĞÇ£¨ÁùºÏ¡¢¹´³Â¡¢Ì«Òõ£©Ö®Ò»Í¬»¯£¬ÊÜÆÛ²»µÃÖ¾¡£<br>";
-    //ÁùºÏ 1 ¹´³Â 10  Ì«Òõ 7
-    //°×»¢ 9
+    var str = "è™è½å¹³é˜³ï¼šç™½è™ä¸åœŸæ˜Ÿï¼ˆå…­åˆã€å‹¾é™ˆã€å¤ªé˜´ï¼‰ä¹‹ä¸€åŒåŒ–ï¼Œå—æ¬ºä¸å¾—å¿—ã€‚<br>";
+    //å…­åˆ 1 å‹¾é™ˆ 10  å¤ªé˜´ 7
+    //ç™½è™ 9
     var sum =  dongHua[1] + dongHua[10] + dongHua[7];
     if( (sum >= 1) && (1==dongHua[9]) )
     {
@@ -824,11 +824,11 @@ function GetHuLuoPingYang(dongHua)
         return "";
     }
 }
-//Ğ¡ÈËµ±µÀ
+//å°äººå½“é“
 function GetXiaoRenDangDao(dongHua)
 {
-    var str = "Ğ¡ÈËµ±µÀ£ºÌ«ÒõÓëĞşÎäÍ¬»¯£¬¾ÍÊÇĞ¡ÈËµ±µÀµÄÒâË¼¡£<br>";
-    //ĞşÎä 0  Ì«Òõ 7
+    var str = "å°äººå½“é“ï¼šå¤ªé˜´ä¸ç„æ­¦åŒåŒ–ï¼Œå°±æ˜¯å°äººå½“é“çš„æ„æ€ã€‚<br>";
+    //ç„æ­¦ 0  å¤ªé˜´ 7
     if( (1==dongHua[0]) && (1==dongHua[7]) )
     {
         return str;
@@ -838,11 +838,11 @@ function GetXiaoRenDangDao(dongHua)
         return "";
     }
 }
-//¹ÂÑÌÖğÔÆ
+//å­¤çƒŸé€äº‘
 function GetGuYanZhuYun(dongHua)
 {
-    var str = "¹ÂÑÌÖğÔÆ£ºÖìÈ¸ÓëÌÚÉßÍ¬»¯£¬Ê§°ÜµÄÕù³³£¬ÊÂÇé²»Ë³Àû¡£<br>";
-    //ÖìÈ¸ 6  ÌÚÉß 5
+    var str = "å­¤çƒŸé€äº‘ï¼šæœ±é›€ä¸è…¾è›‡åŒåŒ–ï¼Œå¤±è´¥çš„äº‰åµï¼Œäº‹æƒ…ä¸é¡ºåˆ©ã€‚<br>";
+    //æœ±é›€ 6  è…¾è›‡ 5
     if( (1==dongHua[6]) && (1==dongHua[5]) )
     {
         return str;

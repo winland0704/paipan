@@ -1,24 +1,24 @@
-//³ÌĞòÀíÂÛÊÊÓÃÊ±¼ä¶Î 1583 Äê µ½ 3199 Äê£¬¼´¸ñÀï¸ßÀûÀúºóÒ»Äêµ½3200Ç°Ò»Äê£¬3200ÄêÊÇ·ñÎªÈòÄê´ı¶¨¡£
-//È«¾Ö±äÁ¿£¬°ÑÆğÊ¼Ê±¼äºÍ½áÊøÊ±¼ä¸ÄÒ»ÏÂ¾Í¿ÉÒÔ¸ü»»ÅÅÅÌµÄÄê·İ·¶Î§£¬ÕâÀïÎª×î½üµÄ240ÄêÊ±¼ä¶Î¡£
+ï»¿//ç¨‹åºç†è®ºé€‚ç”¨æ—¶é—´æ®µ 1583 å¹´ åˆ° 3199 å¹´ï¼Œå³æ ¼é‡Œé«˜åˆ©å†åä¸€å¹´åˆ°3200å‰ä¸€å¹´ï¼Œ3200å¹´æ˜¯å¦ä¸ºé—°å¹´å¾…å®šã€‚
+//å…¨å±€å˜é‡ï¼ŒæŠŠèµ·å§‹æ—¶é—´å’Œç»“æŸæ—¶é—´æ”¹ä¸€ä¸‹å°±å¯ä»¥æ›´æ¢æ’ç›˜çš„å¹´ä»½èŒƒå›´ï¼Œè¿™é‡Œä¸ºæœ€è¿‘çš„240å¹´æ—¶é—´æ®µã€‚
 var gStartYear = 1924;
 var gEndYear = 2164;
-//¹«ÀúÄêÔÂÈÕÊ±µÄËÄ¸öÑ¡ÔñÆ÷£¬¼ÓÉÏ·ÖÖÓ
+//å…¬å†å¹´æœˆæ—¥æ—¶çš„å››ä¸ªé€‰æ‹©å™¨ï¼ŒåŠ ä¸Šåˆ†é’Ÿ
 var sYear = document.getElementById("sYear");
 var sMonth = document.getElementById("sMonth");
 var sDay = document.getElementById("sDay");
 var sHour = document.getElementById("sHour");
 var sMinute = document.getElementById("sMinute");
-//È«¾Ö±äÁ¿£¬±£´æ³öÉúµØµÄ¾­¶È¡¢Î³¶È
+//å…¨å±€å˜é‡ï¼Œä¿å­˜å‡ºç”Ÿåœ°çš„ç»åº¦ã€çº¬åº¦
 var gBirthJingDu = 120.0;  
 var gBirthWeiDu = 38.0;
-//»æÍ¼¿Ø¼ş
+//ç»˜å›¾æ§ä»¶
 var syCanvas = document.getElementById("syCanvas");
 
 /**************************************************/
-//¹«Àú¿Ø¼şµÄ³õÊ¼»¯ºÍ¶¯Ì¬¸üĞÂ
-function InitGLYears()    //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//å…¬å†æ§ä»¶çš„åˆå§‹åŒ–å’ŒåŠ¨æ€æ›´æ–°
+function InitGLYears()    //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÒ»¸öÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„ä¸€ä¸ªé€‰é¡¹
     sYear.remove(0);    
     var curOp;
     for(var i=gStartYear; i<=gEndYear; i++)
@@ -28,15 +28,15 @@ function InitGLYears()    //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
         curOp.text = String(i);
         sYear.add(curOp, null);
     }
-    //Ä¬ÈÏÑ¡Ôñ2000Äê
+    //é»˜è®¤é€‰æ‹©2000å¹´
     sYear.selectedIndex = 2000 - gStartYear;
 }
-//³õÊ¼ÊÇ2000Äê1ÔÂ·İ
-function InitGLDays() //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//åˆå§‹æ˜¯2000å¹´1æœˆä»½
+function InitGLDays() //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÒ»¸öÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„ä¸€ä¸ªé€‰é¡¹
     sDay.remove(0);
-    //Ìí¼Ó£¬2000Äê1ÔÂ
+    //æ·»åŠ ï¼Œ2000å¹´1æœˆ
     var nCount = 31;
     var curOp;
     for(var i=1; i<=nCount; i++)
@@ -48,20 +48,20 @@ function InitGLDays() //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
     }
 }        
 
-//¹«ÀúÆ½ÄêÃ¿ÔÂÌìÊı
+//å…¬å†å¹³å¹´æ¯æœˆå¤©æ•°
 var gGLDaysInMonth = new Array
    (31, 28, 31, 30,
     31, 30, 31, 31,
     30, 31, 30, 31);
-//¸ù¾İ¹«ÀúÄê·İ¡¢ÔÂ·İ»ñÖª¸ÃÔÂµÄÌìÊı 
+//æ ¹æ®å…¬å†å¹´ä»½ã€æœˆä»½è·çŸ¥è¯¥æœˆçš„å¤©æ•° 
 function GetGLDaysCountByYearAndMonth(year, month)
 {
     if(month != 2)
     {
-        //²»ÊÇ2ÔÂ£¬²»¹ÜÈòÄê
+        //ä¸æ˜¯2æœˆï¼Œä¸ç®¡é—°å¹´
         return gGLDaysInMonth[month - 1];        
     };
-    //ÏÂÃæÊÇ2ÔÂ£¬ÅĞ¶ÏÊÇ·ñÈòÔÂ
+    //ä¸‹é¢æ˜¯2æœˆï¼Œåˆ¤æ–­æ˜¯å¦é—°æœˆ
     if( IsGLRunNian(year) )
     {
         return 29;
@@ -71,56 +71,56 @@ function GetGLDaysCountByYearAndMonth(year, month)
         return 28;
     }
 }//
-//ÅĞ¶Ï¹«ÀúÈòÄê£¬¸ñÀï¸ßÀûÀú
+//åˆ¤æ–­å…¬å†é—°å¹´ï¼Œæ ¼é‡Œé«˜åˆ©å†
 function IsGLRunNian(year)
 {
     if( (year % 4) != 0 )
     {
-        //·ÇÈòÄê
+        //éé—°å¹´
         return false;
     };
-    //±»4Õû³ıµÄ
-    if( (year % 100) == 0 )//±»100Õû³ı
+    //è¢«4æ•´é™¤çš„
+    if( (year % 100) == 0 )//è¢«100æ•´é™¤
     {
-        if( (year%400) == 0 )//±»400Õû³ı
+        if( (year%400) == 0 )//è¢«400æ•´é™¤
         {
             return true;
         }
-        else//²»±»400Õû³ı
+        else//ä¸è¢«400æ•´é™¤
         {
             return false;
         }
     }
-    else//²»±»100Õû³ı£¬±»4Õû³ı
+    else//ä¸è¢«100æ•´é™¤ï¼Œè¢«4æ•´é™¤
     {
         return true;
     }
 }
 
-//¸ù¾İÄê·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®å¹´ä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGLYearChanged()
 {
-    //Äê·İ±ä»¯Ö»Ó°Ïì2ÔÂ
+    //å¹´ä»½å˜åŒ–åªå½±å“2æœˆ
     var curYear = sYear.value;
     var curMonth = sMonth.value;
     if(curMonth != 2)
     {
-        return; //²»ÊÇ2ÔÂ
+        return; //ä¸æ˜¯2æœˆ
     }
-    //ÊÇ2ÔÂ
+    //æ˜¯2æœˆ
     var oldDaysCount = sDay.length;
     var newDaysCount = GetGLDaysCountByYearAndMonth(curYear, curMonth);
     if( oldDaysCount == newDaysCount )
     {
-        //¾ÉµÄÌìÊıºÍĞÂµÄÌìÊıÃ»±ä£¬²»ĞèÒª¸Ä¶¯
+        //æ—§çš„å¤©æ•°å’Œæ–°çš„å¤©æ•°æ²¡å˜ï¼Œä¸éœ€è¦æ”¹åŠ¨
         return;
     }
-    //ÌìÊıÓĞ±ä»¯
-    if( oldDaysCount > newDaysCount )//¾ÉµÄÊÇ29Ìì£¬ĞÂµÄÊÇ28Ìì
+    //å¤©æ•°æœ‰å˜åŒ–
+    if( oldDaysCount > newDaysCount )//æ—§çš„æ˜¯29å¤©ï¼Œæ–°çš„æ˜¯28å¤©
     {
-        sDay.remove(29 - 1);    //ÒÆ³ıÄ©Î²µÄ29ºÅ
+        sDay.remove(29 - 1);    //ç§»é™¤æœ«å°¾çš„29å·
     }
-    else//¾ÉµÄ28Ìì£¬ĞÂµÄ29Ìì
+    else//æ—§çš„28å¤©ï¼Œæ–°çš„29å¤©
     {
         var curOp = document.createElement('option');
         curOp.value = 29;
@@ -128,24 +128,24 @@ function OnGLYearChanged()
         sDay.add(curOp, null);
     }
 }
-//¸ù¾İÔÂ·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®æœˆä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGLMonthChanged()
 {
     var curYear = sYear.value;
     var curMonth = sMonth.value;
-    //¸ù¾İÄêÔÂÉèÖÃÌìÊı
-    //¾ÉµÄÌìÊı£¬È«²¿ÒÆ³ıµô
+    //æ ¹æ®å¹´æœˆè®¾ç½®å¤©æ•°
+    //æ—§çš„å¤©æ•°ï¼Œå…¨éƒ¨ç§»é™¤æ‰
     var oldCount = sDay.length;
     var newCount =  GetGLDaysCountByYearAndMonth(curYear, curMonth);
-    //Èç¹ûÌìÊıÒ»Ñù²»ÓÃ±ä»¯
+    //å¦‚æœå¤©æ•°ä¸€æ ·ä¸ç”¨å˜åŒ–
     if( oldCount == newCount )
     {
         return;
     }
-    //ĞÂ¾ÉÌìÊı²»Ò»Ñù£¬¶àÍËÉÙ²¹
+    //æ–°æ—§å¤©æ•°ä¸ä¸€æ ·ï¼Œå¤šé€€å°‘è¡¥
     if( oldCount > newCount )
     {
-        //¶àÁËµÄÉ¾µô
+        //å¤šäº†çš„åˆ æ‰
         for(var i=oldCount; i>newCount; i--)
         {
             sDay.remove( i-1 );
@@ -153,7 +153,7 @@ function OnGLMonthChanged()
     }
     else
     {
-        //ÉÙÁË²¹Æë
+        //å°‘äº†è¡¥é½
         for(var i=oldCount+1; i<=newCount; i++)
         {
             var curOp = document.createElement('option');
@@ -165,98 +165,98 @@ function OnGLMonthChanged()
 }
 ///////////////////////////////////////////////
 /****************
-µØÀí¾­Î³¶ÈÑ¡ÔñµÄÒ³Ãæ¿ØÖÆº¯Êı
+åœ°ç†ç»çº¬åº¦é€‰æ‹©çš„é¡µé¢æ§åˆ¶å‡½æ•°
 ****************/
-//ÊĞÏØÑ¡Ôñ±ä»¯
-var sShengFen = document.getElementById("sShengFen"); //Ê¡·İÑ¡Ôñ¿ò
-var sShiXian = document.getElementById("sShiXian"); //ÊĞÏØ
-//ÊĞÏØ±ä»¯£¬¼ÇÂ¼¾­Î³¶È
+//å¸‚å¿é€‰æ‹©å˜åŒ–
+var sShengFen = document.getElementById("sShengFen"); //çœä»½é€‰æ‹©æ¡†
+var sShiXian = document.getElementById("sShiXian"); //å¸‚å¿
+//å¸‚å¿å˜åŒ–ï¼Œè®°å½•ç»çº¬åº¦
 function OnShiXianChange()
 {
     var v = new JWdecode( sShiXian.options[sShiXian.selectedIndex].value );
-    sShiXian.vJ = v.J; sShiXian.vW = v.W;   //»¡¶È
-    gBirthJingDu = (v.J/Math.PI*180).toFixed(6);    //¾­¶È
-    gBirthWeiDu = (v.W/Math.PI*180).toFixed(6);     //Î³¶È
-    //´òÓ¡¾­¶È±ä»¯
-    //console.log("¾­¶È: " + gBirthJingDu );
+    sShiXian.vJ = v.J; sShiXian.vW = v.W;   //å¼§åº¦
+    gBirthJingDu = (v.J/Math.PI*180).toFixed(6);    //ç»åº¦
+    gBirthWeiDu = (v.W/Math.PI*180).toFixed(6);     //çº¬åº¦
+    //æ‰“å°ç»åº¦å˜åŒ–
+    //console.log("ç»åº¦: " + gBirthJingDu );
 }
-//Ê¡·İ±ä»¯
+//çœä»½å˜åŒ–
 function OnShengFenChange()
 {
-    sShiXian.length=0; //Çå¿ÕÊĞÏØÑ¡Ïî
+    sShiXian.length=0; //æ¸…ç©ºå¸‚å¿é€‰é¡¹
     var i, ob=JWv[ sShengFen.options[sShengFen.selectedIndex].value-0 ];
     for(i=1; i<ob.length; i++)
         addOp( sShiXian, ob[i].substr(0,4), ob[i].substr(4,ob[i].length-4) );
     OnShiXianChange();
 }
-//³õÊ¼»¯Ê¡ÊĞÑ¡Ôñ¿ò
+//åˆå§‹åŒ–çœå¸‚é€‰æ‹©æ¡†
 function InitShengShi()
 {
-    sShengFen.length = 0;   //Çå¿ÕÊ¡·İÑ¡Ïî
+    sShengFen.length = 0;   //æ¸…ç©ºçœä»½é€‰é¡¹
     var i;
     for(i=0;i<JWv.length;i++) addOp(sShengFen,i,JWv[i][0]);
 
     sShengFen.selectedIndex = 0; 
-    OnShengFenChange(); //Ê¡·İ
+    OnShengFenChange(); //çœä»½
     sShiXian.selectedIndex = 0;
-    OnShiXianChange();  //ÊĞÏØ
+    OnShiXianChange();  //å¸‚å¿
 }
 /*
  * 
 tool.js
-//¸øselect¼ÓoptionµÈ
+//ç»™selectåŠ optionç­‰
 function addOp(sel,v,t)
 { 
-    //¸øselect¶ÔÏó¼ÓÈëoption
+    //ç»™selectå¯¹è±¡åŠ å…¥option
     var Op = document.createElement("OPTION");
     Op.value=v;  Op.text=t;
     sel.add(Op);
 }
  */
 
-//¹«ÀúºÍÈåÂÔÈÕ»¥Ïà×ª»»£¬Ê¹ÓÃÈ«¾Ö JD ¶ÔÏó¡£
-//Å©ÀúºÍÈåÂÔÈÕ»¥Ïà×ª»»£¿
+//å…¬å†å’Œå„’ç•¥æ—¥äº’ç›¸è½¬æ¢ï¼Œä½¿ç”¨å…¨å±€ JD å¯¹è±¡ã€‚
+//å†œå†å’Œå„’ç•¥æ—¥äº’ç›¸è½¬æ¢ï¼Ÿ
 //////////////////////////////////////////////
 
-//Õû¸öÅÅÅÌÎÄ±¾
+//æ•´ä¸ªæ’ç›˜æ–‡æœ¬
 var AllText = document.getElementById("AllText");
 //
 function CalcGLBaZiPanPai()
 {
-    //ÅÅÅÌÑ¡Ïî
-    //ĞÔ±ğ
+    //æ’ç›˜é€‰é¡¹
+    //æ€§åˆ«
     var strGender = document.getElementById("sGender").value;
-    // gBirthJingDu ÊÇÈ«¾Ö±äÁ¿´æ³öÉú¾­¶È£¬ÏÂÃæÊÇ³öÉúÊ¡ºÍÊĞ
+    // gBirthJingDu æ˜¯å…¨å±€å˜é‡å­˜å‡ºç”Ÿç»åº¦ï¼Œä¸‹é¢æ˜¯å‡ºç”Ÿçœå’Œå¸‚
     var strBirthShengFen =  (sShengFen.options[sShengFen.selectedIndex]).text;
     var strBirthShiXian = (sShiXian.options[sShiXian.selectedIndex]).text;
-    //ÕæÌ«ÑôÊ±
+    //çœŸå¤ªé˜³æ—¶
     var useZTY = Number( document.getElementById("sUseZTY").value );
-    //ÊÇ·ñ¼××Ó¸ß¼¶ÅÅÅÌ
+    //æ˜¯å¦ç”²å­é«˜çº§æ’ç›˜
     var useJZGaoJi = Number( document.getElementById("sUseJZGaoJi").value );
     
-    //JD¶ÔÏó¼ÆËãÈåÂÔÈÕ
-    //Ä¬ÈÏ Y:2000, M:1, D:1, h:12, m:0, s:0,
-    var myJD = JD;  //myJDºÍJD¶¼ÊÇÈ«¾Ö¶ÔÏó£¬»á±»ÄªÃûÆäÃîĞŞ¸Ä£¬Ö»ÄÜÒ»´ÎĞÔÓÃÍêÈÓ
+    //JDå¯¹è±¡è®¡ç®—å„’ç•¥æ—¥
+    //é»˜è®¤ Y:2000, M:1, D:1, h:12, m:0, s:0,
+    var myJD = JD;  //myJDå’ŒJDéƒ½æ˜¯å…¨å±€å¯¹è±¡ï¼Œä¼šè¢«è«åå…¶å¦™ä¿®æ”¹ï¼Œåªèƒ½ä¸€æ¬¡æ€§ç”¨å®Œæ‰”
     myJD.Y = Number(sYear.value);
     myJD.M = Number(sMonth.value);
     myJD.D = Number(sDay.value);
     myJD.h = Number(sHour.value);
     myJD.m = Number(sMinute.value);
-    myJD.s = 30;    //Ä¬ÈÏÓÃ30Ãë
-    //»ñÈ¡³öÉúÊ±¼ä¶ÔÓ¦ÈåÂÔÈÕ
+    myJD.s = 30;    //é»˜è®¤ç”¨30ç§’
+    //è·å–å‡ºç”Ÿæ—¶é—´å¯¹åº”å„’ç•¥æ—¥
     var birthJD = myJD.toJD();
     
-    //ÅĞ¶ÏÊÇ·ñĞèÒª»æÍ¼
+    //åˆ¤æ–­æ˜¯å¦éœ€è¦ç»˜å›¾
     var bDraw = Number( document.getElementById("sDrawPic").value );
     //console.log(syCanvas); 
     
-    //²ÎÊıÎª ³öÉúÈåÂÔÈÕ¡¢ĞÔ±ğ¡¢Ê¡·İ¡¢ÊĞÏØ¡¢ÊÇ·ñÕæÌ«Ñô¡¢ÊÇ·ñ¸ß¼¶ÅÌ£¬³öÉúµÄ¾­¶È
+    //å‚æ•°ä¸º å‡ºç”Ÿå„’ç•¥æ—¥ã€æ€§åˆ«ã€çœä»½ã€å¸‚å¿ã€æ˜¯å¦çœŸå¤ªé˜³ã€æ˜¯å¦é«˜çº§ç›˜ï¼Œå‡ºç”Ÿçš„ç»åº¦
     AllText.innerHTML =  GetGLPaiPanHTML(birthJD, strGender, strBirthShengFen, strBirthShiXian, useZTY, useJZGaoJi, gBirthJingDu
             , bDraw, syCanvas);
 
-    //Ö´ĞĞ×Ô¶¯¸´ÖÆµ½¼ôÌù°å£¬IE9ºÍChromeÖ§³Ö£¬»ğºü²âÊÔ²»ĞĞ¡£
-    document.execCommand("selectAll");  //È«Ñ¡
-    document.execCommand("copy");       //¸´ÖÆ
-    document.execCommand("unselect");   //²»Ñ¡ÖĞ 
+    //æ‰§è¡Œè‡ªåŠ¨å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼ŒIE9å’ŒChromeæ”¯æŒï¼Œç«ç‹æµ‹è¯•ä¸è¡Œã€‚
+    document.execCommand("selectAll");  //å…¨é€‰
+    document.execCommand("copy");       //å¤åˆ¶
+    document.execCommand("unselect");   //ä¸é€‰ä¸­ 
 }
 

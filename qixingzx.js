@@ -1,59 +1,59 @@
-//ÁúÉñ¾÷²»ĞèÒªÊ±¼ä£¬ÕâÀï´¿´âÊÇ¼ÆÊ±ÓÃµÄ
-//³ÌĞòÀíÂÛÊÊÓÃÊ±¼ä¶Î 1583 Äê µ½ 3199 Äê£¬¼´¸ñÀï¸ßÀûÀúºóÒ»Äêµ½3200Ç°Ò»Äê£¬3200ÄêÊÇ·ñÎªÈòÄê´ı¶¨¡£
-//È«¾Ö±äÁ¿£¬°ÑÆğÊ¼Ê±¼äºÍ½áÊøÊ±¼ä¸ÄÒ»ÏÂ¾Í¿ÉÒÔ¸ü»»ÅÅÅÌµÄÄê·İ·¶Î§£¬ÕâÀïÎª×î½üµÄ240ÄêÊ±¼ä¶Î¡£
+ï»¿//é¾™ç¥è¯€ä¸éœ€è¦æ—¶é—´ï¼Œè¿™é‡Œçº¯ç²¹æ˜¯è®¡æ—¶ç”¨çš„
+//ç¨‹åºç†è®ºé€‚ç”¨æ—¶é—´æ®µ 1583 å¹´ åˆ° 3199 å¹´ï¼Œå³æ ¼é‡Œé«˜åˆ©å†åä¸€å¹´åˆ°3200å‰ä¸€å¹´ï¼Œ3200å¹´æ˜¯å¦ä¸ºé—°å¹´å¾…å®šã€‚
+//å…¨å±€å˜é‡ï¼ŒæŠŠèµ·å§‹æ—¶é—´å’Œç»“æŸæ—¶é—´æ”¹ä¸€ä¸‹å°±å¯ä»¥æ›´æ¢æ’ç›˜çš„å¹´ä»½èŒƒå›´ï¼Œè¿™é‡Œä¸ºæœ€è¿‘çš„240å¹´æ—¶é—´æ®µã€‚
 var gStartYear = 1924;
 var gEndYear = 2164;
 
-//¹«Àú¿Ø¼ş
+//å…¬å†æ§ä»¶
 var sGGYear = document.getElementById("sGGYear");
 var sGGMonth = document.getElementById("sGGMonth");
 var sGGDay = document.getElementById("sGGDay");
 var sGGHour = document.getElementById("sGGHour");
 var sGGMinute = document.getElementById("sGGMinute");
 
-//¹«ÀúÊ±¼ä¶¯Ì¬¸üĞÂ
-//function addOp(sel,value,text)  //¸øselect¶ÔÏó¼ÓÈëoption
+//å…¬å†æ—¶é—´åŠ¨æ€æ›´æ–°
+//function addOp(sel,value,text)  //ç»™selectå¯¹è±¡åŠ å…¥option
 
-//³õÊ¼»¯ÓÃ2000Äê12ÔÂ12ÈÕ
-function InitGGYears()    //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//åˆå§‹åŒ–ç”¨2000å¹´12æœˆ12æ—¥
+function InitGGYears()    //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„é€‰é¡¹
     sGGYear.length = 0; 
     for(var i=gStartYear; i<=gEndYear; i++)
     {
         addOp(sGGYear, i, String(i) );
     }
-    //Ä¬ÈÏÑ¡Ôñ2000Äê
+    //é»˜è®¤é€‰æ‹©2000å¹´
     sGGYear.selectedIndex = 2000 - gStartYear;
 }
-//³õÊ¼ÊÇ2000Äê12ÔÂ·İ
-function InitGGDays() //³õÊ¼»¯Ê±Ò»´ÎĞÔµ÷ÓÃ
+//åˆå§‹æ˜¯2000å¹´12æœˆä»½
+function InitGGDays() //åˆå§‹åŒ–æ—¶ä¸€æ¬¡æ€§è°ƒç”¨
 {
-    //Çå¿Õ¾ÉµÄÒ»¸öÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„ä¸€ä¸ªé€‰é¡¹
     sGGDay.length = 0;
-    //Ìí¼Ó£¬2000Äê12ÔÂ
+    //æ·»åŠ ï¼Œ2000å¹´12æœˆ
     var nCount = 31;
     for(var i=1; i<=nCount; i++)
     {
         addOp(sGGDay, i, String(i) );
     }
-    sGGDay.selectedIndex = 12 - 1 ;//12ÔÂ12ºÅ
+    sGGDay.selectedIndex = 12 - 1 ;//12æœˆ12å·
 }
 
-//¹«ÀúÆ½ÄêÃ¿ÔÂÌìÊı
+//å…¬å†å¹³å¹´æ¯æœˆå¤©æ•°
 var gGLDaysInMonth = new Array
    (31, 28, 31, 30,
     31, 30, 31, 31,
     30, 31, 30, 31);
-//¸ù¾İ¹«ÀúÄê·İ¡¢ÔÂ·İ»ñÖª¸ÃÔÂµÄÌìÊı 
+//æ ¹æ®å…¬å†å¹´ä»½ã€æœˆä»½è·çŸ¥è¯¥æœˆçš„å¤©æ•° 
 function GetGLDaysCountByYearAndMonth(year, month)
 {
     if(month != 2)
     {
-        //²»ÊÇ2ÔÂ£¬²»¹ÜÈòÄê
+        //ä¸æ˜¯2æœˆï¼Œä¸ç®¡é—°å¹´
         return gGLDaysInMonth[month - 1];        
     };
-    //ÏÂÃæÊÇ2ÔÂ£¬ÅĞ¶ÏÊÇ·ñÈòÔÂ
+    //ä¸‹é¢æ˜¯2æœˆï¼Œåˆ¤æ–­æ˜¯å¦é—°æœˆ
     if( IsGLRunNian(year) )
     {
         return 29;
@@ -63,78 +63,78 @@ function GetGLDaysCountByYearAndMonth(year, month)
         return 28;
     }
 }//
-//ÅĞ¶Ï¹«ÀúÈòÄê£¬¸ñÀï¸ßÀûÀú
+//åˆ¤æ–­å…¬å†é—°å¹´ï¼Œæ ¼é‡Œé«˜åˆ©å†
 function IsGLRunNian(year)
 {
     if( (year % 4) != 0 )
     {
-        //·ÇÈòÄê
+        //éé—°å¹´
         return false;
     };
-    //±»4Õû³ıµÄ
-    if( (year % 100) == 0 )//±»100Õû³ı
+    //è¢«4æ•´é™¤çš„
+    if( (year % 100) == 0 )//è¢«100æ•´é™¤
     {
-        if( (year%400) == 0 )//±»400Õû³ı
+        if( (year%400) == 0 )//è¢«400æ•´é™¤
         {
             return true;
         }
-        else//²»±»400Õû³ı
+        else//ä¸è¢«400æ•´é™¤
         {
             return false;
         }
     }
-    else//²»±»100Õû³ı£¬±»4Õû³ı
+    else//ä¸è¢«100æ•´é™¤ï¼Œè¢«4æ•´é™¤
     {
         return true;
     }
 }
 
-//¸ù¾İÄê·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®å¹´ä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGGYearChanged()
 {
-    //Äê·İ±ä»¯Ö»Ó°Ïì2ÔÂ
+    //å¹´ä»½å˜åŒ–åªå½±å“2æœˆ
     var curYear = sGGYear.value;
     var curMonth = sGGMonth.value;
     if(curMonth != 2)
     {
-        return; //²»ÊÇ2ÔÂ
+        return; //ä¸æ˜¯2æœˆ
     }
-    //ÊÇ2ÔÂ
+    //æ˜¯2æœˆ
     var oldDaysCount = sGGDay.length;
     var newDaysCount = GetGLDaysCountByYearAndMonth(curYear, curMonth);
     if( oldDaysCount == newDaysCount )
     {
-        //¾ÉµÄÌìÊıºÍĞÂµÄÌìÊıÃ»±ä£¬²»ĞèÒª¸Ä¶¯
+        //æ—§çš„å¤©æ•°å’Œæ–°çš„å¤©æ•°æ²¡å˜ï¼Œä¸éœ€è¦æ”¹åŠ¨
         return;
     }
-    //ÌìÊıÓĞ±ä»¯
-    if( oldDaysCount > newDaysCount )//¾ÉµÄÊÇ29Ìì£¬ĞÂµÄÊÇ28Ìì
+    //å¤©æ•°æœ‰å˜åŒ–
+    if( oldDaysCount > newDaysCount )//æ—§çš„æ˜¯29å¤©ï¼Œæ–°çš„æ˜¯28å¤©
     {
-        sGGDay.remove(29 - 1);    //ÒÆ³ıÄ©Î²µÄ29ºÅ
+        sGGDay.remove(29 - 1);    //ç§»é™¤æœ«å°¾çš„29å·
     }
-    else//¾ÉµÄ28Ìì£¬ĞÂµÄ29Ìì
+    else//æ—§çš„28å¤©ï¼Œæ–°çš„29å¤©
     {        
-        addOp(sGGDay, 29, "29" );//Êı×Ö29ÊÇvalue£¬ "29" ÊÇtext
+        addOp(sGGDay, 29, "29" );//æ•°å­—29æ˜¯valueï¼Œ "29" æ˜¯text
     }
 }
-//¸ù¾İÔÂ·İ±ä»¯£¬¿¼ÂÇÊÇ·ñ¸üĞÂÈÕÆÚ
+//æ ¹æ®æœˆä»½å˜åŒ–ï¼Œè€ƒè™‘æ˜¯å¦æ›´æ–°æ—¥æœŸ
 function OnGGMonthChanged()
 {
     var curYear = sGGYear.value;
     var curMonth = sGGMonth.value;
-    //¸ù¾İÄêÔÂÉèÖÃÌìÊı
-    //¾ÉµÄÌìÊı£¬È«²¿ÒÆ³ıµô
+    //æ ¹æ®å¹´æœˆè®¾ç½®å¤©æ•°
+    //æ—§çš„å¤©æ•°ï¼Œå…¨éƒ¨ç§»é™¤æ‰
     var oldCount = sGGDay.length;
     var newCount =  GetGLDaysCountByYearAndMonth(curYear, curMonth);
-    //Èç¹ûÌìÊıÒ»Ñù²»ÓÃ±ä»¯
+    //å¦‚æœå¤©æ•°ä¸€æ ·ä¸ç”¨å˜åŒ–
     if( oldCount == newCount )
     {
         return;
     }
-    //ĞÂ¾ÉÌìÊı²»Ò»Ñù£¬¶àÍËÉÙ²¹
+    //æ–°æ—§å¤©æ•°ä¸ä¸€æ ·ï¼Œå¤šé€€å°‘è¡¥
     if( oldCount > newCount )
     {
-        //¶àÁËµÄÉ¾µô
+        //å¤šäº†çš„åˆ æ‰
         for(var i=oldCount; i>newCount; i--)
         {
             sGGDay.remove( i-1 );
@@ -142,7 +142,7 @@ function OnGGMonthChanged()
     }
     else
     {
-        //ÉÙÁË²¹Æë
+        //å°‘äº†è¡¥é½
         for(var i=oldCount+1; i<=newCount; i++)
         {
             addOp(sGGDay, i, String(i) );
@@ -150,80 +150,80 @@ function OnGGMonthChanged()
     }
 }
 //////////////////////
-//³öÉúÄê·İ
+//å‡ºç”Ÿå¹´ä»½
 var sShengNian = document.getElementById("sShengNian");
 function InitChuShengNianFen()
 {
-    //Çå¿Õ¾ÉµÄÑ¡Ïî
+    //æ¸…ç©ºæ—§çš„é€‰é¡¹
     sShengNian.length = 0; 
     for(var i=gStartYear; i<=gEndYear; i++)
     {
         addOp(sShengNian, i, String(i) + JiaZi[ GetNianJiaZiShu(i) ] );
     }
-    //Ä¬ÈÏÑ¡Ôñ1990Äê
+    //é»˜è®¤é€‰æ‹©1990å¹´
     sShengNian.selectedIndex = 1990 - gStartYear;
 }
 ///////////////////////
- function FillCurTime() //×Ô¶¯Ìî³äµ±Ç°Ê±¼ä£¬¹«ÀúµÄ¸üĞÂ¡£
+ function FillCurTime() //è‡ªåŠ¨å¡«å……å½“å‰æ—¶é—´ï¼Œå…¬å†çš„æ›´æ–°ã€‚
  {
     var curTime = new Date();
     var year = curTime.getFullYear();
-    var month = curTime.getMonth(); //JSÔÂ·İÊÇ0µ½11
-    var day = curTime.getDate();    //getDateÊÇÈÕ×Ó£¬getDayÊÇĞÇÆÚ¼¸
+    var month = curTime.getMonth(); //JSæœˆä»½æ˜¯0åˆ°11
+    var day = curTime.getDate();    //getDateæ˜¯æ—¥å­ï¼ŒgetDayæ˜¯æ˜ŸæœŸå‡ 
     var hour = curTime.getHours();
     var minute = curTime.getMinutes();
-    //ÉèÖÃ¿Ø¼ş
+    //è®¾ç½®æ§ä»¶
     sGGYear.selectedIndex = year - gStartYear;
-    //Äê·İ±ä»¯
+    //å¹´ä»½å˜åŒ–
     OnGGYearChanged();    
     sGGMonth.selectedIndex = month;
-    //ÔÂ·İ±ä»¯
+    //æœˆä»½å˜åŒ–
     OnGGMonthChanged();
-    //ÉèÖÃÈÕ×ÓºÍĞ¡Ê±
+    //è®¾ç½®æ—¥å­å’Œå°æ—¶
     sGGDay.selectedIndex = day - 1;
     sGGHour.selectedIndex = hour;
     sGGMinute.selectedIndex = minute;
  }
  ////////////////////////////////////////
   ////////////////////////////////////////
- //ÉèÖÃÆß¸ö°´Å¥¡¢7¸ö¿¨ÅÆĞòºÅµÈ
- var gArrButtons = new Array(8);    //7¸ö³éÅÆ°´Å¥¼Ó1¸öÅÅÅÌ°´Å¥
- var gArrCardNumbers = new Array(7);//±£´æ0µ½6£¬ÆßĞÇĞòºÅ
- var gArrChosen7Cards = new Array(7); //³éÈ¡µÄ7ÕÅ¿¨ÅÆĞòºÅ
+ //è®¾ç½®ä¸ƒä¸ªæŒ‰é’®ã€7ä¸ªå¡ç‰Œåºå·ç­‰
+ var gArrButtons = new Array(8);    //7ä¸ªæŠ½ç‰ŒæŒ‰é’®åŠ 1ä¸ªæ’ç›˜æŒ‰é’®
+ var gArrCardNumbers = new Array(7);//ä¿å­˜0åˆ°6ï¼Œä¸ƒæ˜Ÿåºå·
+ var gArrChosen7Cards = new Array(7); //æŠ½å–çš„7å¼ å¡ç‰Œåºå·
  function InitButtons()
  {
-     //±£´æ°´Å¥ÁĞ±í
+     //ä¿å­˜æŒ‰é’®åˆ—è¡¨
      for(var i=0; i<7; i++)
      {
-        var curID = "btnQXJ" + String(i); //ÆßĞÇ¾ö°´Å¥id
+        var curID = "btnQXJ" + String(i); //ä¸ƒæ˜Ÿå†³æŒ‰é’®id
         gArrButtons[i] = document.getElementById(curID);
-        gArrChosen7Cards[i] = -1;   //»¹Ã»³éÅÆ¶¼ÊÇ-1
+        gArrChosen7Cards[i] = -1;   //è¿˜æ²¡æŠ½ç‰Œéƒ½æ˜¯-1
      }
-     //µÚ°Ë¸öÊÇÅÅÅÌ°´Å¥
+     //ç¬¬å…«ä¸ªæ˜¯æ’ç›˜æŒ‰é’®
      gArrButtons[7] = document.getElementById("btnPaiPan");
-     //ÓÃÓÚ³éÅÆµÄ¶¯Ì¬Êı×é
+     //ç”¨äºæŠ½ç‰Œçš„åŠ¨æ€æ•°ç»„
      for(var i=0; i<7; i++)
      {
-         gArrCardNumbers[i] = i; //ÆßĞÇĞòºÅ£¬ÏÖÔÚÊÇË³ĞòµÄ£¬ÏÂÒ»²½Ï´ÅÆ
+         gArrCardNumbers[i] = i; //ä¸ƒæ˜Ÿåºå·ï¼Œç°åœ¨æ˜¯é¡ºåºçš„ï¼Œä¸‹ä¸€æ­¥æ´—ç‰Œ
      }
-     //Ï´ÅÆ11ÂÖ
+     //æ´—ç‰Œ11è½®
      XiPai(gArrCardNumbers, 11);
      //console.log(gArrCardNumbers);
  }
- //µÚÒ»¸öÊÇÊı×é£¬µÚ¶ş¸öÊÇÏ´ÅÆÂÖÊı
+ //ç¬¬ä¸€ä¸ªæ˜¯æ•°ç»„ï¼Œç¬¬äºŒä¸ªæ˜¯æ´—ç‰Œè½®æ•°
  function XiPai(theArray, rounds)
  {
-     //¸öÊı£¬ÔìÎ±Ëæ»úÊı
+     //ä¸ªæ•°ï¼Œé€ ä¼ªéšæœºæ•°
      var nCount = theArray.length;
      var vTemp;
-     //Ï´ÅÆ
+     //æ´—ç‰Œ
      for(var i=0; i<rounds; i++)
      {
-         //Ã¿ÂÖÏ´ÅÆ
+         //æ¯è½®æ´—ç‰Œ
          for(var k=0; k<nCount; k++)
          {
              var dstIndex = Math.floor( Math.random()*nCount*10000 ) % nCount;
-             //½»»»ÔªËØ
+             //äº¤æ¢å…ƒç´ 
              vTemp = theArray[k]; 
              theArray[k] = theArray[dstIndex]; 
              theArray[dstIndex] = vTemp;
@@ -231,79 +231,79 @@ function InitChuShengNianFen()
      }
  }
   
-//ÒÀ´Î³éÈ¡7ÕÅÅÆ£¬Ï´ÅÆÊÇÎ±Ëæ»úÊı£¬³éÅÆÊÇÓë¾öÖ÷µã»÷Ê±¼äÏà¹ØµÄÕæËæ»úÊı
-//¿¨ÅÆ±ä»¯Ê±£¬Í¼Æ¬¸ú×Å±ä
+//ä¾æ¬¡æŠ½å–7å¼ ç‰Œï¼Œæ´—ç‰Œæ˜¯ä¼ªéšæœºæ•°ï¼ŒæŠ½ç‰Œæ˜¯ä¸å†³ä¸»ç‚¹å‡»æ—¶é—´ç›¸å…³çš„çœŸéšæœºæ•°
+//å¡ç‰Œå˜åŒ–æ—¶ï¼Œå›¾ç‰‡è·Ÿç€å˜
  function OnChoosingCard(objButton, nPic)
  {
-    nPic = Number(nPic); //×ªÎªÊı×Ö
-    //Ëæ»úÉú³É¿¨ÅÆĞòºÅ
-    var ix = GetRandomInt( 7 - nPic ); //Ñ¡ÖĞµÄÊı×éÔªËØĞòºÅ
-    //±£´æ¶¯Ì¬Êı×éÖĞ³éµ½µÄÔªËØ
+    nPic = Number(nPic); //è½¬ä¸ºæ•°å­—
+    //éšæœºç”Ÿæˆå¡ç‰Œåºå·
+    var ix = GetRandomInt( 7 - nPic ); //é€‰ä¸­çš„æ•°ç»„å…ƒç´ åºå·
+    //ä¿å­˜åŠ¨æ€æ•°ç»„ä¸­æŠ½åˆ°çš„å…ƒç´ 
     gArrChosen7Cards[nPic] = gArrCardNumbers[ix];
-    //´Ó¶¯Ì¬Êı×éÌŞ³ı¸ÃÔªËØ£¬ÕâÑù²»»áÖØ¸´³éÅÆ
-    gArrCardNumbers.splice(ix, 1); //É¾³ıµÚ ix ¸öÔªËØ
+    //ä»åŠ¨æ€æ•°ç»„å‰”é™¤è¯¥å…ƒç´ ï¼Œè¿™æ ·ä¸ä¼šé‡å¤æŠ½ç‰Œ
+    gArrCardNumbers.splice(ix, 1); //åˆ é™¤ç¬¬ ix ä¸ªå…ƒç´ 
     //alert(gArrCardNumbers.length); 
 
-    //»ñÈ¡Í¼Æ¬¶ÔÏó
+    //è·å–å›¾ç‰‡å¯¹è±¡
     var objPic = document.getElementById( "pic" + String(nPic) );
-    //Éú³ÉÍ¼Æ¬ÎÄ¼şÃû
-    ix = gArrChosen7Cards[nPic] ; //Ê¹ÓÃ¶¯Ì¬Êı×éÖĞÑ¡È¡ÔªËØ±£´æµÄĞòºÅ
+    //ç”Ÿæˆå›¾ç‰‡æ–‡ä»¶å
+    ix = gArrChosen7Cards[nPic] ; //ä½¿ç”¨åŠ¨æ€æ•°ç»„ä¸­é€‰å–å…ƒç´ ä¿å­˜çš„åºå·
     var strPicSrc = "qixing/" + String(ix) + ".png" ;
-    //ÉèÖÃÍ¼Æ¬Ô´ÎÄ¼ş
+    //è®¾ç½®å›¾ç‰‡æºæ–‡ä»¶
     objPic.src = strPicSrc;
-    //ÉèÖÃ°´Å¥ÎÄ±¾
+    //è®¾ç½®æŒ‰é’®æ–‡æœ¬
     objButton.value = ArrayCiShuStrs[nPic] + ArrayQiXingNames[ix];
 
-    //½ûÓÃ±¾°´Å¥
+    //ç¦ç”¨æœ¬æŒ‰é’®
     objButton.disabled = true;
-    //ÆôÓÃÏÂÒ»¸ö³éÅÆ°´Å¥
+    //å¯ç”¨ä¸‹ä¸€ä¸ªæŠ½ç‰ŒæŒ‰é’®
     gArrButtons[nPic + 1].disabled = false;
     
-    //Èç¹ûÊÇ³éµÚÁùÕÅÅÆ£¬ĞòºÅ5£¬ÄÇÃ´×Ô¶¯µ÷ÓÃµÚÆßÕÅ³éÅÆµÄ
+    //å¦‚æœæ˜¯æŠ½ç¬¬å…­å¼ ç‰Œï¼Œåºå·5ï¼Œé‚£ä¹ˆè‡ªåŠ¨è°ƒç”¨ç¬¬ä¸ƒå¼ æŠ½ç‰Œçš„
     if( 5 == nPic )
     {
-        //×îºó×Ô¶¯³éµÚÆßÕÅÅÆ
+        //æœ€åè‡ªåŠ¨æŠ½ç¬¬ä¸ƒå¼ ç‰Œ
         OnChoosingCard( gArrButtons[nPic+1], nPic+1 );
     }    
  }
  
-  //´ÎÊıºº×Ö×Ö·û´®
+  //æ¬¡æ•°æ±‰å­—å­—ç¬¦ä¸²
  var ArrayCiShuStrs = [
-   "µÚÒ»ÕÅ",  "µÚ¶şÕÅ", "µÚÈıÕÅ", "µÚËÄÕÅ",
-   "µÚÎåÕÅ" , "µÚÁùÕÅ", "µÚÆßÕÅ"
+   "ç¬¬ä¸€å¼ ",  "ç¬¬äºŒå¼ ", "ç¬¬ä¸‰å¼ ", "ç¬¬å››å¼ ",
+   "ç¬¬äº”å¼ " , "ç¬¬å…­å¼ ", "ç¬¬ä¸ƒå¼ "
  ];
  
 /////////////////////////////////////////////////////////////////
-//Õû¸öÅÅÅÌÎÄ±¾
+//æ•´ä¸ªæ’ç›˜æ–‡æœ¬
 var AllText = document.getElementById("AllText");
-//ÔÚÏßÆğÆßĞÇ¾öÅÅÅÌ
+//åœ¨çº¿èµ·ä¸ƒæ˜Ÿå†³æ’ç›˜
 function CalcQiXingPanPaiZX()
 {
-    //Èí¼ş³éÈ¡µÄ¿¨ÅÆÃ»ÓĞÖØ¸´µÄ£¬³éÒ»ÕÅÉ¾Ò»ÕÅ£¬±¾°´Å¥ÆôÓÃÊ±ÕıºÃ³éÍê7ÕÅ
+    //è½¯ä»¶æŠ½å–çš„å¡ç‰Œæ²¡æœ‰é‡å¤çš„ï¼ŒæŠ½ä¸€å¼ åˆ ä¸€å¼ ï¼Œæœ¬æŒ‰é’®å¯ç”¨æ—¶æ­£å¥½æŠ½å®Œ7å¼ 
     
-    //Ê¹ÓÃ¹«ÀúÊ±¼ä½øĞĞÅÅÅÌ
+    //ä½¿ç”¨å…¬å†æ—¶é—´è¿›è¡Œæ’ç›˜
     var bzpp = GetGGTimeBZPP();
-    //Éú³ÉÆßĞÇ¾ö¶ÔÏó
+    //ç”Ÿæˆä¸ƒæ˜Ÿå†³å¯¹è±¡
     var qxjObj = new Object();
     qxjObj.bzpp = bzpp;
-    qxjObj.arrJue = gArrChosen7Cards; //³éÈ¡µÄÆßĞÇË³ĞòÊı×é
+    qxjObj.arrJue = gArrChosen7Cards; //æŠ½å–çš„ä¸ƒæ˜Ÿé¡ºåºæ•°ç»„
    
-    //ÉèÖÃÆßĞÇ¾öÅÅÅÌ¶ÔÏó
+    //è®¾ç½®ä¸ƒæ˜Ÿå†³æ’ç›˜å¯¹è±¡
     SetQXJObject(qxjObj);
 
-    //¸üĞÂ±í¸ñÄÚÆßĞÇ×Ö·û´®
+    //æ›´æ–°è¡¨æ ¼å†…ä¸ƒæ˜Ÿå­—ç¬¦ä¸²
     UpdateTableQXStrs(qxjObj);
     
-    //Éú³ÉÅÅÅÌÎÄ±¾
+    //ç”Ÿæˆæ’ç›˜æ–‡æœ¬
     AllText.innerHTML = GetQiXingPanPaiHTML(qxjObj);
     
-    //Ö´ĞĞ×Ô¶¯¸´ÖÆµ½¼ôÌù°å£¬IE9ºÍChromeÖ§³Ö£¬»ğºü²âÊÔ²»ĞĞ¡£
-    document.execCommand("selectAll");  //È«Ñ¡
-    document.execCommand("copy");       //¸´ÖÆ
-    document.execCommand("unselect");   //²»Ñ¡ÖĞ 
+    //æ‰§è¡Œè‡ªåŠ¨å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼ŒIE9å’ŒChromeæ”¯æŒï¼Œç«ç‹æµ‹è¯•ä¸è¡Œã€‚
+    document.execCommand("selectAll");  //å…¨é€‰
+    document.execCommand("copy");       //å¤åˆ¶
+    document.execCommand("unselect");   //ä¸é€‰ä¸­ 
 }
 
-//¹«ÀúÊ±¼äÅÅÅÌ
+//å…¬å†æ—¶é—´æ’ç›˜
 function GetGGTimeBZPP()
 {    
     var myJD = JD;
@@ -312,88 +312,88 @@ function GetGGTimeBZPP()
     myJD.D = Number(sGGDay.value);
     myJD.h = Number(sGGHour.value);
     myJD.m = Number(sGGMinute.value);
-    myJD.s = 30;  //Ä¬ÈÏÊÇ30ÃëµÄÅÅÅÌ
-    //ÈåÂÔÈÕ
+    myJD.s = 30;  //é»˜è®¤æ˜¯30ç§’çš„æ’ç›˜
+    //å„’ç•¥æ—¥
     var birthTime = myJD.toJD();
-    var bzpp =  CalcBaZiObject(birthTime, "ÄĞ", 120, 0);//ÄĞÅ®ÅÅÅÌÃ»Çø±ğ£¬Ö»ÒªËÄÖù
+    var bzpp =  CalcBaZiObject(birthTime, "ç”·", 120, 0);//ç”·å¥³æ’ç›˜æ²¡åŒºåˆ«ï¼Œåªè¦å››æŸ±
     return bzpp;
 }
 
-//Ã¿´Î¶ÁÈ¡Ò»¸ö¾öÃû£¬ÅĞ¶ÏÓëÇ°ÃæµÄÊÇ·ñÖØ¸´
-//Èç¹û²»ÖØ¸´£¬·µ»Ø  false£¬ÖØ¸´·µ»Ø true
+//æ¯æ¬¡è¯»å–ä¸€ä¸ªå†³åï¼Œåˆ¤æ–­ä¸å‰é¢çš„æ˜¯å¦é‡å¤
+//å¦‚æœä¸é‡å¤ï¼Œè¿”å›  falseï¼Œé‡å¤è¿”å› true
 function CheckDuplicate(arrJue, ix)
 {
     var count = arrJue.length;
     if( ix<0  || ix>=count )
     {
-        return false;    //µ±×÷Ã»ÖØ¸´
+        return false;    //å½“ä½œæ²¡é‡å¤
     }
-    //¼ì²é ix ĞòºÅÓëÇ°ÃæµÄÊÇ·ñÖØ¸´
+    //æ£€æŸ¥ ix åºå·ä¸å‰é¢çš„æ˜¯å¦é‡å¤
     for(var k=0; k<ix; k++)
     {
         if( arrJue[k] != arrJue[ix] )
         {
-            //Ã»ÖØ¸´£¬¼ì²éÏÂÒ»¸ö
+            //æ²¡é‡å¤ï¼Œæ£€æŸ¥ä¸‹ä¸€ä¸ª
             continue;
         }
-        else //±äÁ¿ÏàµÈ£¬´ú±í¾öÃûÒ»Ñù
+        else //å˜é‡ç›¸ç­‰ï¼Œä»£è¡¨å†³åä¸€æ ·
         {
-            return true; //¼ì²éµ½ÖØ¸´
+            return true; //æ£€æŸ¥åˆ°é‡å¤
         }
     }
-    //Ã»²éµ½ÖØ¸´
+    //æ²¡æŸ¥åˆ°é‡å¤
     return false;
 }
 /**
-    qxjObj.bzpp //°Ë×ÖÅÅÅÌ
-    qxjObj.arrJue //ÆßĞÇ¾öË³Ğò
+    qxjObj.bzpp //å…«å­—æ’ç›˜
+    qxjObj.arrJue //ä¸ƒæ˜Ÿå†³é¡ºåº
  */
  function SetQXJObject(qxjObj)
  {
      /////////////////////////////////////////////////
-     /*1¡¢×Ü¸Ù£¬ÅĞ¶ÏÌìÊ±¡¢¶ÏÍ¼ÆßĞÇµÄÎåĞĞ¡¢ÍúË¥¡¢Ë³Äæ¾Ö*/
-     //ÇóÌìÊ±
+     /*1ã€æ€»çº²ï¼Œåˆ¤æ–­å¤©æ—¶ã€æ–­å›¾ä¸ƒæ˜Ÿçš„äº”è¡Œã€æ—ºè¡°ã€é¡ºé€†å±€*/
+     //æ±‚å¤©æ—¶
      qxjObj.TianShiWX = CalcTianShi( qxjObj.bzpp.iRiJZ, qxjObj.bzpp.iShiJZ );
-     //¾öÊ±Í¼
+     //å†³æ—¶å›¾
      qxjObj.curJueShiTu = JueShiXingTuArray[qxjObj.TianShiWX];
-     //¶ÏÍ¼µÄÆßĞÇÎåĞĞ
+     //æ–­å›¾çš„ä¸ƒæ˜Ÿäº”è¡Œ
      qxjObj.arrQXWuXing = new Array(7);
      for(var i=0; i<7; i++)
      {
-         if( qxjObj.arrJue[i] > 1 ) //²»ÊÇÌìÊàÌìè¯
+         if( qxjObj.arrJue[i] > 1 ) //ä¸æ˜¯å¤©æ¢å¤©ç’‡
          {
              qxjObj.arrQXWuXing[i] = ArrayQiXingWuXing[ qxjObj.arrJue[i] ];
          }
-         else//ÌìÊàÌìè¯
+         else//å¤©æ¢å¤©ç’‡
          {
-             qxjObj.arrQXWuXing[i] = qxjObj.TianShiWX;  //Í¬ÌìÊ±ÎåĞĞ
+             qxjObj.arrQXWuXing[i] = qxjObj.TianShiWX;  //åŒå¤©æ—¶äº”è¡Œ
          }
      }
-     //ÆßĞÇÇ¿ÈõÖ±½Ó²éÑ¯Ã¿¸öĞÇÔÚ curJueShiTu[] ÖĞµÄĞòºÅ¾ÍĞĞ£¬0ÊÇ×îÍú£¬6ÊÇ×îÈõ
+     //ä¸ƒæ˜Ÿå¼ºå¼±ç›´æ¥æŸ¥è¯¢æ¯ä¸ªæ˜Ÿåœ¨ curJueShiTu[] ä¸­çš„åºå·å°±è¡Œï¼Œ0æ˜¯æœ€æ—ºï¼Œ6æ˜¯æœ€å¼±
      qxjObj.arrQXQiangRuoIndexs = new Array(7);
      for(var i=0; i<7; i++)
      {
          qxjObj.arrQXQiangRuoIndexs[i] = qxjObj.curJueShiTu.indexOf( qxjObj.arrJue[i] );
      }
-     //Ë³Äæ¾öµÄÅĞ¶Ï
+     //é¡ºé€†å†³çš„åˆ¤æ–­
      qxjObj.typeShunNi = GetShunNiType( qxjObj );
-     //ÌìÊàÎ»ÖÃ£¬ÌìÊà×Ô¼ºÊÇ0£¬ĞòºÅ´ÓÁã¿ªÊ¼µÄ£¬½²ÒåµÄ357ÔÚÕâÊÇ246
+     //å¤©æ¢ä½ç½®ï¼Œå¤©æ¢è‡ªå·±æ˜¯0ï¼Œåºå·ä»é›¶å¼€å§‹çš„ï¼Œè®²ä¹‰çš„357åœ¨è¿™æ˜¯246
      qxjObj.posTianShu = qxjObj.arrJue.indexOf(0);
      
-     //ÓëÌ«Ò»ĞÇÍ¼ÇóÒìĞÇ
+     //ä¸å¤ªä¸€æ˜Ÿå›¾æ±‚å¼‚æ˜Ÿ
      qxjObj.arrTaiYiYiXing = new Array(7);
      for(var i=0; i<7; i++)
      {
-         if( qxjObj.arrJue[i] != TaiYiXingTu[i] ) //ÊÇÒìĞÇ
+         if( qxjObj.arrJue[i] != TaiYiXingTu[i] ) //æ˜¯å¼‚æ˜Ÿ
          {
              qxjObj.arrTaiYiYiXing[i] = 1; 
          }
          else
          {
-             qxjObj.arrTaiYiYiXing[i] = 0; //Ì«Ò»Í¬µÄ
+             qxjObj.arrTaiYiYiXing[i] = 0; //å¤ªä¸€åŒçš„
          }
      }
-     //ÊÇ·ñÓëÌ«Ò»È«Òì£¬²»ºÏÌìµÀ£¬È«Òì·ñ¾ö
+     //æ˜¯å¦ä¸å¤ªä¸€å…¨å¼‚ï¼Œä¸åˆå¤©é“ï¼Œå…¨å¼‚å¦å†³
      if( CalcArraySum( qxjObj.arrTaiYiYiXing ) >= 7 )
      {
          qxjObj.bTaiYiQuanYi = true;
@@ -403,527 +403,527 @@ function CheckDuplicate(arrJue, ix)
          qxjObj.bTaiYiQuanYi = false;
      }
      
-     //Óë¾öÊ±ĞÇÍ¼ÇóÍ¬ĞÇ
+     //ä¸å†³æ—¶æ˜Ÿå›¾æ±‚åŒæ˜Ÿ
      qxjObj.arrJueShiTongXing = new Array(7);
      for(var i=0; i<7; i++)
      {
-         if( qxjObj.arrJue[i] != qxjObj.curJueShiTu[i] ) //²»ÊÇÍ¬ĞÇ
+         if( qxjObj.arrJue[i] != qxjObj.curJueShiTu[i] ) //ä¸æ˜¯åŒæ˜Ÿ
          {
              qxjObj.arrJueShiTongXing[i] = 0;
          }
-         else //¾öÊ±Í¬ĞÇ
+         else //å†³æ—¶åŒæ˜Ÿ
          {
-            qxjObj.arrJueShiTongXing[i] = 2; //ÓÃ2£¬ºóÃæ·½±ã¼Ó
+            qxjObj.arrJueShiTongXing[i] = 2; //ç”¨2ï¼Œåé¢æ–¹ä¾¿åŠ 
          }
      }
-     //ÊÇ·ñÓë¾öÊ±Í¼È«Òì
-     if( CalcArraySum(qxjObj.arrJueShiTongXing) < 1 ) //Ã»ÓĞÏàÍ¬µÄ
+     //æ˜¯å¦ä¸å†³æ—¶å›¾å…¨å¼‚
+     if( CalcArraySum(qxjObj.arrJueShiTongXing) < 1 ) //æ²¡æœ‰ç›¸åŒçš„
      {
-         qxjObj.bJueShiQuanYi = true; //È«Òì·ñ¾ö
+         qxjObj.bJueShiQuanYi = true; //å…¨å¼‚å¦å†³
      }
      else
      {
          qxjObj.bJueShiQuanYi = false;
      }
      
-     //¼ÆËãÍ¬Òì¸´ĞÇ
+     //è®¡ç®—åŒå¼‚å¤æ˜Ÿ
      qxjObj.arrTongYiFuXing = new Array(7);
      for(var i=0; i<7; i++)
      {
          qxjObj.arrTongYiFuXing[i] =  qxjObj.arrTaiYiYiXing[i] + qxjObj.arrJueShiTongXing[i];
      }
 
-     return; //¼ÆËãÍê±Ï
+     return; //è®¡ç®—å®Œæ¯•
  }
- //¸ù¾İÆßĞÇ¾ö¶ÔÏó£¬¸üĞÂ±í¸ñÖĞµÄÆßĞÇÎÄ±¾¡¢×Ü¸ÙÎÄ±¾
+ //æ ¹æ®ä¸ƒæ˜Ÿå†³å¯¹è±¡ï¼Œæ›´æ–°è¡¨æ ¼ä¸­çš„ä¸ƒæ˜Ÿæ–‡æœ¬ã€æ€»çº²æ–‡æœ¬
  function UpdateTableQXStrs(qxjObj)
  {
-     //×Ü¸Ù¶ÔÏó
+     //æ€»çº²å¯¹è±¡
      var otZongGang = document.getElementById("textZongGang");
-     //Éú³É×Ü¸ÙÎÄ±¾
-     var strZongGang = "<b>¶ÏÍ¼×Ü¸Ù</b><br>";
+     //ç”Ÿæˆæ€»çº²æ–‡æœ¬
+     var strZongGang = "<b>æ–­å›¾æ€»çº²</b><br>";
      var strTemp = "";
-     //ÌìÊ±
-     strZongGang += "<b>ÌìÊ±£º" + WuXing[ qxjObj.TianShiWX ] + "</b><br>";
-     //Ë³Äæ¾Ö
+     //å¤©æ—¶
+     strZongGang += "<b>å¤©æ—¶ï¼š" + WuXing[ qxjObj.TianShiWX ] + "</b><br>";
+     //é¡ºé€†å±€
      strZongGang += QXJLeiXing[ qxjObj.typeShunNi ] + "<br>";
-     //ÌìÊàÎ»ÖÃ£¬357¼õÎª246
+     //å¤©æ¢ä½ç½®ï¼Œ357å‡ä¸º246
      if(   2 == qxjObj.posTianShu
         || 4 == qxjObj.posTianShu
         || 6 == qxjObj.posTianShu )
     {
-        strTemp = "<span style='color: red; font-weight: bold;'>ÌìÊàÔÚ"
+        strTemp = "<span style='color: red; font-weight: bold;'>å¤©æ¢åœ¨"
                 + String( qxjObj.posTianShu+1 ) + "</span><br>" ;
         strZongGang += strTemp;
     }
      
-     //Á½¸öÈ«ÒìÅĞ¶Ï
-     if( qxjObj.bTaiYiQuanYi ) //Ì«Ò»È«Òì
+     //ä¸¤ä¸ªå…¨å¼‚åˆ¤æ–­
+     if( qxjObj.bTaiYiQuanYi ) //å¤ªä¸€å…¨å¼‚
      {
-         strTemp = "<span style='color: red; font-weight: bold;'>Ì«Ò»ĞÇÍ¼È«Òì"
+         strTemp = "<span style='color: red; font-weight: bold;'>å¤ªä¸€æ˜Ÿå›¾å…¨å¼‚"
                 + "</span><br>" ;
         strZongGang += strTemp;
      };
-    if( qxjObj.bJueShiQuanYi ) //¾öÊ±È«Òì
+    if( qxjObj.bJueShiQuanYi ) //å†³æ—¶å…¨å¼‚
      {
-         strTemp = "<span style='color: red; font-weight: bold;'>¾öÊ±ĞÇÍ¼È«Òì"
+         strTemp = "<span style='color: red; font-weight: bold;'>å†³æ—¶æ˜Ÿå›¾å…¨å¼‚"
                 + "</span><br>" ;
         strZongGang += strTemp;
      };
-     //ÉèÖÃ×Ü¸Ù
+     //è®¾ç½®æ€»çº²
      otZongGang.innerHTML = strZongGang;
      
-     //¸üĞÂÆßĞÇµÄÎÄ±¾
+     //æ›´æ–°ä¸ƒæ˜Ÿçš„æ–‡æœ¬
      var baseIDText = "textQXJ";
      for(var i=0; i<7; i++)
      {
          var curID = baseIDText + String(i);
-         //¶ÔÏó
+         //å¯¹è±¡
          var curObjText = document.getElementById(curID);
-         //ÎÄ±¾
+         //æ–‡æœ¬
         var curXingHTML = "";
-         //Ç¿ÈõÅĞ¶Ï
+         //å¼ºå¼±åˆ¤æ–­
         strTemp = ArrayQiangRuo[ qxjObj.arrQXQiangRuoIndexs[i] ];  
         strTemp = PackQXWXText(strTemp,  qxjObj.arrQXWuXing[i] );
-        if( 3 == qxjObj.arrQXWuXing[i] ) //½ğÉ«¿´²»Çå
+        if( 3 == qxjObj.arrQXWuXing[i] ) //é‡‘è‰²çœ‹ä¸æ¸…
         {
             strTemp = "<span style='background-color:  #0000FF;'>" + strTemp + "</span>";
         }
         curXingHTML += strTemp;
-        //ÒìĞÇ¡¢Í¬ĞÇÅĞ¶Ï
+        //å¼‚æ˜Ÿã€åŒæ˜Ÿåˆ¤æ–­
         curXingHTML += "<br>";
         curXingHTML += QXTongYiStrs[ qxjObj.arrTongYiFuXing[i] ];
 
-        //ÉèÖÃÆßĞÇÎÄ±¾
+        //è®¾ç½®ä¸ƒæ˜Ÿæ–‡æœ¬
         curObjText.innerHTML = curXingHTML;
      }
  }
  
-//¸ù¾İÈÕÖù¡¢Ê±Öù¼××ÓÇóÌìÊ±ÎåĞĞ
+//æ ¹æ®æ—¥æŸ±ã€æ—¶æŸ±ç”²å­æ±‚å¤©æ—¶äº”è¡Œ
 function CalcTianShi( iRiJZ, iShiJZ )
 {
-    //ÈÕÖ§¡¢Ê±Ö§
+    //æ—¥æ”¯ã€æ—¶æ”¯
     var nRiZhi = iRiJZ % 12;
     var nShiZhi = iShiJZ % 12;
-    //ÎåĞĞ
+    //äº”è¡Œ
     var riWX = DiZhiChaWuXing[nRiZhi];
     var shiWX = DiZhiChaWuXing[nShiZhi];
-    //¼ÆËã Èç Ä¾0 »ğ1 ÍÁ2 ½ğ3 Ë®4
-    if( riWX+0 == shiWX  ) //Í¬ÎåĞĞ
+    //è®¡ç®— å¦‚ æœ¨0 ç«1 åœŸ2 é‡‘3 æ°´4
+    if( riWX+0 == shiWX  ) //åŒäº”è¡Œ
     {
         return riWX;
     }
-    else if( (riWX+1)%5 == shiWX) //ÈÕÉúÊ±
+    else if( (riWX+1)%5 == shiWX) //æ—¥ç”Ÿæ—¶
     {
-        return shiWX;   //Ä¾Éú»ğ£¬µÃ»ğ
+        return shiWX;   //æœ¨ç”Ÿç«ï¼Œå¾—ç«
     }
-    else if( (riWX+2)%5 == shiWX ) //Ä¾¿ËÍÁ£¬ÊÇÄ¾
+    else if( (riWX+2)%5 == shiWX ) //æœ¨å…‹åœŸï¼Œæ˜¯æœ¨
     {
         return riWX;
     }
-    else if( (riWX+3)%5 == shiWX ) //Ä¾±»½ğ¿Ë
+    else if( (riWX+3)%5 == shiWX ) //æœ¨è¢«é‡‘å…‹
     {
         return shiWX;
     }
-    else //riWX+4 £¬ÈÕÄ¾£¬Ê±Ë®
+    else //riWX+4 ï¼Œæ—¥æœ¨ï¼Œæ—¶æ°´
     {
         return riWX;
     }
 }
 /*  
-  "ÆÕÍ¨¾ö",//0
-  "Ë³Ìì¾ö",//1
-  "ÄæÌì¾ö",//2
-  "Ë³Ê±¾ö",//3
-  "ÄæÊ±¾ö" //4 */
+  "æ™®é€šå†³",//0
+  "é¡ºå¤©å†³",//1
+  "é€†å¤©å†³",//2
+  "é¡ºæ—¶å†³",//3
+  "é€†æ—¶å†³" //4 */
 function GetShunNiType( qxjObj )
 {
-    //Ì«Ò»ĞÇÍ¼
+    //å¤ªä¸€æ˜Ÿå›¾
     var curTY = TaiYiXingTu;
-    //¾öÊ±ĞÇÍ¼
+    //å†³æ—¶æ˜Ÿå›¾
     var curJS = qxjObj.curJueShiTu;
     
-    //Ë³Ìì¾ÖÅĞ¶Ï
-    var isShunTian = true; //ÏÈ¼Ù¶¨ÊÇË³Ìì
+    //é¡ºå¤©å±€åˆ¤æ–­
+    var isShunTian = true; //å…ˆå‡å®šæ˜¯é¡ºå¤©
     for(var i=0; i<7; i++ )
     {
-        if( curTY[i] != qxjObj.arrJue[i] )//Èç¹ûÓĞ²»Í¬µÄ¾Í²»ÊÇË³Ìì
+        if( curTY[i] != qxjObj.arrJue[i] )//å¦‚æœæœ‰ä¸åŒçš„å°±ä¸æ˜¯é¡ºå¤©
         {
             isShunTian = false;
-            break; //Í£Ö¹²é
+            break; //åœæ­¢æŸ¥
         }
     }
-    if( isShunTian ) return 1; //Ë³Ìì¾Ö·µ»Ø
+    if( isShunTian ) return 1; //é¡ºå¤©å±€è¿”å›
 
     ///////////////////
-    //ÄæÌì¾ÖÅĞ¶Ï
-    var isNiTian = true;//¼Ù¶¨ÄæÌì
+    //é€†å¤©å±€åˆ¤æ–­
+    var isNiTian = true;//å‡å®šé€†å¤©
     for(var i=0; i<7; i++)
     {
-        if( curTY[6-i] != qxjObj.arrJue[i] )//Èç¹ûÓĞ²»Í¬µÄ¾Í²»ÊÇÄæÌì
+        if( curTY[6-i] != qxjObj.arrJue[i] )//å¦‚æœæœ‰ä¸åŒçš„å°±ä¸æ˜¯é€†å¤©
         {
             isNiTian = false;
-            break; //Í£Ö¹²é
+            break; //åœæ­¢æŸ¥
         }
     }
-    if( isNiTian ) return 2;   //ÄæÌì¾Ö·µ»Ø
+    if( isNiTian ) return 2;   //é€†å¤©å±€è¿”å›
 
     ////////////////////////////////////////
-    //Ë³Ê±¾ÖÅĞ¶Ï
-    var isShunShi = true; //¼Ù¶¨Ë³Ê±
+    //é¡ºæ—¶å±€åˆ¤æ–­
+    var isShunShi = true; //å‡å®šé¡ºæ—¶
     for(var i=0; i<7; i++)
     {
-        if( curJS[i] != qxjObj.arrJue[i] ) //ÓĞ²»Í¬µÄ£¬²»ÊÇË³Ê±
+        if( curJS[i] != qxjObj.arrJue[i] ) //æœ‰ä¸åŒçš„ï¼Œä¸æ˜¯é¡ºæ—¶
         {
             isShunShi = false;
-            break; //Í£Ö¹¼ì²é
+            break; //åœæ­¢æ£€æŸ¥
         }
     }
-    if( isShunShi ) return 3;  //Ë³Ê±¾Ö·µ»Ø3    
+    if( isShunShi ) return 3;  //é¡ºæ—¶å±€è¿”å›3    
 
     ////////////////////////////////////////
-    //ÄæÊ±¾ÖÅĞ¶Ï
-    var isNiShi = true; //¼Ù¶¨ÄæÊ±
+    //é€†æ—¶å±€åˆ¤æ–­
+    var isNiShi = true; //å‡å®šé€†æ—¶
     for(var i=0; i<7; i++)
     {
-        if( curJS[6-i] != qxjObj.arrJue[i] ) //ÓĞ²»Í¬µÄ£¬²»ÊÇÄæÊ±
+        if( curJS[6-i] != qxjObj.arrJue[i] ) //æœ‰ä¸åŒçš„ï¼Œä¸æ˜¯é€†æ—¶
         {
             isNiShi = false;
             break;
         }
     }
-    if( isNiShi ) return 4;  //ÄæÊ±¾Ö·µ»Ø 4   
+    if( isNiShi ) return 4;  //é€†æ—¶å±€è¿”å› 4   
 
-    //×îºó¶¼Ã»ÖĞ
+    //æœ€åéƒ½æ²¡ä¸­
     return 0; 
 }
 
-//¸ù¾İÆßĞÇ¾ö¶ÔÏóÉú³ÉÅÅÅÌµÄÎÄ±¾
-function GetQiXingPanPaiHTML(qxjObj)//¾öÓĞÆß¸ö
+//æ ¹æ®ä¸ƒæ˜Ÿå†³å¯¹è±¡ç”Ÿæˆæ’ç›˜çš„æ–‡æœ¬
+function GetQiXingPanPaiHTML(qxjObj)//å†³æœ‰ä¸ƒä¸ª
 {
-    //½á¹û×Ö·û´®
-    var strRet = "<br><div align=\"left\" style=\"line-height: 18pt; font-family: ËÎÌå;\">"; 
+    //ç»“æœå­—ç¬¦ä¸²
+    var strRet = "<br><div align=\"left\" style=\"line-height: 18pt; font-family: å®‹ä½“;\">"; 
     var strTemp = "";
-    var curJD = qxjObj.bzpp.JDBirth; //ÆğØÔµÄÈåÂÔÈÕÊ±¼ä
+    var curJD = qxjObj.bzpp.JDBirth; //èµ·å¦çš„å„’ç•¥æ—¥æ—¶é—´
     
-    //Õ¼ÊÂ
+    //å äº‹
     strTemp = document.getElementById("tZhanShi").value;
-    strRet += "ËùÕ¼ÊÂÇé£º" + strTemp + "<br>";
-    //Æğ¾ö·½Ê½
-    strRet += "Æğ¾ö·½Ê½£ºÔÚÏß³éµç×ÓÅÆ£¨Ï´ÅÆÎ±Ëæ»ú£¬³éÅÆÕæËæ»ú£©<br>";
-    //ØÔÖ÷ĞÔ±ğ¡¢ÉúÄê
-    strTemp = "ØÔÖ÷ĞÔ±ğ£º" + document.getElementById("sGender").value
-        + "£¬ ÉúÄê£º" + sShengNian.options[sShengNian.selectedIndex].text;
+    strRet += "æ‰€å äº‹æƒ…ï¼š" + strTemp + "<br>";
+    //èµ·å†³æ–¹å¼
+    strRet += "èµ·å†³æ–¹å¼ï¼šåœ¨çº¿æŠ½ç”µå­ç‰Œï¼ˆæ´—ç‰Œä¼ªéšæœºï¼ŒæŠ½ç‰ŒçœŸéšæœºï¼‰<br>";
+    //å¦ä¸»æ€§åˆ«ã€ç”Ÿå¹´
+    strTemp = "å¦ä¸»æ€§åˆ«ï¼š" + document.getElementById("sGender").value
+        + "ï¼Œ ç”Ÿå¹´ï¼š" + sShengNian.options[sShengNian.selectedIndex].text;
     strRet += strTemp + "<br>";  
-    //¹«ÀúÊ±¼ä
+    //å…¬å†æ—¶é—´
     strRet += GetGGTimeStr(curJD) + "<br>";
-    //Å©ÀúÊ±¼ä
+    //å†œå†æ—¶é—´
     strRet += GetNNTimeStr(curJD) + "<br>";
-    //¹¹Ôì¸ÉÖ§×Ö·û´®
-    strTemp = "¸ÉÖ§£º" + GetBoldText( JiaZi[qxjObj.bzpp.iNianJZ] ) + "Äê"
-        + "¡¡" + GetBoldText(  JiaZi[qxjObj.bzpp.iYueJZ] ) + "ÔÂ" 
-        + "¡¡" + GetFuchsiaText(GetBoldText( JiaZi[ qxjObj.bzpp.iRiJZ ] )) 
-        + "ÈÕ¡¡" 
+    //æ„é€ å¹²æ”¯å­—ç¬¦ä¸²
+    strTemp = "å¹²æ”¯ï¼š" + GetBoldText( JiaZi[qxjObj.bzpp.iNianJZ] ) + "å¹´"
+        + "ã€€" + GetBoldText(  JiaZi[qxjObj.bzpp.iYueJZ] ) + "æœˆ" 
+        + "ã€€" + GetFuchsiaText(GetBoldText( JiaZi[ qxjObj.bzpp.iRiJZ ] )) 
+        + "æ—¥ã€€" 
         + GetFuchsiaText(GetBoldText( JiaZi[ qxjObj.bzpp.iShiJZ ] ))
-        + "Ê±" ;
+        + "æ—¶" ;
     strRet += strTemp + "<br><br>" ;
     ////////////////////////////////////////////////
-    //×Ü¸Ù
-    strRet += "<b>Ò»¡¢¶ÏÍ¼×Ü¸Ù</b><br>";
-    //ÌìÊ±
-    strRet += "<b>ÌìÊ±£º" +  WuXing[qxjObj.TianShiWX] + "</b><br>";
-    //Ë³Äæ¡¢ÆÕÍ¨¾ÖÀàĞÍ
+    //æ€»çº²
+    strRet += "<b>ä¸€ã€æ–­å›¾æ€»çº²</b><br>";
+    //å¤©æ—¶
+    strRet += "<b>å¤©æ—¶ï¼š" +  WuXing[qxjObj.TianShiWX] + "</b><br>";
+    //é¡ºé€†ã€æ™®é€šå±€ç±»å‹
     strRet += "<b>" +  QXJLeiXing[ qxjObj.typeShunNi ] 
              + QXJLeiXingMiaoShu[qxjObj.typeShunNi] + "</b><br>";
-    //ÌìÊàĞÇµÄÎ»ÖÃ£¬Ô­±¾357£¬ÕâÀïĞòºÅÎª246
+    //å¤©æ¢æ˜Ÿçš„ä½ç½®ï¼ŒåŸæœ¬357ï¼Œè¿™é‡Œåºå·ä¸º246
     if(     2 == qxjObj.posTianShu
          || 4 == qxjObj.posTianShu
          || 6 ==  qxjObj.posTianShu)
     {
-        strTemp = "ÌìÊàÔÚ" + String( qxjObj.posTianShu + 1 )
-            + "£ºÊÂÇé¶àÊıÂä¿Õ£¬²â²¡»ò³ö¼ÒĞŞµÀÀıÍâ¡£";
+        strTemp = "å¤©æ¢åœ¨" + String( qxjObj.posTianShu + 1 )
+            + "ï¼šäº‹æƒ…å¤šæ•°è½ç©ºï¼Œæµ‹ç—…æˆ–å‡ºå®¶ä¿®é“ä¾‹å¤–ã€‚";
         strTemp =  GetBoldText( GetRedText(strTemp) );
         strRet += strTemp + "<br>" ;
     }
-    //Ë³Ìì¾öË³Ê±¾öÒ»°ã²»¿´ÒìĞÇ¡¢Í¬ĞÇ
-    //Ë³Ìì1£¬Ë³Ê±3
+    //é¡ºå¤©å†³é¡ºæ—¶å†³ä¸€èˆ¬ä¸çœ‹å¼‚æ˜Ÿã€åŒæ˜Ÿ
+    //é¡ºå¤©1ï¼Œé¡ºæ—¶3
     if( 1 == qxjObj.typeShunNi || 3 == qxjObj.typeShunNi )
     {
-        //ÓëÌ«Ò»È«ÒìÅĞ¶Ï
+        //ä¸å¤ªä¸€å…¨å¼‚åˆ¤æ–­
         if(qxjObj.bTaiYiQuanYi)
         {
-            strRet += "ÓëÌ«Ò»ĞÇÍ¼È«Òì£ºÓÅÏÈÂÛË³¾ö¡£<br>" ;
+            strRet += "ä¸å¤ªä¸€æ˜Ÿå›¾å…¨å¼‚ï¼šä¼˜å…ˆè®ºé¡ºå†³ã€‚<br>" ;
         }
         if(qxjObj.bJueShiQuanYi)
         {
-            strRet += "Óë¾öÊ±ĞÇÍ¼È«Òì£ºÓÅÏÈÂÛË³¾ö¡£<br>" ;
+            strRet += "ä¸å†³æ—¶æ˜Ÿå›¾å…¨å¼‚ï¼šä¼˜å…ˆè®ºé¡ºå†³ã€‚<br>" ;
         }
     }
     else
     {
-        //Ì«Ò»È«ÒìºÍ¾öÊ±È«Òì
+        //å¤ªä¸€å…¨å¼‚å’Œå†³æ—¶å…¨å¼‚
          if(qxjObj.bTaiYiQuanYi)
         {
-            strRet += GetBoldText(GetRedText("ÓëÌ«Ò»ĞÇÍ¼È«Òì£ºÓĞÎ¥ÌìµÀ£¬´óÊÂ²»Àû£¬Ğ¡ÊÂÎŞ·Á¡£<br>")) ;
+            strRet += GetBoldText(GetRedText("ä¸å¤ªä¸€æ˜Ÿå›¾å…¨å¼‚ï¼šæœ‰è¿å¤©é“ï¼Œå¤§äº‹ä¸åˆ©ï¼Œå°äº‹æ— å¦¨ã€‚<br>")) ;
         }
         if(qxjObj.bJueShiQuanYi)
         {
-            strRet += GetBoldText(GetRedText("Óë¾öÊ±ĞÇÍ¼È«Òì£º²»µÃÌìÊ±£¬´óÊÂ²»Àû£¬Ğ¡ÊÂÎŞ·Á¡£<br>")) ;
+            strRet += GetBoldText(GetRedText("ä¸å†³æ—¶æ˜Ÿå›¾å…¨å¼‚ï¼šä¸å¾—å¤©æ—¶ï¼Œå¤§äº‹ä¸åˆ©ï¼Œå°äº‹æ— å¦¨ã€‚<br>")) ;
         }
     }
     strRet += "<br>";
     /////////////////////////////////////
-    //¿ªÊ¼·ÅĞÇÃûºÍÃèÊö
-    strRet += "<b>¶ş¡¢ÆßĞÇË³ĞòºÍÇ¿Èõ</b>£¨4¿Å¡ï¼°ÒÔÉÏÎªÇ¿£¬ÆäËûÎªÈõ£©<br>";
+    //å¼€å§‹æ”¾æ˜Ÿåå’Œæè¿°
+    strRet += "<b>äºŒã€ä¸ƒæ˜Ÿé¡ºåºå’Œå¼ºå¼±</b>ï¼ˆ4é¢—â˜…åŠä»¥ä¸Šä¸ºå¼ºï¼Œå…¶ä»–ä¸ºå¼±ï¼‰<br>";
     var strT2 = "";
     for(var i=0; i<7; i++)
     {
-        //ĞÇÃû
-        strTemp = String(i+1) + "¡¢" + ArrayQiXingNames[ qxjObj.arrJue[i] ] + "£¬¡¡ÎåĞĞ";        
-        //ÎåĞĞ
+        //æ˜Ÿå
+        strTemp = String(i+1) + "ã€" + ArrayQiXingNames[ qxjObj.arrJue[i] ] + "ï¼Œã€€äº”è¡Œ";        
+        //äº”è¡Œ
         strTemp += ArrayQXWXPrefixStrs[ qxjObj.arrJue[i] ] + WuXing[qxjObj.arrQXWuXing[i]];
-        //Ç¿Èõ
+        //å¼ºå¼±
         strT2 = PackQXWXText(ArrayQiangRuo[ qxjObj.arrQXQiangRuoIndexs[i] ],  qxjObj.arrQXWuXing[i] );
-        if( 3 == qxjObj.arrQXWuXing[i] ) //½ğÉ«¿´²»Çå
+        if( 3 == qxjObj.arrQXWuXing[i] ) //é‡‘è‰²çœ‹ä¸æ¸…
         {
             strT2 = "<span style='background-color: #0000FF;'>" + strT2 + "</span>";
         }
-        strTemp += "£¬¡¡" +  strT2;
+        strTemp += "ï¼Œã€€" +  strT2;
         strTemp += "<br>";
-        //ĞÇÏàÒâÒå
+        //æ˜Ÿç›¸æ„ä¹‰
         strTemp += ArrayQiXingMiaoShu[ qxjObj.arrJue[i] ];
         strTemp += "<br>";        
-        //¿ªÍ·½áÎ²ÅĞ¶Ï
+        //å¼€å¤´ç»“å°¾åˆ¤æ–­
         if(0 == i )
         {
-            //¼Ó¿ªÍ·
+            //åŠ å¼€å¤´
             strTemp += "<b>" + ArrayQiXingStart[ qxjObj.arrJue[i] ] + "</b><br>" ;
         }
         if(6 == i)
         {
-            //¼Ó½áÎ²
+            //åŠ ç»“å°¾
             strTemp += "<b>" + ArrayQiXingEnd[ qxjObj.arrJue[i] ] + "</b><br>" ;
         }        
-        //Ìí¼Ó
+        //æ·»åŠ 
         strRet += strTemp;
     }
-    //²¹³äË³Ìì¾ö¡¢Ë³Ê±¾öµÄÌáÊ¾
+    //è¡¥å……é¡ºå¤©å†³ã€é¡ºæ—¶å†³çš„æç¤º
     if( 1 == qxjObj.typeShunNi || 3 == qxjObj.typeShunNi )
     {
-        strRet += GetFuchsiaText( GetBoldText("Ë³Ìì¾öºÍË³Ê±¾öÀıÍâ£¬Ë³¾ö²»ÂÛºÎĞÇ½áÎ²£¬¶¼ÂÛ´ó¼ª¡£") ) + "<br>";
+        strRet += GetFuchsiaText( GetBoldText("é¡ºå¤©å†³å’Œé¡ºæ—¶å†³ä¾‹å¤–ï¼Œé¡ºå†³ä¸è®ºä½•æ˜Ÿç»“å°¾ï¼Œéƒ½è®ºå¤§å‰ã€‚") ) + "<br>";
     }
     strRet += "<br>";
     
-    //ÓëÌ«Ò»ĞÇÍ¼ÇóÒìĞÇ
-    strRet += "<b>Èı¡¢ÓëÌ«Ò»ĞÇÍ¼ÇóÒìĞÇ</b>£¨ÒìĞÇÎªÊÂÎï·¢Õ¹µÄ¹Ø¼üÒªËØ£©<br>";
-    strRet += "Ö÷¶ÏÍ¼¡¡Ì«Ò»ĞÇÍ¼¡¡ÇóÒì<br>";
-    var tyyxCount = 0; //ÒìĞÇ¼ÆÊı
+    //ä¸å¤ªä¸€æ˜Ÿå›¾æ±‚å¼‚æ˜Ÿ
+    strRet += "<b>ä¸‰ã€ä¸å¤ªä¸€æ˜Ÿå›¾æ±‚å¼‚æ˜Ÿ</b>ï¼ˆå¼‚æ˜Ÿä¸ºäº‹ç‰©å‘å±•çš„å…³é”®è¦ç´ ï¼‰<br>";
+    strRet += "ä¸»æ–­å›¾ã€€å¤ªä¸€æ˜Ÿå›¾ã€€æ±‚å¼‚<br>";
+    var tyyxCount = 0; //å¼‚æ˜Ÿè®¡æ•°
     for(var i=0; i<7; i++)
     {
-        if( qxjObj.arrTaiYiYiXing[i] > 0 ) //ÊÇÒìĞÇ
+        if( qxjObj.arrTaiYiYiXing[i] > 0 ) //æ˜¯å¼‚æ˜Ÿ
         {
-            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "¡¡¡ú¡¡" 
-                     + ArrayQiXingNames[TaiYiXingTu[i]] + "¡¡¡¡Òì";
+            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "ã€€â†’ã€€" 
+                     + ArrayQiXingNames[TaiYiXingTu[i]] + "ã€€ã€€å¼‚";
             strTemp = GetRedText( GetBoldText(strTemp) );
             tyyxCount++;
         }
         else
         {
-            //²»ÊÇÒìĞÇ
-            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "¡¡¡¡¡¡" 
-                     + ArrayQiXingNames[TaiYiXingTu[i]] + "¡¡¡¡==";
+            //ä¸æ˜¯å¼‚æ˜Ÿ
+            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "ã€€ã€€ã€€" 
+                     + ArrayQiXingNames[TaiYiXingTu[i]] + "ã€€ã€€==";
         }
-        //Ìí¼Ó×Ö·û´®
+        //æ·»åŠ å­—ç¬¦ä¸²
         strRet += strTemp + "<br>";
     }
-    strTemp = "Ì«Ò»ÒìĞÇ¼ÆÊı£º" + String( tyyxCount );
+    strTemp = "å¤ªä¸€å¼‚æ˜Ÿè®¡æ•°ï¼š" + String( tyyxCount );
     if( tyyxCount >= 7 )
     {
-        strTemp += "£¨ÓëÌ«Ò»ĞÇÍ¼È«Òì£©";
+        strTemp += "ï¼ˆä¸å¤ªä¸€æ˜Ÿå›¾å…¨å¼‚ï¼‰";
     }
-    else if( tyyxCount < 1 ) //Ë³Ìì¾ö
+    else if( tyyxCount < 1 ) //é¡ºå¤©å†³
     {
-        strTemp += "£¨Ë³Ìì¾ö£©";
+        strTemp += "ï¼ˆé¡ºå¤©å†³ï¼‰";
     }
     strRet += strTemp + "<br>";
     strRet += "<br>";
     
-    //Óë¾öÊ±ĞÇÍ¼ÇóÍ¬ĞÇ
-    strRet += "<b>ËÄ¡¢Óë¾öÊ±ĞÇÍ¼ÇóÍ¬ĞÇ</b>£¨Í¬ĞÇÎªÊÂÎï·¢Õ¹µÄ¹Ø¼üÊ±¼äµã£©<br>";
-    strRet += "Ö÷¶ÏÍ¼¡¡¾öÊ±ĞÇÍ¼¡¡ÇóÍ¬<br>";
-    var jstxCount = 0; //¾öÊ±Í¬ĞÇ¼ÆÊı
+    //ä¸å†³æ—¶æ˜Ÿå›¾æ±‚åŒæ˜Ÿ
+    strRet += "<b>å››ã€ä¸å†³æ—¶æ˜Ÿå›¾æ±‚åŒæ˜Ÿ</b>ï¼ˆåŒæ˜Ÿä¸ºäº‹ç‰©å‘å±•çš„å…³é”®æ—¶é—´ç‚¹ï¼‰<br>";
+    strRet += "ä¸»æ–­å›¾ã€€å†³æ—¶æ˜Ÿå›¾ã€€æ±‚åŒ<br>";
+    var jstxCount = 0; //å†³æ—¶åŒæ˜Ÿè®¡æ•°
     for(var i=0; i<7; i++)
     {
-        if( qxjObj.arrJueShiTongXing[i] > 0 ) //ÊÇ¾öÊ±Í¬ĞÇ
+        if( qxjObj.arrJueShiTongXing[i] > 0 ) //æ˜¯å†³æ—¶åŒæ˜Ÿ
         {
-            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "¡¡¡¡¡¡" 
-                     + ArrayQiXingNames[ qxjObj.curJueShiTu[i] ] + "¡¡¡¡Í¬";
+            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "ã€€ã€€ã€€" 
+                     + ArrayQiXingNames[ qxjObj.curJueShiTu[i] ] + "ã€€ã€€åŒ";
             strTemp = GetGreenText( GetBoldText(strTemp) );
             jstxCount++;
         }
         else
         {
-            //²»ÊÇÍ¬ĞÇ
-            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "¡¡¡ú¡¡" 
-                     + ArrayQiXingNames[ qxjObj.curJueShiTu[i] ] + "¡¡¡¡¡Á";
+            //ä¸æ˜¯åŒæ˜Ÿ
+            strTemp = ArrayQiXingNames[qxjObj.arrJue[i]] + "ã€€â†’ã€€" 
+                     + ArrayQiXingNames[ qxjObj.curJueShiTu[i] ] + "ã€€ã€€Ã—";
         }
-        //Ìí¼Ó×Ö·û´®
+        //æ·»åŠ å­—ç¬¦ä¸²
         strRet += strTemp + "<br>";
     }
-    strTemp = "¾öÊ±Í¬ĞÇ¼ÆÊı£º" + String( jstxCount );
-    if( jstxCount >= 7 ) //È«ÊÇÍ¬ĞÇ
+    strTemp = "å†³æ—¶åŒæ˜Ÿè®¡æ•°ï¼š" + String( jstxCount );
+    if( jstxCount >= 7 ) //å…¨æ˜¯åŒæ˜Ÿ
     {
-        strTemp += "£¨Ë³Ê±¾ö£©";
+        strTemp += "ï¼ˆé¡ºæ—¶å†³ï¼‰";
     }
-    else if( jstxCount < 1 ) //È«ÊÇÒìĞÇ
+    else if( jstxCount < 1 ) //å…¨æ˜¯å¼‚æ˜Ÿ
     {
-        strTemp += "£¨Óë¾öÊ±ĞÇÍ¼È«Òì£©";
+        strTemp += "ï¼ˆä¸å†³æ—¶æ˜Ÿå›¾å…¨å¼‚ï¼‰";
     }
     strRet += strTemp + "<br>";
     strRet += "<br>";
     
-    //Í¬Òì¸´ĞÇÅĞ¶Ï
-    strRet += "<b>Îå¡¢Í¬Òì¸´ĞÇÁĞ±í</b>£¨¸´ĞÇÎªÊÂÎï·¢Õ¹µÄÖØ´ó¹Ø¿Ú£©<br>";
-    var fxCount = 0; //¾öÊ±Í¬ĞÇ¼ÆÊı
+    //åŒå¼‚å¤æ˜Ÿåˆ¤æ–­
+    strRet += "<b>äº”ã€åŒå¼‚å¤æ˜Ÿåˆ—è¡¨</b>ï¼ˆå¤æ˜Ÿä¸ºäº‹ç‰©å‘å±•çš„é‡å¤§å…³å£ï¼‰<br>";
+    var fxCount = 0; //å†³æ—¶åŒæ˜Ÿè®¡æ•°
     for(var i=0; i<7; i++)
     {
-        if( qxjObj.arrTongYiFuXing[i] >= 3 ) //¼ÓºÍÊÇ¸´ĞÇ
+        if( qxjObj.arrTongYiFuXing[i] >= 3 ) //åŠ å’Œæ˜¯å¤æ˜Ÿ
         {
-            strTemp = "µÚ" + String(i+1) + "¸ö£º"
+            strTemp = "ç¬¬" + String(i+1) + "ä¸ªï¼š"
                     + GetFuchsiaText( GetBoldText(ArrayQiXingNames[qxjObj.arrJue[i]])) ;
             strRet += strTemp + "<br>";
             fxCount++;
         }
     }
-    //¼ÆÊı
-    strTemp = "Í¬Òì¸´ĞÇ¼ÆÊı£º" + String(fxCount) + "<br>";    
+    //è®¡æ•°
+    strTemp = "åŒå¼‚å¤æ˜Ÿè®¡æ•°ï¼š" + String(fxCount) + "<br>";    
     strRet += strTemp + "<br>";
 
-    //·µ»Ø
+    //è¿”å›
     return strRet;
 }
 
 /////////////////////////////////////////////////////////////////
-//ÓĞ¸ü¸ß¾«¶È¼ÆÊ±Æ÷£¬µ«ÊÇÊÖ»úä¯ÀÀÆ÷²»Ò»¶¨Ö§³Ö¡¢Æ»¹ûÏµÍ³Ò²²»Ö§³Ö£ºhttps://developer.mozilla.org/en-US/docs/Web/API/Performance/now
-//Ëæ»úÊıËã·¨
+//æœ‰æ›´é«˜ç²¾åº¦è®¡æ—¶å™¨ï¼Œä½†æ˜¯æ‰‹æœºæµè§ˆå™¨ä¸ä¸€å®šæ”¯æŒã€è‹¹æœç³»ç»Ÿä¹Ÿä¸æ”¯æŒï¼šhttps://developer.mozilla.org/en-US/docs/Web/API/Performance/now
+//éšæœºæ•°ç®—æ³•
 function GetRandomInt(nMax)
 {
     var d = new Date();
-    nMax = Math.floor(nMax); //Ä¿Ç°Ö»ÓÃÕûÊı
-    if( nMax < 1 ) //²»Õı³£µÄÉÏÏŞÊı×Ö
+    nMax = Math.floor(nMax); //ç›®å‰åªç”¨æ•´æ•°
+    if( nMax < 1 ) //ä¸æ­£å¸¸çš„ä¸Šé™æ•°å­—
     {
         return 0;
     }
-    //·µ»ØºÁÃëÊıÉú³ÉµÄËæ»úÊı
+    //è¿”å›æ¯«ç§’æ•°ç”Ÿæˆçš„éšæœºæ•°
     return d.getTime() % nMax;    
 }
 
-//µØÖ§ËÙ²éÎåĞĞ
-//ÎåĞĞÅÅĞò Ä¾0 »ğ1 ÍÁ2 ½ğ3 Ë®4
+//åœ°æ”¯é€ŸæŸ¥äº”è¡Œ
+//äº”è¡Œæ’åº æœ¨0 ç«1 åœŸ2 é‡‘3 æ°´4
 var DiZhiChaWuXing = [
-    4,//×ÓË®
-    2,//³óÍÁ
-    0,//ÒúÄ¾
-    0,//Ã®Ä¾
-    2,//³½ÍÁ
-    1,//ËÈ»ğ
-    1,//Îç»ğ
-    2,//Î´ÍÁ
-    3,//Éê½ğ
-    3,//ÓÏ½ğ
-    2,//ĞçÍÁ
-    4 //º¥Ë®
+    4,//å­æ°´
+    2,//ä¸‘åœŸ
+    0,//å¯…æœ¨
+    0,//å¯æœ¨
+    2,//è¾°åœŸ
+    1,//å·³ç«
+    1,//åˆç«
+    2,//æœªåœŸ
+    3,//ç”³é‡‘
+    3,//é…‰é‡‘
+    2,//æˆŒåœŸ
+    4 //äº¥æ°´
 ];
 
-//7¸ö¿¨ÅÆÃû
+//7ä¸ªå¡ç‰Œå
 var ArrayQiXingNames = [
-    "ÌìÊà", "Ììè¯", "Ììçá", "ÌìÈ¨", "Óñºâ", "¿ªÑô", "Ò¡¹â"
+    "å¤©æ¢", "å¤©ç’‡", "å¤©ç‘", "å¤©æƒ", "ç‰è¡¡", "å¼€é˜³", "æ‘‡å…‰"
 ];
-//ÎåĞĞÅÅĞò Ä¾0 »ğ1 ÍÁ2 ½ğ3 Ë®4
+//äº”è¡Œæ’åº æœ¨0 ç«1 åœŸ2 é‡‘3 æ°´4
 var ArrayQiXingWuXing = [
     -1, -1, 4, 0, 1, 2, 3
-];//ÓĞ£¬¹é£¬Ë®£¬Ä¾£¬»ğ£¬ÍÁ£¬½ğ
+];//æœ‰ï¼Œå½’ï¼Œæ°´ï¼Œæœ¨ï¼Œç«ï¼ŒåœŸï¼Œé‡‘
 var ArrayQXWXPrefixStrs = [
-    "ÓĞ", "¹é", "£º","£º","£º","£º","£º"
+    "æœ‰", "å½’", "ï¼š","ï¼š","ï¼š","ï¼š","ï¼š"
 ];
 
-//ÆßĞÇÃèÊö
+//ä¸ƒæ˜Ÿæè¿°
 var ArrayQiXingMiaoShu = [
-"ĞÇÏó£º¿ÕÎŞ¡£ÌìÊàÎªÌìµÀ£¬ÎªÃ»ÓĞ£¬ÎªµÀ£¬ÎªĞÄ¾³£¬Îª°×Ã¦£¬ÍòÎïÖ®µÀ´ÓÎŞÖĞÀ´£¬µ½ÎŞÖĞÈ¥¡£", //ÌìÊà
-"ĞÇÏó£º¿ªÊ¼¡£Ììè¯Îª¿ªÊ¼¡¢Æğ²½¡¢µÀÖ®Ê¼¡¢Á¼ºÃµÄ¿ªÍ·»ò×¼±¸£¬ÊÇÍòÎïµÄ¿ªÊ¼ÓëÆğÔ´¡£", //Ììè¯
-"ĞÇÏó£ºĞÎ³É¡£ÌìçáÎªÍòÎïµÄĞÎ³É¡¢·¢Õ¹¡¢ÔĞÓı¡¢Éú»ú¡¢Õ¹¿ª¾ÖÃæ£¬ÊÇÍòÎïµÄ·¢Õ¹ÃçÍ·¡£", //Ììçá
-"ĞÇÏó£º¾«½ø¡£ÌìÈ¨ÎªÍòÎïµÄ¾«½ø¡¢³ÉÊìÎÈ¶¨µÄ±íÏà¡¢·±ÈÙ²ıÊ¢£¬ÊÂÒµ¹¦ÃûµÄ³É¹¦¡£",   //ÌìÈ¨
-"ĞÇÏó£º¾«»ª¡£ÓñºâÎªÊÂÎï·¢Õ¹µÄ¾«»ª¡¢¼«ÏŞ¼«ÖÂ¡¢¶¥·å¡¢ÉÏ²ã¡¢»ğÆø¡¢±©Æ¢Æø¡£",//Óñºâ
-"ĞÇÏó£º¼«Èõ¡£¿ªÑôÎªÊÂÎï·¢Õ¹µÄ¼«Èõ¾³µØ¡¢ÍË²½¡¢´ÎÊ¢¡¢»»Î»¡¢½µÖ°¡¢»ØÂä¡¢Ë¥°Ü¡£",  //¿ªÑô
-"ĞÇÏó£º±ä»¯¡£Ò¡¹âÊÇÈõ¼«Éú±ä£¬Îª±ä»¯¡¢×ª»»¡¢ĞÄÖÇ£¬Óöµ½ÈñÆø¡¢¾ºÕù¡¢Õù·æ¡£"   //Ò¡¹â
+"æ˜Ÿè±¡ï¼šç©ºæ— ã€‚å¤©æ¢ä¸ºå¤©é“ï¼Œä¸ºæ²¡æœ‰ï¼Œä¸ºé“ï¼Œä¸ºå¿ƒå¢ƒï¼Œä¸ºç™½å¿™ï¼Œä¸‡ç‰©ä¹‹é“ä»æ— ä¸­æ¥ï¼Œåˆ°æ— ä¸­å»ã€‚", //å¤©æ¢
+"æ˜Ÿè±¡ï¼šå¼€å§‹ã€‚å¤©ç’‡ä¸ºå¼€å§‹ã€èµ·æ­¥ã€é“ä¹‹å§‹ã€è‰¯å¥½çš„å¼€å¤´æˆ–å‡†å¤‡ï¼Œæ˜¯ä¸‡ç‰©çš„å¼€å§‹ä¸èµ·æºã€‚", //å¤©ç’‡
+"æ˜Ÿè±¡ï¼šå½¢æˆã€‚å¤©ç‘ä¸ºä¸‡ç‰©çš„å½¢æˆã€å‘å±•ã€å­•è‚²ã€ç”Ÿæœºã€å±•å¼€å±€é¢ï¼Œæ˜¯ä¸‡ç‰©çš„å‘å±•è‹—å¤´ã€‚", //å¤©ç‘
+"æ˜Ÿè±¡ï¼šç²¾è¿›ã€‚å¤©æƒä¸ºä¸‡ç‰©çš„ç²¾è¿›ã€æˆç†Ÿç¨³å®šçš„è¡¨ç›¸ã€ç¹è£æ˜Œç››ï¼Œäº‹ä¸šåŠŸåçš„æˆåŠŸã€‚",   //å¤©æƒ
+"æ˜Ÿè±¡ï¼šç²¾åã€‚ç‰è¡¡ä¸ºäº‹ç‰©å‘å±•çš„ç²¾åã€æé™æè‡´ã€é¡¶å³°ã€ä¸Šå±‚ã€ç«æ°”ã€æš´è„¾æ°”ã€‚",//ç‰è¡¡
+"æ˜Ÿè±¡ï¼šæå¼±ã€‚å¼€é˜³ä¸ºäº‹ç‰©å‘å±•çš„æå¼±å¢ƒåœ°ã€é€€æ­¥ã€æ¬¡ç››ã€æ¢ä½ã€é™èŒã€å›è½ã€è¡°è´¥ã€‚",  //å¼€é˜³
+"æ˜Ÿè±¡ï¼šå˜åŒ–ã€‚æ‘‡å…‰æ˜¯å¼±æç”Ÿå˜ï¼Œä¸ºå˜åŒ–ã€è½¬æ¢ã€å¿ƒæ™ºï¼Œé‡åˆ°é”æ°”ã€ç«äº‰ã€äº‰é”‹ã€‚"   //æ‘‡å…‰
 ];
 
-//ÆßĞÇ¿ªÊ¼µÄÃèÊö
+//ä¸ƒæ˜Ÿå¼€å§‹çš„æè¿°
 var ArrayQiXingStart = [
-    "ÌìÊà¿ªÊ¼£ºÌìÊàÔÚ¿ªÍ·´ú±íÒ»ÖÖ×ÔÈ»¹æÂÉ£¬´ú±íÄãÉ¶×¼±¸¶¼Ã»×ö¡£",
-    "Ììè¯¿ªÊ¼£ºÌìè¯ÔÚ¿ªÍ·ÊÇÖÖ¼ªÏà£¬Á¼ºÃµÄ×¼±¸¡£",
-    "Ììçá¿ªÊ¼£ºÇ¿Ê±´ú±íÉú»ú£¬ÈõÊ±´ú±íÒ»ÖÖÏ£Íû£¬´ó¶àÊıÂÛ¼ªÀû¡£",
-    "ÌìÈ¨¿ªÊ¼£ºÇ¿Ê±Ò»°ã´ú±íºÜºÃµÄ¿ªÊ¼£¬ÈõÊ±´ú±íÊÂÎï¿ªÊ¼ÊµĞĞ£¬¾ÖÃæ¿ªÊ¼Õ¹¿ª¡£",
-    "Óñºâ¿ªÊ¼£ºÇ¿µÄ»°ÊÇºÃµÄ¿ªÊ¼£¬ÈõµÄ»°ÊÇ¼±»ğ¹¥ĞÄ¡£´ú±íÕâÊÇ¸ö½ô¼±µÄÊÂÇé¡£",
-    "¿ªÑô¿ªÊ¼£º´ú±í¼«ÈõµÄ¿ªÊ¼£¬Æğ²½¼èÄÑ¡£",
-    "Ò¡¹â¿ªÊ¼£ºÖ÷±ä»¯£¬ÈõµÄ»°Ö¸¾öÖ÷Çó±äĞÄ²»ÖØ£¬Ç¿µÄ»°£¬¾öÖ÷ÏëÒª½øĞĞ´ó±ä»¯¡£"
+    "å¤©æ¢å¼€å§‹ï¼šå¤©æ¢åœ¨å¼€å¤´ä»£è¡¨ä¸€ç§è‡ªç„¶è§„å¾‹ï¼Œä»£è¡¨ä½ å•¥å‡†å¤‡éƒ½æ²¡åšã€‚",
+    "å¤©ç’‡å¼€å§‹ï¼šå¤©ç’‡åœ¨å¼€å¤´æ˜¯ç§å‰ç›¸ï¼Œè‰¯å¥½çš„å‡†å¤‡ã€‚",
+    "å¤©ç‘å¼€å§‹ï¼šå¼ºæ—¶ä»£è¡¨ç”Ÿæœºï¼Œå¼±æ—¶ä»£è¡¨ä¸€ç§å¸Œæœ›ï¼Œå¤§å¤šæ•°è®ºå‰åˆ©ã€‚",
+    "å¤©æƒå¼€å§‹ï¼šå¼ºæ—¶ä¸€èˆ¬ä»£è¡¨å¾ˆå¥½çš„å¼€å§‹ï¼Œå¼±æ—¶ä»£è¡¨äº‹ç‰©å¼€å§‹å®è¡Œï¼Œå±€é¢å¼€å§‹å±•å¼€ã€‚",
+    "ç‰è¡¡å¼€å§‹ï¼šå¼ºçš„è¯æ˜¯å¥½çš„å¼€å§‹ï¼Œå¼±çš„è¯æ˜¯æ€¥ç«æ”»å¿ƒã€‚ä»£è¡¨è¿™æ˜¯ä¸ªç´§æ€¥çš„äº‹æƒ…ã€‚",
+    "å¼€é˜³å¼€å§‹ï¼šä»£è¡¨æå¼±çš„å¼€å§‹ï¼Œèµ·æ­¥è‰°éš¾ã€‚",
+    "æ‘‡å…‰å¼€å§‹ï¼šä¸»å˜åŒ–ï¼Œå¼±çš„è¯æŒ‡å†³ä¸»æ±‚å˜å¿ƒä¸é‡ï¼Œå¼ºçš„è¯ï¼Œå†³ä¸»æƒ³è¦è¿›è¡Œå¤§å˜åŒ–ã€‚"
 ];
 
-//ÆßĞÇ½áÊøµÄÃèÊö
+//ä¸ƒæ˜Ÿç»“æŸçš„æè¿°
 var ArrayQiXingEnd = [
-    "ÌìÊà½áÊø£ºÌìÊàÔÚ½áÎ²£¬Ç×£¬Äã¿ÉÒÔ·ÅÆúÕâÏë·¨ÁË¡£Èç¹ûÊÇÕ¼²¡£¬ĞÂ²¡È¥²¡£¬¾Ã²¡ÎªĞ×¡£Õ¼³ö¼Ò»òĞŞµÀ´ó¼ª¡£",
-    "Ììè¯½áÊø£ºÌìè¯ÔÚ½áÎ²£¬´ú±íÄã¿ÉÒÔÁ¢¼´ĞĞ¶¯ÁË¡£",
-    "Ììçá½áÊø£ºÇ¿´ú±íÒ»ÖÖºÃÊÂ£¬ÈõÊ±´ú±íÓĞµãÏ£Íû£¬²¢²»Ò»¶¨¿ÉĞĞ¡£Èç¹ûÌìçáÇ¿Ôò¿ÉĞĞ£¬ÈõÔò²»½¨Òé¡£",
-    "ÌìÈ¨½áÊø£ºÇ¿Ê±´ú±íÊÂÇé»á³É¹¦£¬ÈõÔò´ú±íÕâÊÂ¿ÉµÃĞ¡ÃûĞ¡Àû¡£",
-    "Óñºâ½áÊø£ºÇ¿Ôò´ú±íÕâÊÇ¸ö¼ªÊÂ£¬ÊÕÒæÆÄ·á¡£ÈõÊ±´ú±íÊÂÇé¿ÉĞĞ£¬µ«ÊÇÉÏ»ğÉúÆø¡£",
-    "¿ªÑô½áÊø£ºÈç¹ûÈõ²»½¨ÒéĞĞ¶¯¡£Èç¹ûÊÇÇ¿Íú£¬ËäÈ»½á¹û×Ô¼º²»ÂúÒâ£¬µ«ÊÇÊÂÇéÒ»°ãÊÇ¿ÉÒÔ×öµÄ¡£",
-    "Ò¡¹â½áÊø£º¾öÖ÷ÎÊµÄÊÂÇéÒÔ±ä»¯Äª²â½áÊø£¬Ò»°ã²»½¨ÒéÈ¥×ö¡£"
+    "å¤©æ¢ç»“æŸï¼šå¤©æ¢åœ¨ç»“å°¾ï¼Œäº²ï¼Œä½ å¯ä»¥æ”¾å¼ƒè¿™æƒ³æ³•äº†ã€‚å¦‚æœæ˜¯å ç—…ï¼Œæ–°ç—…å»ç—…ï¼Œä¹…ç—…ä¸ºå‡¶ã€‚å å‡ºå®¶æˆ–ä¿®é“å¤§å‰ã€‚",
+    "å¤©ç’‡ç»“æŸï¼šå¤©ç’‡åœ¨ç»“å°¾ï¼Œä»£è¡¨ä½ å¯ä»¥ç«‹å³è¡ŒåŠ¨äº†ã€‚",
+    "å¤©ç‘ç»“æŸï¼šå¼ºä»£è¡¨ä¸€ç§å¥½äº‹ï¼Œå¼±æ—¶ä»£è¡¨æœ‰ç‚¹å¸Œæœ›ï¼Œå¹¶ä¸ä¸€å®šå¯è¡Œã€‚å¦‚æœå¤©ç‘å¼ºåˆ™å¯è¡Œï¼Œå¼±åˆ™ä¸å»ºè®®ã€‚",
+    "å¤©æƒç»“æŸï¼šå¼ºæ—¶ä»£è¡¨äº‹æƒ…ä¼šæˆåŠŸï¼Œå¼±åˆ™ä»£è¡¨è¿™äº‹å¯å¾—å°åå°åˆ©ã€‚",
+    "ç‰è¡¡ç»“æŸï¼šå¼ºåˆ™ä»£è¡¨è¿™æ˜¯ä¸ªå‰äº‹ï¼Œæ”¶ç›Šé¢‡ä¸°ã€‚å¼±æ—¶ä»£è¡¨äº‹æƒ…å¯è¡Œï¼Œä½†æ˜¯ä¸Šç«ç”Ÿæ°”ã€‚",
+    "å¼€é˜³ç»“æŸï¼šå¦‚æœå¼±ä¸å»ºè®®è¡ŒåŠ¨ã€‚å¦‚æœæ˜¯å¼ºæ—ºï¼Œè™½ç„¶ç»“æœè‡ªå·±ä¸æ»¡æ„ï¼Œä½†æ˜¯äº‹æƒ…ä¸€èˆ¬æ˜¯å¯ä»¥åšçš„ã€‚",
+    "æ‘‡å…‰ç»“æŸï¼šå†³ä¸»é—®çš„äº‹æƒ…ä»¥å˜åŒ–è«æµ‹ç»“æŸï¼Œä¸€èˆ¬ä¸å»ºè®®å»åšã€‚"
 ];
 
-//±ê×¼µÄÌ«Ò»ĞÇÍ¼
-//"ÌìÊà", "Ììè¯", "Ììçá", "ÌìÈ¨", "Óñºâ", "¿ªÑô", "Ò¡¹â"
+//æ ‡å‡†çš„å¤ªä¸€æ˜Ÿå›¾
+//"å¤©æ¢", "å¤©ç’‡", "å¤©ç‘", "å¤©æƒ", "ç‰è¡¡", "å¼€é˜³", "æ‘‡å…‰"
 var TaiYiXingTu = [
     0, 1, 2, 3, 4, 5, 6
 ];
 
-//ÎåĞĞÌìÊ±µÄ¾öÊ±ĞÇÍ¼
-//"ÌìÊà"0, "Ììè¯"1, "Ììçá"2, "ÌìÈ¨"3, "Óñºâ"4, "¿ªÑô"5, "Ò¡¹â"6
+//äº”è¡Œå¤©æ—¶çš„å†³æ—¶æ˜Ÿå›¾
+//"å¤©æ¢"0, "å¤©ç’‡"1, "å¤©ç‘"2, "å¤©æƒ"3, "ç‰è¡¡"4, "å¼€é˜³"5, "æ‘‡å…‰"6
 var JueShiXingTuArray = [
-    //Ä¾
+    //æœ¨
     [4, 3, 1, 0, 6, 2, 5 ],
-    //»ğ
+    //ç«
     [5, 4, 1, 0, 2, 3, 6 ],
-    //ÍÁ
+    //åœŸ
     [6, 5, 1, 0, 3, 4, 2 ],
-    //½ğ
+    //é‡‘
     [2, 6, 1, 0, 4, 5, 3 ],
-    //Ë®
+    //æ°´
     [3, 2, 1, 0, 5, 6, 4 ]
 ];
 
-//Ç¿£¬Íú£¬¹é£¬ÓĞ£¬´æ£¬Èõ£¬ËÀ
+//å¼ºï¼Œæ—ºï¼Œå½’ï¼Œæœ‰ï¼Œå­˜ï¼Œå¼±ï¼Œæ­»
 var ArrayQiangRuo = [
-    "¡ï¡ï¡ï¡ï¡ï¡ï¡ï",
-    "¡ï¡ï¡ï¡ï¡ï¡ï",
-    "¡ï¡ï¡ï¡ï¡ï",
-    "¡ï¡ï¡ï¡ï",
-    "¡ï¡ï¡ï",
-    "¡ï¡ï",
-    "¡ï"
+    "â˜…â˜…â˜…â˜…â˜…â˜…â˜…",
+    "â˜…â˜…â˜…â˜…â˜…â˜…",
+    "â˜…â˜…â˜…â˜…â˜…",
+    "â˜…â˜…â˜…â˜…",
+    "â˜…â˜…â˜…",
+    "â˜…â˜…",
+    "â˜…"
 ];
 
 var QXWXColors = [
-"#00AA00",// Ä¾ÂÌ
-"#FE0000",// »ğºì
-"#A0522D",// ÍÁ×Ø#BB7B5B
-"yellow",// ½ğ»Æ  #FDFD00
-"#00F6FF"//  Ë®À¶
+"#00AA00",// æœ¨ç»¿
+"#FE0000",// ç«çº¢
+"#A0522D",// åœŸæ£•#BB7B5B
+"yellow",// é‡‘é»„  #FDFD00
+"#00F6FF"//  æ°´è“
 ];
-//ÆßĞÇµÄÎåĞĞÉ«
+//ä¸ƒæ˜Ÿçš„äº”è¡Œè‰²
 function PackQXWXText(text, nWX)
 {
     var idWX = nWX;
-    var clr = "black";  //Èç¹û²é²»µ½ÎåĞĞĞòºÅ¾ÍÓÃºÚÉ«
+    var clr = "black";  //å¦‚æœæŸ¥ä¸åˆ°äº”è¡Œåºå·å°±ç”¨é»‘è‰²
     if( (idWX >= 0) && (idWX <= 4 ))
     {
         clr = QXWXColors[idWX];
@@ -934,35 +934,35 @@ function PackQXWXText(text, nWX)
     strResult += "</span>";
     return strResult;
 }
-//×Ü¸ÙÀàµÄÃèÊö
-//ÆßĞÇ¾öµÄÀàĞÍ
+//æ€»çº²ç±»çš„æè¿°
+//ä¸ƒæ˜Ÿå†³çš„ç±»å‹
 var QXJLeiXing = [
-  "<b>ÆÕÍ¨¾ö</b>",//0
-  "<span style='color: green; font-weight: bold; font-size:150%;'>Ë³Ìì¾ö</span>",//1
-  "<span style='color: red; font-weight: bold; font-size:150%;'>ÄæÌì¾ö</span>",//2
-  "<span style='color: green; font-weight: bold; font-size:150%;'>Ë³Ê±¾ö</span>",//3
-  "<span style='color: red; font-weight: bold; font-size:150%;'>ÄæÊ±¾ö</span>" //4
+  "<b>æ™®é€šå†³</b>",//0
+  "<span style='color: green; font-weight: bold; font-size:150%;'>é¡ºå¤©å†³</span>",//1
+  "<span style='color: red; font-weight: bold; font-size:150%;'>é€†å¤©å†³</span>",//2
+  "<span style='color: green; font-weight: bold; font-size:150%;'>é¡ºæ—¶å†³</span>",//3
+  "<span style='color: red; font-weight: bold; font-size:150%;'>é€†æ—¶å†³</span>" //4
 ];
 
-//ÆßĞÇ¾öµÄÀàĞÍÃèÊö
+//ä¸ƒæ˜Ÿå†³çš„ç±»å‹æè¿°
 var QXJLeiXingMiaoShu = [
-  "¡¡",//0
-  "<span style='color: green; font-weight: bold;'>£ºË³Ó¦ÌìµÀ¶øĞĞ£¬¼ªÀû¿ÉĞĞ¡£</span>",//1
-  "<span style='color: red; font-weight: bold;'>£ºĞĞÊÂ²»ºÏÌìµÀ£¬Ö±½Ó·ñ¾ö¡£</span>",//2
-  "<span style='color: green; font-weight: bold;'>£ºË³Ó¦Ê±»ú¶øĞĞ£¬¼ªÀû¿ÉĞĞ¡£</span>",//3
-  "<span style='color: red; font-weight: bold;'>£ºĞĞÊÂ²»ºÏÊ±»ú£¬Ö±½Ó·ñ¾ö¡£</span>" //4
+  "ã€€",//0
+  "<span style='color: green; font-weight: bold;'>ï¼šé¡ºåº”å¤©é“è€Œè¡Œï¼Œå‰åˆ©å¯è¡Œã€‚</span>",//1
+  "<span style='color: red; font-weight: bold;'>ï¼šè¡Œäº‹ä¸åˆå¤©é“ï¼Œç›´æ¥å¦å†³ã€‚</span>",//2
+  "<span style='color: green; font-weight: bold;'>ï¼šé¡ºåº”æ—¶æœºè€Œè¡Œï¼Œå‰åˆ©å¯è¡Œã€‚</span>",//3
+  "<span style='color: red; font-weight: bold;'>ï¼šè¡Œäº‹ä¸åˆæ—¶æœºï¼Œç›´æ¥å¦å†³ã€‚</span>" //4
 ];
 
-//Ì«Ò»ÒìĞÇ¡¢¾öÊ±Í¬ĞÇ£¬Í¬Òì¸´ĞÇ
+//å¤ªä¸€å¼‚æ˜Ÿã€å†³æ—¶åŒæ˜Ÿï¼ŒåŒå¼‚å¤æ˜Ÿ
 var QXTongYiStrs = [
-    "¡¡", //0ÊÇÃ»ÓĞ
-    "<span style='color: red; font-weight: bold;'>Ì«Ò»ÒìĞÇ</span>", //1 ÊÂÇé¹Ø¼üÒªËØ
-    "<span style='color: green; font-weight: bold;'>¾öÊ±Í¬ĞÇ</span>", //2 ÊÂÇé¹Ø¼üÊ±¼äµã
-    "<span style='color: fuchsia; font-weight: bold;'>Í¬Òì¸´ĞÇ</span>"  //3 ÊÂÇéÖØ´ó¹Ø¿Ú
+    "ã€€", //0æ˜¯æ²¡æœ‰
+    "<span style='color: red; font-weight: bold;'>å¤ªä¸€å¼‚æ˜Ÿ</span>", //1 äº‹æƒ…å…³é”®è¦ç´ 
+    "<span style='color: green; font-weight: bold;'>å†³æ—¶åŒæ˜Ÿ</span>", //2 äº‹æƒ…å…³é”®æ—¶é—´ç‚¹
+    "<span style='color: fuchsia; font-weight: bold;'>åŒå¼‚å¤æ˜Ÿ</span>"  //3 äº‹æƒ…é‡å¤§å…³å£
 ];
 
-//Ì«Ò»ĞÇÍ¼£¬Æß¸öÈ«Òì£¬ÇóºÍµÃ1*7 == 7£¬È«Òì·ñ¾ö£¬ÎŞÒì´ó¼ª
-//¾öÊ±ĞÇÍ¼£¬Æß¸öÈ«Í¬£¬ÇóºÍµÄ2*7 == 14£¬È«Í¬´ó¼ª£¬ÎŞÍ¬·ñ¾ö
+//å¤ªä¸€æ˜Ÿå›¾ï¼Œä¸ƒä¸ªå…¨å¼‚ï¼Œæ±‚å’Œå¾—1*7 == 7ï¼Œå…¨å¼‚å¦å†³ï¼Œæ— å¼‚å¤§å‰
+//å†³æ—¶æ˜Ÿå›¾ï¼Œä¸ƒä¸ªå…¨åŒï¼Œæ±‚å’Œçš„2*7 == 14ï¼Œå…¨åŒå¤§å‰ï¼Œæ— åŒå¦å†³
 function CalcArraySum(arr)
 {
     var sum = 0;
@@ -971,33 +971,33 @@ function CalcArraySum(arr)
     {
         return 0;
     }
-    for(var i=0; i<len; i++) //Ã¿¸öÔªËØÇóºÍ
+    for(var i=0; i<len; i++) //æ¯ä¸ªå…ƒç´ æ±‚å’Œ
     {
         sum += Number( arr[i] );        
     }
     return sum;
 }
 
-//¸ù¾İÈåÂÔÈÕÉú³É¹«ÀúÊ±¼ä×Ö·û´®
+//æ ¹æ®å„’ç•¥æ—¥ç”Ÿæˆå…¬å†æ—¶é—´å­—ç¬¦ä¸²
 function GetGGTimeStr(curJD)
 {
     var myDD = JD.DD(curJD);
-    var strTemp = "¹«ÀúÊ±¼ä£º" + String(myDD.Y) + "Äê" 
-        + String(myDD.M) + "ÔÂ"
-        + String(myDD.D) + "ÈÕ"
-        + String(myDD.h) + "Ê±"
-        + String(myDD.m) + "·Ö"
-        + "£¬ " + WeekDays[ GetiDayOfWeek(curJD) ] ;
-    //·µ»Ø
+    var strTemp = "å…¬å†æ—¶é—´ï¼š" + String(myDD.Y) + "å¹´" 
+        + String(myDD.M) + "æœˆ"
+        + String(myDD.D) + "æ—¥"
+        + String(myDD.h) + "æ—¶"
+        + String(myDD.m) + "åˆ†"
+        + "ï¼Œ " + WeekDays[ GetiDayOfWeek(curJD) ] ;
+    //è¿”å›
     return strTemp;
 }
-//¸ù¾İÈåÂÔÈÕÉú³ÉÅ©ÀúÊ±¼ä×Ö·û´®
+//æ ¹æ®å„’ç•¥æ—¥ç”Ÿæˆå†œå†æ—¶é—´å­—ç¬¦ä¸²
 function GetNNTimeStr(curJD)
 {
-    var myDD = JD.DD(curJD);//¹«ÀúµÄ
-    //Å©Àú£¬0µãÊÇ½ñÌìµÄ×ÓÊ±£¬23µãºóÊÇÃ÷ÌìµÄ×ÓÊ±£¬ÒªÇø·Ö
+    var myDD = JD.DD(curJD);//å…¬å†çš„
+    //å†œå†ï¼Œ0ç‚¹æ˜¯ä»Šå¤©çš„å­æ—¶ï¼Œ23ç‚¹åæ˜¯æ˜å¤©çš„å­æ—¶ï¼Œè¦åŒºåˆ†
     var theOB;
-    if(myDD.h >= 23)//Å©ÀúÊ±¼ä
+    if(myDD.h >= 23)//å†œå†æ—¶é—´
     {
         theOB = GetJDtoNongLiOB(curJD + 1);
     }
@@ -1005,12 +1005,12 @@ function GetNNTimeStr(curJD)
     {
         theOB = GetJDtoNongLiOB(curJD);
     }
-    var strTemp = "Å©ÀúÊ±¼ä£º" + theOB.Lyear3 + "Äê "
-              + theOB.Lleap + theOB.Lmc + "ÔÂ "
-              + theOB.Ldc + "ÈÕ "
-              + DiZhi[ (Math.floor((myDD.h+1)/2 )) % 12 ] + "Ê±"
-              + " £¨»ÆµÛ" + String( theOB.Lyear0 + 1984 + 2698 + 56 ) + "Äê£©";//»ÆµÛ¼ÍÄê±ÈÍøÉÏ¶à56Äê
-    //·µ»Ø
+    var strTemp = "å†œå†æ—¶é—´ï¼š" + theOB.Lyear3 + "å¹´ "
+              + theOB.Lleap + theOB.Lmc + "æœˆ "
+              + theOB.Ldc + "æ—¥ "
+              + DiZhi[ (Math.floor((myDD.h+1)/2 )) % 12 ] + "æ—¶"
+              + " ï¼ˆé»„å¸" + String( theOB.Lyear0 + 1984 + 2698 + 56 ) + "å¹´ï¼‰";//é»„å¸çºªå¹´æ¯”ç½‘ä¸Šå¤š56å¹´
+    //è¿”å›
     return strTemp;
 }
 
@@ -1021,7 +1021,7 @@ function GetNSpace(n)
     {
         return "";
     }
-    //¹¹Ôì
+    //æ„é€ 
     var strRet = "";
     for(var i=0; i<count; i++)
     {
